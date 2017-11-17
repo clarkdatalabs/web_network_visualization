@@ -35,5 +35,5 @@ python -m SimpleHTTPServer
 2. JSON file in the same dir save as "graphFile.json":<br>
 [check this JSON](code/graphFile.json)
 
-3. After set up your server, let's see the final effect:
-![the demo img](img/trial.png)
+3. Simple Explanation of the code:
+![code explaination diagram]()
