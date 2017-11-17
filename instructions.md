@@ -36,4 +36,4 @@ python -m SimpleHTTPServer
 [check this JSON](code/graphFile.json)
 
 3. After set up your server, let's see the final effect:
-![the demo img](img/trial.jpg)
+![the demo img](img/trial.png)
