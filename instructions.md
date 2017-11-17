@@ -11,7 +11,7 @@
 ***
 ## Beginner
 
-#### Simple Server
+### Simple Server
 
 Once you have your HTML file( along with its linked CSS, JS and D3) done, the next step to do is to **"show it off"**!!!
 
