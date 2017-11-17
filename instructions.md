@@ -32,7 +32,7 @@ python -m SimpleHTTPServer
 1. HTML:<br>
 [check this HTML](code/index.html)
 
-2. json file in the same dir save as "graphFile.json":<br>
+2. JSON file in the same dir save as "graphFile.json":<br>
 [check this JSON](code/graphFile.json)
 
 3. After set up your server, let's see the final effect:
