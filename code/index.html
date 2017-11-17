@@ -1,0 +1,226 @@
+
+<!-- LINK ON HOW TO OPEN LOCAL SERVER TO RUN THIS CODE -->
+<!-- https://stackoverflow.com/questions/10752055/cross-origin-requests-are-only-supported-for-http-error-when-loading-a-local -->
+
+<!--  python -m SimpleHTTPServer  
+ http://localhost:8000 -->
+
+<!-- IDEAS
+	-SHOW WHICH BEER GOES IN WHICH GLASS AND WHY
+	-INTERACTIVITY WITH FLAVOR AND AROMAS
+	-HOVER EFFECTS
+		-MAKE TEXT BIGGER
+		-HIGHLIGHT TEXT
+		-SHOW EXAMPLES OF BEER
+
+ -->
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<script src="http://d3js.org/d3.v2.min.js?2.9.3"></script>
+<style>
+
+  body {
+      background-color: #555;
+  }
+
+  h1 {
+      color: #aa9663;
+  }
+
+  .link {
+    stroke: #aaa;
+  }
+
+  .node text {
+  fill:#fff;
+  /*cursos:pointer;*/
+  }
+
+  .node text:hover {
+  fill:#000000;
+  font-size: 250%;
+  cursos:pointer;
+  }
+
+  .node circle{
+  stroke:#5d5338;
+  stroke-width:1px;
+  fill:#aa9663;
+  }
+
+  .node circle:hover{
+  stroke:#5d5338;
+  stroke-width:1px;
+  fill:#99fd17;
+
+  }
+
+</style>
+
+
+
+<head>
+  <title>The Very Many Varieties of Beer</title>
+</head>
+
+
+<body>
+<!-- <h1>The Very Many Varieties of Beer</h1> -->
+
+  <script>
+
+    var width = 1260,
+        height = 900
+
+    var svg = d3.select("body").append("svg")
+        .attr("width", width)
+        .attr("height", height);
+
+    var force = d3.layout.force()
+        .gravity(.04)
+        .distance(90)
+        .charge(-200)
+        .size([width, height]);
+
+    d3.json("graphFile.json", function(json) {
+
+    	json.links.forEach(function(d){
+        d.source = d.source_id;    
+        d.target = d.target_id;
+      });
+
+    	
+      force
+          .nodes(json.nodes)
+          .links(json.links)
+          .start();
+
+
+      var link = svg.selectAll(".link")
+          .data(json.links)
+        .enter().append("line")
+          .attr("class", "link")
+        .style("stroke-width", function(d) { return Math.sqrt(d.weight); });
+
+      var node = svg.selectAll(".node")
+          .data(json.nodes)
+        .enter().append("g")
+          .attr("class", "node")
+          .on("mouseover", mouseover)
+          .on("mouseout", mouseout)
+          // .on("click",click)
+          .call(force.drag);
+
+
+      function mouseover(){
+      	d3.select(this).select("circle").transition()
+      	.duration(450)
+      	.attr("r", function(d) { 
+
+          	if (d.group == 1){
+          		return 52;
+
+          	} else if (d.group == 2){
+          		return 15;
+
+          	} else if (d.group == 3){
+          		return 10;
+
+          	} else if (d.group == 4){
+          		return 8;
+
+          	} else if (d.group == 5){
+          		return 5;
+
+          	} else {
+          		return 1;
+
+          	}
+
+          });
+      }
+
+      function mouseout(){
+      	d3.select(this).select("circle").transition()
+      	.duration(450)
+      	.attr("r", function(d) { 
+
+          	if (d.group == 1){
+          		return 50;
+
+          	} else if (d.group == 2){
+          		return 10;
+
+          	} else if (d.group == 3){
+          		return 6;
+
+          	} else if (d.group == 4){
+          		return 4;
+
+          	} else if (d.group == 5){
+          		return 2;
+
+          	} else {
+          		return 1;
+
+          	}
+
+          });
+      }
+
+      node.append("circle")
+      //DEPENDING ON 'GROUP' SIZE, THE RADIUS OF THE CIRCLE IS LARGER
+          .attr("r", function(d) { 
+
+          	if (d.group == 1){
+          		return 50;
+
+          	} else if (d.group == 2){
+          		return 10;
+
+          	} else if (d.group == 3){
+          		return 6;
+
+          	} else if (d.group == 4){
+          		return 4;
+
+          	} else if (d.group == 5){
+          		return 2;
+
+          	} else {
+          		return 1;
+
+          	}
+
+          });
+
+      node.append("text")
+          // PLACEMENT OF THE TEXT IN RELATION TO THE NODE
+          .attr("dx",function(d) {
+          	if (d.name == "Lager"){
+          		return -18;
+
+          	} else if (d.name == "Ale"){
+          		return -12;
+          	}
+          		else {
+          		return 12;
+
+          	}})
+
+          .attr("dy", ".35em")
+          .text(function(d) { return d.name });
+
+      force.on("tick", function() {
+        link.attr("x1", function(d) { return d.source.x; })
+            .attr("y1", function(d) { return d.source.y; })
+            .attr("x2", function(d) { return d.target.x; })
+            .attr("y2", function(d) { return d.target.y; });
+
+        node.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
+      });
+    });
+
+  </script>
+</body>
