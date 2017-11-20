@@ -20,5 +20,6 @@ Typically, you’d be able to right click on the **index.html** file and open it
 ### Step 1 - Running a SimpleServer
 #### What is SimpleServer?
 SimpleServer is a wrapper application that tunnels traffic to a local minecraft server. It provides extra functionality, grief protection, and admin functionality. All you need to know for now is that it will help us get D3 code running locally on your computer.
+
 If you're interested in diving deeper in how it works, you can learn more about them here: https://github.com/SimpleServer/SimpleServer/wiki/Faq
 
