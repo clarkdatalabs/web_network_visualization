@@ -11,9 +11,9 @@ We assume that
 Regardless of skill level, our hope is to get you up and running with a simple network visualization and slowly build more complexity as we move forward.
 
 ### Step 0 - Getting Started
-# Download the zip file to this project to your local computer
-# Drag the zip file to your Desktop or somewhere where you can have easy access to the files
-# Unzip the files	
+* Download the zip file to this project to your local computer
+* Drag the zip file to your Desktop or somewhere where you can have easy access to the files
+* Unzip the files	
 
 Typically, you’d be able to right click on the **index.html** file and open it with a web browser to render the webpage. If you try this, you’ll likely notice that D3 doesn’t render. This is because we need a server to run D3.
 
