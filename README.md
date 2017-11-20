@@ -23,5 +23,5 @@ An easy way to get set up with a local server is to use Python. If you don’t k
 * If you don’t have Python3 or higher, download the latest version here: https://www.python.org/downloads/
 * Once you’ve finished setting up Python3 or if you already have it, jump to the **Terminal** if you’re on a Mac or the **Command Prompt** on Windows
 * Use the command line to navigate to the location of the project files. If you saved the project files to your Desktop, try:
-``` cd Desktop/Beer-Project
+``` cd Desktop/Beer-Project ```
 
