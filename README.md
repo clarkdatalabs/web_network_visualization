@@ -17,9 +17,11 @@ Regardless of skill level, our hope is to get you up and running with a simple n
 
 Typically, you’d be able to right click on the **index.html** file and open it with a web browser to render the webpage. If you try this, you’ll likely notice that D3 doesn’t render. This is because we need a server to run D3.
 
-### Step 1 - Running a SimpleServer
-#### What is SimpleServer?
-SimpleServer is a wrapper application that tunnels traffic to a local minecraft server. It provides extra functionality, grief protection, and admin functionality. All you need to know for now is that it will help us get D3 code running locally on your computer.
-
-If you're interested in diving deeper in how it works, you can learn more about them here: https://github.com/SimpleServer/SimpleServer/wiki/Faq
+### Step 1 - Running a Local Server on your computer
+An easy way to get set up with a local server is to use Python. If you don’t know Python, do not fret. The set up is well documented. The first thing you’ll need to do is make sure your computer has Python3 loaded or higher.
+* You can check what version of Python you have by following these instructions:https://edu.google.com/openonline/course-builder/docs/1.10/set-up-course-builder/check-for-python.html
+* If you don’t have Python3 or higher, download the latest version here: https://www.python.org/downloads/
+* Once you’ve finished setting up Python3 or if you already have it, jump to the **Terminal** if you’re on a Mac or the **Command Prompt** on Windows
+* Use the command line to navigate to the location of the project files. If you saved the project files to your Desktop, try:
+``` cd Desktop/Beer-Project
 
