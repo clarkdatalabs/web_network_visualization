@@ -36,4 +36,4 @@ python -m SimpleHTTPServer
 [check this JSON](code/graphFile.json)
 
 3. Simple Explanation of the code:
-![code explaination diagram](img/Code_Explain Diagram.png)
+[code explaination diagram](img/Code_Explain Diagram.png)
