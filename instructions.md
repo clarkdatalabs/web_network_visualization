@@ -13,11 +13,11 @@
 
 ### Simple Server
 
-Once you have your HTML file( along with its related CSS or <style>, JS and D3 or <script>) done, the next step to do is to **"show it off"**!!!
+######Once you have your HTML file( along with its related CSS or <style>, JS and D3 or <script>) done, the next step to do is to "show it off"!!!
 
-"But wait, where's my fancy visualization??? I clicked the HTML and it just opens a dumb plain grey-backgrounded page..."
+######"But wait, where's my fancy visualization??? I clicked the HTML and it just opens a dumb plain grey-backgrounded page..."
 
-Calm down, that's just because the "show it off" is in fact the step after the "practical next step", **setting up your local server**.
+######Calm down, that's just because the "show it off" is in fact the step after the "practical next step", setting up your local server.
 
 To make it simple:
 1. Open your terminal.
