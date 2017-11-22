@@ -26,7 +26,7 @@ To make it simple:
 ```javascript
 python -m SimpleHTTPServer
 ```
-4. You're good to go at http://localhost:8000
+4. Then you're good to go at http://localhost:8000 (it's the same on any computer that's gone through the mensioned process)
 
 ### the Codes
 1. HTML:<br>
