@@ -36,4 +36,4 @@ python -m SimpleHTTPServer
 [check this JSON](code/graphFile.json)
 
 3. Simple Explanation of the code:
-[code explaination diagram](img/Code_Explain Diagram.png)
+![code explaination diagram](https://github.com/clarkdatalabs/web_network_visualization/commit/60f9a96047631ad3ad3a03bbd0d613fc4ec6991f#diff-b00978e757eaec88a697288cd96ffada)
