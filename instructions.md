@@ -26,8 +26,8 @@ Typically, you’d be able to right click on the index.html file and open it wit
 
 ### Running a Local Server on your computer
 1. Make sure you have python 3 or higher on your computer
-###### - You can check what version of Python you have by following these instructions:https://edu.google.com/openonline/course-builder/docs/1.10/set-up-course-builder/check-for-python.html
-###### - If you don’t have Python3 or higher, download the latest version here: https://www.python.org/downloads/
+###### ...- You can check what version of Python you have by following these instructions:https://edu.google.com/openonline/course-builder/docs/1.10/set-up-course-builder/check-for-python.html
+###### ...- If you don’t have Python3 or higher, download the latest version here: https://www.python.org/downloads/
 2. Open your **terminal**(Mac) or **Command Prompt**(Windows).
 3. Cd into the dir your html is currently at. For example: `cd Desktop/Beer-Project`
 4. Enter:`python -m SimpleHTTPServer`
