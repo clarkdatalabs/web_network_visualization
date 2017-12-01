@@ -10,7 +10,7 @@
   
   Conceptually, we have three difficulty levels: Beginner, Moderate, and Advanced. 
   
-  - For **Beginner**, we'll introduce a simple way to set up your local server to check the effect of the code. We'll provide the code, with simple and clear explanation accordingly, for you to copy/paste on your own computer to further play with. 
+  - For **Beginner**, we'll introduce a simple way to set up your local server to check the effect of the code. We'll provide the code, with simple and clear explanation accordingly, for you to copy/paste on your own computer to further play with. 
   - For **Moderate**, we'll talk about how to manipulate your own data in D3 from csv file. And related D3 events, like mouseover/out and clicks, will be introduced in this section.
   - For **advanced**, we'd like to explore more interesting possibilities that can be realized by D3. If you're interested in fancy and innovated data visualization, come check it out!
 
