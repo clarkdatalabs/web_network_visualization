@@ -20,7 +20,7 @@
 ## Beginner
 
 ### Doneload the Code
-[Beer Project](web_network_visualization/Beer Project.zip)
+[Beer Project](https://github.com/clarkdatalabs/web_network_visualization/edit/master/README.md)
 
 Typically, you’d be able to right click on the index.html file and open it with a web browser to render the webpage. If you try this, you’ll likely notice that D3 doesn’t render. This is because we need a server to run D3.
 
