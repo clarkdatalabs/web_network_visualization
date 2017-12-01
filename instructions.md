@@ -17,7 +17,7 @@
 ## Beginner
 
 ### Doneload the Code
-<a href = "Beer Project" download> Beer-Project </a>
+<a href = "Beer Project.zip" download> Beer-Project </a>
 1. [Save this HTML as "index.html" on your computer](code/index.html)
 2. [Save this JSON in the same dir with HTML as "graphFile.json"](code/graphFile.json)
 
