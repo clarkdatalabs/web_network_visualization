@@ -2,1288 +2,1251 @@
 <meta charset="utf-8">
 
 <header>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script
-  src="https://code.jquery.com/jquery-1.8.3.min.js"
-  integrity="sha256-YcbK69I5IXQftf/mYD8WY0/KmEDCv1asggHpJk1trM8="
-  crossorigin="anonymous"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script
+	  src="https://code.jquery.com/jquery-1.8.3.min.js"
+	  integrity="sha256-YcbK69I5IXQftf/mYD8WY0/KmEDCv1asggHpJk1trM8="
+	  crossorigin="anonymous">
+	</script>
 
-<link href="https://fonts.googleapis.com/css?family=Roboto:100" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Roboto:100" rel="stylesheet">
 
+	<style>
 
-<style>
+		section {
+		  padding-top: 40px;
+		}
 
-section {
-  padding-top: 40px;
-}
+		.node {
+		  cursor: pointer;
+		}
 
-.node {
-  cursor: pointer;
-}
+		.node circle {
+		  fill: #fff;
+		  stroke: steelblue;
+		  stroke-width: 1.5px;
+		}
 
-.node circle {
-  fill: #fff;
-  stroke: steelblue;
-  stroke-width: 1.5px;
-}
+		.node text {
+		  font: 10px sans-serif;
+		}
 
-.node text {
-  font: 10px sans-serif;
-}
+		.link {
+		  fill: none;
+		  stroke: #ccc;
+		  stroke-width: 1.5px;
+		}
 
-.link {
-  fill: none;
-  stroke: #ccc;
-  stroke-width: 1.5px;
-}
+		.glassinfo{
+		  width: 600px;
+		  /*height: 400px;*/
+		  margin: 10 10 10 10;
+		  border: 0 0 0 0;
+		  display: inline-block;
 
-.glassinfo{
-  width: 600px;
-  /*height: 400px;*/
-  margin: 10 10 10 10;
-  border: 0 0 0 0;
-  display: inline-block;
-
-}
-
-
-
-.glassinfo p{
-  display: inline-block;
-  margin-left: auto ;
-  margin-right: auto ;
-  position: relative;
-  padding: 28px 0 0 100px;
-
-}
-
-.wrapper {
-  width: 1400px;
-  height: 1000px;
-  margin: 0 auto;
-  position: relative;
-  padding: 28px 0 0 0;
-}
-
-.glasses {
-  width: 1400px;
-/*  display: block;*/
-  margin: auto;
-  margin-left: auto ;
-  margin-right: auto ;
-  position: relative;
-  padding: 28px 0 0 0;
-}
-
-.glassicon {
-  display: inline-block;
-  margin-left: auto ;
-  margin-right: auto ;
-  position: relative;
-  padding: 28px 0 0 100px;
-}
-
-.instructions {
-    height: 33px
-    padding-top:100px
-
-}
-
-p {
-  font-family: Georgia;
-  font-size: 17px;
-  width: 50%;
-  margin-left: auto;
-  margin-right: auto;
-  line-height:23px;
-
-}
-
-h1 {
-  font-family: "Roboto", Helvetica, Arial, sans-serif;
-  font-size:53px;
-  text-align: center;
+		}
 
 
-}
 
-h3 {
-  font-family: "Roboto", Helvetica, Arial, sans-serif;
-  font-size:24px;
-  text-align: center;
-  padding-top: 100px;
-  padding-bottom: 50px;
+		.glassinfo p{
+		  display: inline-block;
+		  margin-left: auto ;
+		  margin-right: auto ;
+		  position: relative;
+		  padding: 28px 0 0 100px;
+
+		}
+
+		.wrapper {
+		  width: 1400px;
+		  height: 1000px;
+		  margin: 0 auto;
+		  position: relative;
+		  padding: 28px 0 0 0;
+		}
+
+		.glasses {
+		  width: 1400px;
+		/*  display: block;*/
+		  margin: auto;
+		  margin-left: auto ;
+		  margin-right: auto ;
+		  position: relative;
+		  padding: 28px 0 0 0;
+		}
+
+		.glassicon {
+		  display: inline-block;
+		  margin-left: auto ;
+		  margin-right: auto ;
+		  position: relative;
+		  padding: 28px 0 0 100px;
+		}
+
+		.instructions {
+		    height: 33px
+		    padding-top:100px
+
+		}
+
+		p {
+		  font-family: Georgia;
+		  font-size: 17px;
+		  width: 50%;
+		  margin-left: auto;
+		  margin-right: auto;
+		  line-height:23px;
+
+		}
+
+		h1 {
+		  font-family: "Roboto", Helvetica, Arial, sans-serif;
+		  font-size:53px;
+		  text-align: center;
 
 
-}
+		}
 
-nav {
-  position: absolute;
-  left: 0;
-  right;
-  0;
-  top: 0px;
-  background: #aa9663;
-  display: block;
-  width: 100%;
-  padding: 4px 20px;
-  height: 40px;
-  z-index: 100;
-}
-
-nav a {
-  font-family: "Georgia";
-  font-size: 14px;
-  color: #ffffff;
-  padding: 20px 24px;
-  display: block;
-  float: left;
-  text-decoration: none;
-  margin-right: 4px;
-}
-
-nav a:hover,
-nav a.active {
-  background: white;
-  color: black
-}
-
-.fixed {
-  position: fixed;
-  top: 0
-}
+		h3 {
+		  font-family: "Roboto", Helvetica, Arial, sans-serif;
+		  font-size:24px;
+		  text-align: center;
+		  padding-top: 100px;
+		  padding-bottom: 50px;
 
 
-</style>
+		}
+
+		nav {
+		  position: absolute;
+		  left: 0;
+		  right;
+		  0;
+		  top: 0px;
+		  background: #aa9663;
+		  display: block;
+		  width: 100%;
+		  padding: 4px 20px;
+		  height: 40px;
+		  z-index: 100;
+		}
+
+		nav a {
+		  font-family: "Georgia";
+		  font-size: 14px;
+		  color: #ffffff;
+		  padding: 20px 24px;
+		  display: block;
+		  float: left;
+		  text-decoration: none;
+		  margin-right: 4px;
+		}
+
+		nav a:hover,
+		nav a.active {
+		  background: white;
+		  color: black
+		}
+
+		.fixed {
+		  position: fixed;
+		  top: 0
+		}
+	</style>
 </header>
 
 <script type="text/javascript"> 
     //<![CDATA[ 
-      window.onload=function(){ 
+    window.onload=function(){ 
         $('nav a').on('click', function() {
 
-    var scrollAnchor = $(this).attr('data-scroll'),
-        scrollPoint = $('section[data-anchor="' + scrollAnchor + '"]').offset().top - 28;
+		    var scrollAnchor = $(this).attr('data-scroll'),
+		        scrollPoint = $('section[data-anchor="' + scrollAnchor + '"]').offset().top - 28;
 
-    $('body,html').animate({
-        scrollTop: scrollPoint
-    }, 500);
+		    $('body,html').animate({
+		        scrollTop: scrollPoint
+		    }, 500);
 
-    return false;
+		    return false;
 
-})
+		})
 
 
-$(window).scroll(function() {
-    var windscroll = $(window).scrollTop();
-    if (windscroll >= 100) {
-        $('nav').addClass('fixed');
-        $('.wrapper section').each(function(i) {
-            if ($(this).position().top <= windscroll - 20) {
-                $('nav a.active').removeClass('active');
-                $('nav a').eq(i).addClass('active');
-            }
-        });
+	$(window).scroll(function() {
+	    var windscroll = $(window).scrollTop();
+	    if (windscroll >= 100) {
+	        $('nav').addClass('fixed');
+	        $('.wrapper section').each(function(i) {
+	            if ($(this).position().top <= windscroll - 20) {
+	                $('nav a.active').removeClass('active');
+	                $('nav a').eq(i).addClass('active');
+	            }
+	        });
 
-    } else {
+	    } else {
 
-        $('nav').removeClass('fixed');
-        $('nav a.active').removeClass('active');
-        $('nav a:first').addClass('active');
-    }
+	        $('nav').removeClass('fixed');
+	        $('nav a.active').removeClass('active');
+	        $('nav a:first').addClass('active');
+	    }
 
-}).scroll();} 
-
+	}).scroll();} 
 </script> 
 
-
-
 <head>
-<title>The Very Many Varieties of Beer</title>
+	<title>The Very Many Varieties of Beer</title>
 </head>
 
 <body>
-<script src="//d3js.org/d3.v3.min.js"></script>
+	<script src="//d3js.org/d3.v3.min.js"></script>
 
-<nav>
+	<nav>
+	  <a href="#" data-scroll="top">Beer Family</a>
+	  <a href="#" data-scroll="WhichGlass">Glasses</a>
+	</nav>
 
-  <a href="#" data-scroll="top">Beer Family</a>
-  <a href="#" data-scroll="WhichGlass">Glasses</a>
+	<!-- EVERYTHING IS INSIDE THIS WRAPPER -->
+	<div class="wrapper">
 
-</nav>
+	   <section id="top" data-anchor="top">
 
+	    <h1>The Very Many Varieties of Beer</h1>
 
+	      <p>Perhaps you've been known to enjoy a pint or two, but let's be honest, between all that Guinness and red ale, do you know what you're really imbibing?</p>
 
-<!-- EVERYTHING IS INSIDE THIS WRAPPER -->
-<div class="wrapper">
 
-   <section id="top" data-anchor="top">
+	      <p>It's true that unless you're a science fiend, home brewer or brewing aficionado, it can be confusing to wrap your head around the different beer varieties — especially since they're all made of water, malted barley, yeast, and hops. For the most part, beer can be broken down into two major categories: Lagers and Ales.</p>
 
-    <h1>The Very Many Varieties of Beer</h1>
+	      <p>According to AllAboutBeer.com, “Beer” refers to any fermented beverage made from grain. <b>Lagers and ales are the two families of beer</b>, distinguished by the type of yeast and the temperature of fermentation. Lagers are fermented at cooler temperatures by so-called “bottom fermenting” yeast. Beers in the lager family need to be conditioned—or “lagered”—somewhere cool for a number of weeks before they are ready to drink. Ales are fermented at warmer temperature by top-fermenting yeast strains, and are ready to drink sooner.</p>
 
-      <p>Perhaps you've been known to enjoy a pint or two, but let's be honest, between all that Guinness and red ale, do you know what you're really imbibing?</p>
+	      <div class="instructions">
+	        <h3>Click on a either Ale or Lager to find out how beers are related</h3>
+	      </div>
 
+	      
 
-      <p>It's true that unless you're a science fiend, home brewer or brewing aficionado, it can be confusing to wrap your head around the different beer varieties — especially since they're all made of water, malted barley, yeast, and hops. For the most part, beer can be broken down into two major categories: Lagers and Ales.</p>
+	      <div class="tree">
+	        
 
-      <p>According to AllAboutBeer.com, “Beer” refers to any fermented beverage made from grain. <b>Lagers and ales are the two families of beer</b>, distinguished by the type of yeast and the temperature of fermentation. Lagers are fermented at cooler temperatures by so-called “bottom fermenting” yeast. Beers in the lager family need to be conditioned—or “lagered”—somewhere cool for a number of weeks before they are ready to drink. Ales are fermented at warmer temperature by top-fermenting yeast strains, and are ready to drink sooner.</p>
+	      </div>
 
-      <div class="instructions">
-        <h3>Click on a either Ale or Lager to find out how beers are related</h3>
-      </div>
+	  </section>
 
-      
 
-      <div class="tree">
-        
+	  <section id="WhichGlass" data-anchor="WhichGlass">
 
-      </div>
+	    <h1 style="padding-top: 50px">Which Glass?</h1>
 
-  </section>
+	    <p>The shape of a beer glass affects the formation and retention of head and in turn the foam acts as a net of sorts for the beer’s volatiles: compounds—including hop oils, spices, and fermentation byproducts—that evaporate from beer and give it its aroma. That means that a healthy head of foam can help retain volatiles, and using different glassware allows for different levels of head retention, which in turn affects the aroma of your drink.</p>
 
 
-  <section id="WhichGlass" data-anchor="WhichGlass">
 
-    <h1 style="padding-top: 50px">Which Glass?</h1>
 
-    <p>The shape of a beer glass affects the formation and retention of head and in turn the foam acts as a net of sorts for the beer’s volatiles: compounds—including hop oils, spices, and fermentation byproducts—that evaporate from beer and give it its aroma. That means that a healthy head of foam can help retain volatiles, and using different glassware allows for different levels of head retention, which in turn affects the aroma of your drink.</p>
+	    <div class="glasses" style="padding-bottom: 200px">
 
+	      <div class="glassinfo">
+	        <img class="glassicon" src="beer-glasses-icons/11.png" alt="Stange" height="9%" width="9%">
+	        <p>The <b>stange</b> is a tall, slim, up-and-down glass, and traditionally German style that allows for a tighter concentration of volatiles. This is a good style for more delicate varieties. </p>
+	        
+	      </div>
 
+	      <div class="glassinfo">
+	        <img class="glassicon" src="beer-glasses-icons/28.png" alt="Mug" height="12%" width="12%"> 
+	          
+	        <p>This familiar handled glass makes for easy drinking and allows for plenty of volume, and helps to keep your beer stay cold longer because your hand isn’t directly on the glass. A tankard <b>mug</b> has a thick bottom and straight sides, and the stouter krug mug is curved with a dimpled surface.</p>
+	        
+	      </div>
 
+	      <div class="glassinfo">
+	        <img class="glassicon" src="beer-glasses-icons/3.png" alt="Pint Glass" height="9%" width="9%">      
+	        <p>A shaker, or <b>American pint glass</b>, is tapered with straight sides, and a nonic or British pint has a curved notch about two inches from the rim that makes for easier gripping. An imperial or Irish pint is tapered and curved from the middle up, and usually used for porters and Irish stouts.</p>
+	        
+	      </div>
 
-    <div class="glasses" style="padding-bottom: 200px">
+	      <div class="glassinfo">
+	        <img class="glassicon" src="beer-glasses-icons/10.png" alt="Pilsner Glass" height="9%" width="9%">
+	        <p>This tall glass showcases carbonation and color, but helps the beer retain its head and enhances its volatiles. It’s the right choice for paler lagers with a lot of carbonation, and unlike a weizen, a true <b>pilsner glass</b> has no curvature.</p>
+	        
+	      </div>
 
-      <div class="glassinfo">
-        <img class="glassicon" src="beer-glasses-icons/11.png" alt="Stange" height="9%" width="9%">
-        <p>The <b>stange</b> is a tall, slim, up-and-down glass, and traditionally German style that allows for a tighter concentration of volatiles. This is a good style for more delicate varieties. </p>
-        
-      </div>
+	      <div class="glassinfo">
+	        <img class="glassicon" src="beer-glasses-icons/12.png" alt="Snifter" height="9%" width="9%">
+	        <p>More commonly associated with brandy, a <b>snifter glass</b> is a good choice for capturing and enhancing aromas and volatiles, making it a solid choice for stronger varieties. You can also swirl these glasses around to release aromas.</p>
+	        
+	      </div>
 
-      <div class="glassinfo">
-        <img class="glassicon" src="beer-glasses-icons/28.png" alt="Mug" height="12%" width="12%"> 
-          
-        <p>This familiar handled glass makes for easy drinking and allows for plenty of volume, and helps to keep your beer stay cold longer because your hand isn’t directly on the glass. A tankard <b>mug</b> has a thick bottom and straight sides, and the stouter krug mug is curved with a dimpled surface.</p>
-        
-      </div>
+	      <div class="glassinfo">
+	        <img class="glassicon" src="beer-glasses-icons/7.png" alt="Weizen Glass" height="9%" width="9%">
+	        <p>The <b>Weizen</b> glass shape, long and widening at the top, is designed for head and volume. It also helps maintain the beer’s aroma. This variety shows off the color and head of wheat beers well, while trapping the sediment often found in them at the narrow bottom of the glass.</p>
+	        
+	      </div>
 
-      <div class="glassinfo">
-        <img class="glassicon" src="beer-glasses-icons/3.png" alt="Pint Glass" height="9%" width="9%">      
-        <p>A shaker, or <b>American pint glass</b>, is tapered with straight sides, and a nonic or British pint has a curved notch about two inches from the rim that makes for easier gripping. An imperial or Irish pint is tapered and curved from the middle up, and usually used for porters and Irish stouts.</p>
-        
-      </div>
+	      <div class="glassinfo">
+	        <img class="glassicon" src="beer-glasses-icons/17.png" alt="Flute" height="9%" width="9%">
+	        <p>Just as with champagne, a <b>flute glass</b> enhances and showcases carbonation in a beer. It also allows for the quicker release of volatiles, resulting in a more intense aroma.</p>
+	        
+	      </div>
 
-      <div class="glassinfo">
-        <img class="glassicon" src="beer-glasses-icons/10.png" alt="Pilsner Glass" height="9%" width="9%">
-        <p>This tall glass showcases carbonation and color, but helps the beer retain its head and enhances its volatiles. It’s the right choice for paler lagers with a lot of carbonation, and unlike a weizen, a true <b>pilsner glass</b> has no curvature.</p>
-        
-      </div>
+	      <div class="glassinfo">
+	        <img class="glassicon" src="beer-glasses-icons/18.png" alt="Tulip" height="9%" width="9%">
+	        <p>With this curvy shape, you get to have a big foamy head while volatiles are captured and enhanced. <b>Tulips</b> are preferred for strong brews or high-gravity beers like tripels and quads.</p>
+	        
+	      </div>
 
-      <div class="glassinfo">
-        <img class="glassicon" src="beer-glasses-icons/12.png" alt="Snifter" height="9%" width="9%">
-        <p>More commonly associated with brandy, a <b>snifter glass</b> is a good choice for capturing and enhancing aromas and volatiles, making it a solid choice for stronger varieties. You can also swirl these glasses around to release aromas.</p>
-        
-      </div>
+	      <div class="glassinfo">
+	        <img class="glassicon" src="beer-glasses-icons/31.png" alt="Oversized Wine Glass" height="12%" width="12%">
+	        <p>Yes, a wine glass—a big one. A 22-ounce <b>oversized wine glass</b> is actually great for serving Belgian ales. It can also make do where you might use a tulip or goblet, if you don’t have one on hand.</p>
+	        
+	      </div>
 
-      <div class="glassinfo">
-        <img class="glassicon" src="beer-glasses-icons/7.png" alt="Weizen Glass" height="9%" width="9%">
-        <p>The <b>Weizen</b> glass shape, long and widening at the top, is designed for head and volume. It also helps maintain the beer’s aroma. This variety shows off the color and head of wheat beers well, while trapping the sediment often found in them at the narrow bottom of the glass.</p>
-        
-      </div>
+	      <div class="glassinfo">
+	        <img class="glassicon" src="beer-glasses-icons/13.png" alt="Goblet" height="9%" width="9%">
+	        <p>The wide-mouthed glass is designed to help a beer maintain head, and allows the drinker to take deep sips. <b>Goblets</b> are more delicate, with a longer stem, while chalices are heavier and have thicker walls. Some are scored inside to maintain a certain level of head at the top.</p>
+	        
+	      </div>
 
-      <div class="glassinfo">
-        <img class="glassicon" src="beer-glasses-icons/17.png" alt="Flute" height="9%" width="9%">
-        <p>Just as with champagne, a <b>flute glass</b> enhances and showcases carbonation in a beer. It also allows for the quicker release of volatiles, resulting in a more intense aroma.</p>
-        
-      </div>
+	      <div class="instructions">
 
-      <div class="glassinfo">
-        <img class="glassicon" src="beer-glasses-icons/18.png" alt="Tulip" height="9%" width="9%">
-        <p>With this curvy shape, you get to have a big foamy head while volatiles are captured and enhanced. <b>Tulips</b> are preferred for strong brews or high-gravity beers like tripels and quads.</p>
-        
-      </div>
+	        <h3>Hover over each glass below to learn which beer corresponds to it</h3>
 
-      <div class="glassinfo">
-        <img class="glassicon" src="beer-glasses-icons/31.png" alt="Oversized Wine Glass" height="12%" width="12%">
-        <p>Yes, a wine glass—a big one. A 22-ounce <b>oversized wine glass</b> is actually great for serving Belgian ales. It can also make do where you might use a tulip or goblet, if you don’t have one on hand.</p>
-        
-      </div>
+	      
 
-      <div class="glassinfo">
-        <img class="glassicon" src="beer-glasses-icons/13.png" alt="Goblet" height="9%" width="9%">
-        <p>The wide-mouthed glass is designed to help a beer maintain head, and allows the drinker to take deep sips. <b>Goblets</b> are more delicate, with a longer stem, while chalices are heavier and have thicker walls. Some are scored inside to maintain a certain level of head at the top.</p>
-        
-      </div>
+	    </div>
 
-      <div class="instructions">
+	   
+	 
+	    </div>
 
-        <h3>Hover over each glass below to learn which beer corresponds to it</h3>
 
-      
 
-    </div>
 
-   
- 
-    </div>
+	  </section>
+	  <section class="sources" style="color: #bcbcbc; padding-bottom: 50px;">
+	    <h1 style="padding-top: 20px;  font-size: 20px">Sources</h1>
 
+	    <p style="font-size: 12px; margin: auto auto auto auto">http://www.foxnews.com/food-drink/2014/02/07/all-different-types-beers-explained.html</p>
+	    <p style="font-size: 12px; margin: auto auto auto auto">https://learn.kegerator.com/beer-glasses</p>
+	    <p style="font-size: 12px; margin: auto auto auto auto">https://www.pastemagazine.com/blogs/lists/2015/03/10-proper-glass-styles-for-your-favorite-beers.html</p>
 
 
+	    
 
-  </section>
-  <section class="sources" style="color: #bcbcbc; padding-bottom: 50px;">
-    <h1 style="padding-top: 20px;  font-size: 20px">Sources</h1>
+	  </section>
+	</div>
 
-    <p style="font-size: 12px; margin: auto auto auto auto">http://www.foxnews.com/food-drink/2014/02/07/all-different-types-beers-explained.html</p>
-    <p style="font-size: 12px; margin: auto auto auto auto">https://learn.kegerator.com/beer-glasses</p>
-    <p style="font-size: 12px; margin: auto auto auto auto">https://www.pastemagazine.com/blogs/lists/2015/03/10-proper-glass-styles-for-your-favorite-beers.html</p>
 
+	<!-- NETWORK DIAGRAM BEGINS HERE -->
+	<script>
+		var margin = {top: 20, right: 120, bottom: 20, left: 120},
+		    width = 1360 - margin.right - margin.left,
+		    height = 500 - margin.top - margin.bottom;
 
-    
+		var i = 0,
+		    duration = 750,
+		    root;
 
-  </section>
+		var tree = d3.layout.tree()
+		    .size([height, width]);
 
+		var diagonal = d3.svg.diagonal()
+		    .projection(function(d) { return [d.y, d.x]; });
 
-</div>
+		var svg = d3.select("body").selectAll("div.tree").append("svg")
+		    .attr("width", width + margin.right + margin.left)
+		    .attr("height", height + margin.top + margin.bottom)
+		  .append("g")
+		    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
+		d3.json("flare2.json", function(error, flare) {
+		  if (error) throw error;
 
+		  root = flare;
+		  root.x0 = height / 2;
+		  root.y0 = 0;
 
+		  function collapse(d) {
+		    if (d.children) {
+		      d._children = d.children;
+		      d._children.forEach(collapse);
+		      d.children = null;
+		    }
+		  }
 
+		  root.children.forEach(collapse);
+		  update(root);
+		});
 
-<script>
+		d3.select(self.frameElement).style("height", "800px");
 
+		function update(source) {
 
+		  // Compute the new tree layout.
+		  var nodes = tree.nodes(root).reverse(),
+		      links = tree.links(nodes);
 
+		  // Normalize for fixed-depth.
+		  nodes.forEach(function(d) { d.y = d.depth * 180; });
 
+		  // Update the nodes…
+		  var node = svg.selectAll("g.node")
+		      .data(nodes, function(d) { return d.id || (d.id = ++i); });
 
+		  // Enter any new nodes at the parent's previous position.
+		  var nodeEnter = node.enter().append("g")
+		      .attr("class", "node")
+		      .attr("transform", function(d) { return "translate(" + source.y0 + "," + source.x0 + ")"; })
+		      .on("click", click);
 
-// NETWORK DIAGRAM BEGINS HERE
+		  nodeEnter.append("circle")
+		      .attr("class", "tree")
+		      .attr("r", 1e-6)
+		      .style("fill", function(d) { return d._children ? "lightsteelblue" : "#fff"; });
 
-
-var margin = {top: 20, right: 120, bottom: 20, left: 120},
-    width = 1360 - margin.right - margin.left,
-    height = 500 - margin.top - margin.bottom;
-
-var i = 0,
-    duration = 750,
-    root;
-
-var tree = d3.layout.tree()
-    .size([height, width]);
-
-var diagonal = d3.svg.diagonal()
-    .projection(function(d) { return [d.y, d.x]; });
-
-var svg = d3.select("body").selectAll("div.tree").append("svg")
-    .attr("width", width + margin.right + margin.left)
-    .attr("height", height + margin.top + margin.bottom)
-  .append("g")
-    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-d3.json("flare2.json", function(error, flare) {
-  if (error) throw error;
-
-  root = flare;
-  root.x0 = height / 2;
-  root.y0 = 0;
-
-  function collapse(d) {
-    if (d.children) {
-      d._children = d.children;
-      d._children.forEach(collapse);
-      d.children = null;
-    }
-  }
-
-  root.children.forEach(collapse);
-  update(root);
-});
-
-d3.select(self.frameElement).style("height", "800px");
-
-function update(source) {
-
-  // Compute the new tree layout.
-  var nodes = tree.nodes(root).reverse(),
-      links = tree.links(nodes);
-
-  // Normalize for fixed-depth.
-  nodes.forEach(function(d) { d.y = d.depth * 180; });
-
-  // Update the nodes…
-  var node = svg.selectAll("g.node")
-      .data(nodes, function(d) { return d.id || (d.id = ++i); });
-
-  // Enter any new nodes at the parent's previous position.
-  var nodeEnter = node.enter().append("g")
-      .attr("class", "node")
-      .attr("transform", function(d) { return "translate(" + source.y0 + "," + source.x0 + ")"; })
-      .on("click", click);
-
-  nodeEnter.append("circle")
-      .attr("class", "tree")
-      .attr("r", 1e-6)
-      .style("fill", function(d) { return d._children ? "lightsteelblue" : "#fff"; });
-
-  nodeEnter.append("text")
-      .attr("x", function(d) { return d.children || d._children ? -10 : 10; })
-      .attr("dy", ".35em")
-      .attr("text-anchor", function(d) { return d.children || d._children ? "end" : "start"; })
-      .text(function(d) { return d.name; })
-      .style("fill-opacity", function(d){
-        if (d.beer == 1){
-          return .1;
-        } else{
-          return 1e-6;
-
-        }
-
-      }
-        )
-
-      ;
-
-  // Transition nodes to their new position.
-  var nodeUpdate = node.transition()
-      .duration(duration)
-      .attr("transform", function(d) { return "translate(" + d.y + "," + d.x + ")"; });
-
-  nodeUpdate.select("circle")
-      .attr("r", 4.5)
-      .style("fill", function(d) { 
-        if (d.beer == 1){
-          return "#aa9663"
-        } else{
-          return d._children ? "lightsteelblue" : "#fff"; }
-
-        }
-        )
-      .style("stroke", function(d) { 
-        if (d.beer == 1){
-          return "#645326"
-        } else{
-          return "steelblue"; }
-
-        }
-        )
-      ;
-
-  nodeUpdate.select("text")
-      .style("fill-opacity", 1)
-      .style("fill", function(d){
-        if (d.beer == 1){
-          return "#645326";
-        } else{
-          return "black";
-
-        }
-
-      }
-        )
-
-
-      ;
-
-  // Transition exiting nodes to the parent's new position.
-  var nodeExit = node.exit().transition()
-      .duration(duration)
-      .attr("transform", function(d) { return "translate(" + source.y + "," + source.x + ")"; })
-      .remove();
-
-  nodeExit.select("circle")
-      .attr("r", 1e-6);
-
-  nodeExit.select("text")
-      .style("fill-opacity", 1e-6);
-
-  // Update the links…
-  var link = svg.selectAll("path.link")
-      .data(links, function(d) { return d.target.id; });
-
-  // Enter any new links at the parent's previous position.
-  link.enter().insert("path", "g")
-      .attr("class", "link")
-      .attr("d", function(d) {
-        var o = {x: source.x0, y: source.y0};
-        return diagonal({source: o, target: o});
-      });
-
-  // Transition links to their new position.
-  link.transition()
-      .duration(duration)
-      .attr("d", diagonal);
-
-  // Transition exiting nodes to the parent's new position.
-  link.exit().transition()
-      .duration(duration)
-      .attr("d", function(d) {
-        var o = {x: source.x, y: source.y};
-        return diagonal({source: o, target: o});
-      })
-      .remove();
-
-  // Stash the old positions for transition.
-  nodes.forEach(function(d) {
-    d.x0 = d.x;
-    d.y0 = d.y;
-  });
-}
-
-// Toggle children on click.
-function click(d) {
-  if (d.children) {
-    d._children = d.children;
-    d.children = null;
-  } else {
-    d.children = d._children;
-    d._children = null;
-  }
-  update(d);
-}
-
-</script>
-
-
-<!-- D3 FOR NETWORK OF BEER AND GLASSES -->
-
-<script>
-
-
-  
-
-var width = 1460,
-    height = 700
-
-var svg2 = d3.select("body").selectAll("div.glasses").append("svg")
-    .attr("width", width)
-    .attr("class", "networkgraph")
-    .attr("height", height);
-
-var force = d3.layout.force()
-    .gravity(.04)
-    .distance(90)
-    .charge(-100)
-    .size([width, height]);
-
-d3.json("graphFile3.json", function(json) {
-
-  json.links.forEach(function(d){
-    d.source = d.source_id;    
-    d.target = d.target_id;
-  });
-  
-  force
-      .nodes(json.nodes)
-      .links(json.links)
-      .start();
-
-  var link = svg2.selectAll(".link")
-      .data(json.links)
-    .enter().append("line")
-      .attr("class", "link")
-    .style("stroke-width", function(d) { return Math.sqrt(d.weight); });
-
-  var node = svg2.selectAll(".node")
-      .data(json.nodes)
-    .enter().append("g")
-      .attr("class", "node")
-      .attr("class2", function(d){
-        return d.source_id;
-      })
-      .on("mouseover", mouseover)
-      .on("mouseout", mouseout)
-      .on("click",click)
-      .call(force.drag);
-
-
-  svg2.append("image")
-      .attr("xlink:href", function(d) { return "beer-glasses-icons/snifter.png"; })
-      .attr("class", "snifterr")
-      .attr("x", "15px")
-      .attr("y", "0px")
-      .attr("width", "100px")
-      .attr("height", "100px")
-      .on("mouseover", mouseoverSnifter)
-      .on("mouseout", mouseout);
-
-  svg2.append("image")
-      .attr("xlink:href", function(d) { return "beer-glasses-icons/flute.png"; })
-      .attr("class", "flutee")
-      .attr("x", "15px")
-      .attr("y", "115px")
-      .attr("width", "100px")
-      .attr("height", "100px")
-      .on("mouseover", mouseoverFlute)
-      .on("mouseout", mouseout);
-
-  svg2.append("image")
-      .attr("xlink:href", function(d) { return "beer-glasses-icons/stange.png"; })
-      .attr("class", "stangee")
-      .attr("x", "15px")
-      .attr("y", "230px")
-      .attr("width", "100px")
-      .attr("height", "100px")
-      .on("mouseover", mouseoverStange)
-      .on("mouseout", mouseout);
-
-  svg2.append("image")
-      .attr("xlink:href", function(d) { return "beer-glasses-icons/tulip.png"; })
-      .attr("class", "tulipp")
-      .attr("x", "15px")
-      .attr("y", "345px")
-      .attr("width", "100px")
-      .attr("height", "100px")
-      .on("mouseover", mouseoverTulip)
-      .on("mouseout", mouseout);;
-
-  svg2.append("image")
-      .attr("xlink:href", function(d) { return "beer-glasses-icons/oversizedwine.png"; })
-      .attr("class", "oversizedwinee")
-      .attr("x", "15px")
-      .attr("y", "460px")
-      .attr("width", "100px")
-      .attr("height", "100px")
-      .on("mouseover", mouseoverOversizewine)
-      .on("mouseout", mouseout);;
-
-  svg2.append("image")
-      .attr("xlink:href", function(d) { return "beer-glasses-icons/mug.png"; })
-      .attr("class", "mugg")
-      .attr("x", "115px")
-      .attr("y", "0px")
-      .attr("width", "100px")
-      .attr("height", "100px")
-      .on("mouseover", mouseoverMug)
-      .on("mouseout", mouseout);;
-
-  svg2.append("image")
-      .attr("xlink:href", function(d) { return "beer-glasses-icons/goblet.png"; })
-      .attr("class", "goblett")
-      .attr("x", "115px")
-      .attr("y", "115px")
-      .attr("width", "100px")
-      .attr("height", "100px")
-      .on("mouseover", mouseoverGoblet)
-      .on("mouseout", mouseout);;
-
-  svg2.append("image")
-      .attr("xlink:href", function(d) { return "beer-glasses-icons/pint.png"; })
-      .attr("class", "pintt")
-      .attr("x", "115px")
-      .attr("y", "230px")
-      .attr("width", "100px")
-      .attr("height", "100px")
-      .on("mouseover", mouseoverPint)
-      .on("mouseout", mouseout);;
-
-  svg2.append("image")
-      .attr("xlink:href", function(d) { return "beer-glasses-icons/weizen.png"; })
-      .attr("class", "weizenn")
-      .attr("x", "115px")
-      .attr("y", "345px")
-      .attr("width", "100px")
-      .attr("height", "100px")
-      .on("mouseover", mouseoverWeizen)
-      .on("mouseout", mouseout);;
-
-  svg2.append("image")
-      .attr("xlink:href", function(d) { return "beer-glasses-icons/pilsner.png"; })
-      .attr("class", "pilsnerr")
-      .attr("x", "115px")
-      .attr("y", "460px")
-      .attr("width", "100px")
-      .attr("height", "100px")
-      .on("mouseover", mouseoverPilsner)
-      .on("mouseout", mouseout);;
-
-
-
-
-
-  Allglasses = d3.selectAll(".glass")
-
-
-
-  function mouseoverSnifter(){
-
-    svg2.append("text")
-    .attr("class", "glassName")
-    .text("Snifter")
-    .attr("x", "35px")
-    .attr("y", "650px")
-    .style("fill", "black")
-    .style("font-size","75px")
-
-
-    var str1 = "."
-    var lst = [
-    "American.Strong.Ale",
-    "Barely.wine",
-    "Belgian.Dark.Ale",
-    "Belgian.Pale.Ale",
-    "Belgian.Strong.Dark.Ale",
-    "Belgian.Strong.Pale.Ale",
-    "Double.IPA",
-    "Eisbock",
-    "Flanders.Red.Ale",
-    "Foreign.Stout",
-    "Fruit",
-    "Gueuze",
-    "Imperial.Stout",
-    "Old.Ale",
-    "Oud.Bruin",
-    "Quadrupel",
-    "Scotch Ale",
-    "Tripel",
-    "Wheat.wine"
-    ]
-
-    for (var i = 0; i < lst.length; i++) {
-      d3.selectAll("circle").filter(str1.concat(lst[i]))
-      .style("fill","#99fd17")
-      .transition()
-      .duration(50)
-      .attr("r", 10)
-    }
-
-
-
-  }
-
-  function mouseoverFlute(){
-
-    svg2.append("text")
-    .attr("class", "glassName")
-    .text("Flute")
-    .attr("x", "35px")
-    .attr("y", "650px")
-    .style("fill", "black")
-    .style("font-size","75px")
-
-
-    var str1 = "."
-    var lst = [
-    "American.Wild.Ale",
-    "Biere.de.Champagne",
-    "Bock",
-    "Eisbock",
-    "European.Strong.Lager",
-    "Faro",
-    "Flanders.Red.Ale",
-    "Fruit",
-    "German.Pilsener",
-    "Gueuze",
-    "Maibock",
-    "Munich.Dunkel",
-    "Schwarzbier",
-    "Unblended",
-    "Vienna.Lager",
-    "Weizenbock"
-    ]
-
-    for (var i = 0; i < lst.length; i++) {
-      d3.selectAll("circle").filter(str1.concat(lst[i]))
-      .style("fill","#99fd17")
-      .transition()
-      // .duration(50)
-      .attr("r", 10)
-    }
-
-  }
-
-  function mouseoverWeizen(){
-
-    svg2.append("text")
-    .attr("class", "glassName")
-    .text("Weizen")
-    .attr("x", "35px")
-    .attr("y", "650px")
-    .style("fill", "black")
-    .style("font-size","75px")
-
-    var str1 = "."
-    var lst = [
-    "American Wheat Ale",
-    "Dunkel",
-    "Gose",
-    "Hefeweizen",
-    "Weizen",
-    "Weizenbock"
-    ]
-
-    for (var i = 0; i < lst.length; i++) {
-      d3.selectAll("circle").filter(str1.concat(lst[i]))
-      .style("fill","#99fd17")
-      .transition()
-      .duration(50)
-      .attr("r", 10)
-    }
-
-  }
-
-  function mouseoverStange(){
-    svg2.append("text")
-    .attr("class", "glassName")
-    .text("Stange")
-    .attr("x", "35px")
-    .attr("y", "650px")
-    .style("fill", "black")
-    .style("font-size","75px")
-
-    var str1 = "."
-    var lst = [
-    "Altbier",
-    "Bock",
-    "Faro",
-    "Fruit",
-    "Gose",
-    "Gueuze",
-    "Kolsch",
-    "Rauchbier",
-    "Unblended"
-    ]
-
-    for (var i = 0; i < lst.length; i++) {
-      d3.selectAll("circle").filter(str1.concat(lst[i]))
-      .style("fill","#99fd17")
-      .transition()
-      .duration(50)
-      .attr("r", 10)
-    }
-
-  }
-
-  function mouseoverTulip(){
-    svg2.append("text")
-    .attr("class", "glassName")
-    .text("Tulip")
-    .attr("x", "35px")
-    .attr("y", "650px")
-    .style("fill", "black")
-    .style("font-size","75px")
-
-
-    var str1 = "."
-    var lst = [
-    "American.Wild.Ale",
-    "Belgian.Dark",
-    "Belgian.Pale.Ale",
-    "Belgian.Strong.Dark.Ale",
-    "Belgian.Strong.Pale.Ale",
-    "Biere.de.Garde",
-    "Double.IPA",
-    "Flanders.Red.Ale",
-    "Fruit",
-    "Gueuze",
-    "Oud.Bruin",
-    "Quadrupel",
-    "Saison",
-    "Scotch.Ale"
-    ]
-
-    for (var i = 0; i < lst.length; i++) {
-      d3.selectAll("circle").filter(str1.concat(lst[i]))
-      .style("fill","#99fd17")
-      .transition()
-      .duration(50)
-      .attr("r", 10)
-    }
-
-  }
-
-  function mouseoverOversizewine(){
-    svg2.append("text")
-    .attr("class", "glassName")
-    .text("Oversized Wine Glass")
-    .attr("x", "35px")
-    .attr("y", "650px")
-    .style("fill", "black")
-    .style("font-size","75px")
-
-
-    var str1 = "."
-    var lst = [
-    "American.Wild.Ale",
-    "Belgian.Dark.Ale",
-    "Belgian.Pale.Ale",
-    "Belgian.Strong.Dark.Ale",
-    "Belgian.Strong.Pale.Ale",
-    "Biere.de.Garde",
-    "Double.IPA",
-    "Eisbock",
-    "Imperial.Stout",
-    "Old.Ale",
-    "Saison",
-    "Wheat.wine"
-    ]
-
-    for (var i = 0; i < lst.length; i++) {
-      d3.selectAll("circle").filter(str1.concat(lst[i]))
-      .style("fill","#99fd17")
-      .transition()
-      .duration(50)
-      .attr("r", 10)
-    }
-
-  }
-
-  function mouseoverMug(){
-    svg2.append("text")
-    .attr("class", "glassName")
-    .text("Strouter Mug")
-    .attr("x", "35px")
-    .attr("y", "650px")
-    .style("fill", "black")
-    .style("font-size","75px")
-
-
-    var str1 = "."
-    var lst = [
-    "Amber.Ale",
-    "American.Pale.Ale",
-    "American.Porter",
-    "American.Stout",
-    "American.Strong.Ale",
-    "American.Wheat.Ale",
-    "Baltic.Porter",
-    "Black.IPA",
-    "Blonde.Ale",
-    "Bock",
-    "Brown.Ale",
-    "California.Common",
-    "Cream.Ale",
-    "Doppelbock",
-    "English.Pale.Ale",
-    "English.Porter",
-    "English.Strong.Ale",
-    "European.Dark.Lager",
-    "Fruit",
-    "German.Pilsener",
-    "India.Pale.Ale",
-    "Keller.bier",
-    "Helles",
-    "Malt.Liquor",
-    "Marzen",
-    "Mild.Ale",
-    "Oatmeal.Stout",
-    "ESB",
-    "Rauchbier",
-    "Roggenbier",
-    "Sahti",
-    "Sweet.Stout",
-    "Vienna.Lager",
-    "Witbier"
-    ]
-
-    for (var i = 0; i < lst.length; i++) {
-      d3.selectAll("circle").filter(str1.concat(lst[i]))
-      .style("fill","#99fd17")
-      .transition()
-      .duration(50)
-      .attr("r", 10)
-    }
-
-  }
-
-  function mouseoverGoblet(){
-    svg2.append("text")
-    .attr("class", "glassName")
-    .text("Goblet")
-    .attr("x", "35px")
-    .attr("y", "650px")
-    .style("fill", "black")
-    .style("font-size","75px")
-
-
-    var str1 = "."
-    var lst = [
-    "Belgian.Strong.Dark.Ale",
-    "Berliner.Weisse",
-    "Dubbel",
-    "Quadrupel",
-    "Tripel"
-    ]
-
-    for (var i = 0; i < lst.length; i++) {
-      d3.selectAll("circle").filter(str1.concat(lst[i]))
-      .style("fill","#99fd17")
-      .transition()
-      .duration(50)
-      .attr("r", 10)
-    }
-
-  }
-
-  function mouseoverPint(){
-    svg2.append("text")
-    .attr("class", "glassName")
-    .text("Pint")
-    .attr("x", "35px")
-    .attr("y", "650px")
-    .style("fill", "black")
-    .style("font-size","75px")
-
-
-    var str1 = "."
-    var lst = [
-    "Amber.Ale",
-    "American.Adjunct.Lager",
-    "American.Dark",
-    "American.Pale.Ale",
-    "American.Porter",
-    "American.Stout",
-    "American.Strong.Ale",
-    "American.Wheat.Ale",
-    "Baltic.Porter",
-    "Barely.Wine",
-    "Berliner.Weisse",
-    "Blonde.Ale",
-    "Brown.Ale",
-    "California.Common",
-    "Cream.Ale",
-    "Bitter",
-    "English.Porter",
-    "English.Strong.Ale",
-    "European.Dark.Lager",
-    "Foreign.Stout",
-    "Fruit",
-    "Imperial.Stout",
-    "India.Pale.Ale",
-    "Light.Ale",
-    "Malt.Liquor",
-    "Marzen",
-    "Mild.Ale",
-    "Oatmeal.Stout",
-    "Old.Ale",
-    "ESB",
-    "Pumpkin.Ale",
-    "Sahti",
-    "Saison",
-    "Scotch.Ale",
-    "Sweet.Stout",
-    "Winter.Warmer",
-    "Witbier"
-    ]
-
-    for (var i = 0; i < lst.length; i++) {
-      d3.selectAll("circle").filter(str1.concat(lst[i]))
-      .style("fill","#99fd17")
-      .transition()
-      .duration(50)
-      .attr("r", 10)
-    }
-
-  }
-
-  function mouseoverPilsner(){
-     svg2.append("text")
-    .attr("class", "glassName")
-    .text("Pilsner")
-    .attr("x", "35px")
-    .attr("y", "650px")
-    .style("fill", "black")
-    .style("font-size","75px")
-
-
-    var str1 = "."
-    var lst = [
-
-    "American.Imperial.Pilsner",
-    "American.Adjunct.Lager",
-    "Pilsner",
-    "American.Pale.Lager",
-    "Bock",
-    "California.Common",
-    "Doppelbock",
-    "Dortmunder",
-    "European.Dark.Lager",
-    "European.Pale.Lager",
-    "European.Strong.Lager",
-    "German.Pilsener",
-    "Japanese Rice Lager",
-    "Helles",
-    "Malt.Liquor",
-    "Munich.Dunkel",
-    "Schwarzbier",
-    "Vienna.Lager",
-    "Witbier"
-
-    ]
-
-    for (var i = 0; i < lst.length; i++) {
-      d3.selectAll("circle").filter(str1.concat(lst[i]))
-      .style("fill","#99fd17")
-      .transition()
-      .duration(50)
-      .attr("r", 10)
-    }
-
-  }
-
-
-
-  function mouseover(){
-
-    d3.select(this).select("circle")
-    .transition()
-    .duration(50)
-    // .style("fill","#99fd17")
-    .attr("r", function(d) { 
-
-        if (d.group == 1){
-          return 52;
-
-        } else if (d.group == 2){
-          return 15;
-
-        } else if (d.group == 3){
-          return 10;
-
-        } else if (d.group == 4){
-          return 8;
-
-        } else if (d.group == 5){
-          return 5;
-
-        } else {
-          return 1;
-
-        }
-
-      });
-
-    d3.select(this).select("text")
-    .style("font-size","100%")
-
- ;
-  }
-
-
-
-  function mouseout(){
-
-    d3.selectAll(".glassName").remove()
-    d3.select(".networkgraph").selectAll("circle")
-    // .transition()
-    // .duration(450)
-    .style("fill","white")
-    .attr("r", function(d) { 
-
-        if (d.group == 1){
-          return 50;
-
-        } else if (d.group == 2){
-          return 10;
-
-        } else if (d.group == 3){
-          return 6;
-
-        } else if (d.group == 4){
-          return 4;
-
-        } else if (d.group == 5){
-          return 2;
-
-        } else if (d.group == 6){
-          return 1;
-
-        } else {
-          return 4.5;
-
-        }
-
-      })
-
-    d3.select(this).select("text")
-    .style("font-size","10px")
-
-
-
-
-
-
-    ;
-  }
-
-  node.append("circle")
-  //DEPENDING ON 'GROUP' SIZE, THE RADIUS OF THE CIRCLE IS LARGER
-  //MAKES THE CLASS NAME OF EACH CIRCLE EQUAL TO THE NAME OF THE BEER
-      .attr("class", function(d){
-        return d.name;
-      })
-      .attr("r", function(d) { 
-
-        if (d.group == 1){
-          return 50;
-
-        } else if (d.group == 2){
-          return 10;
-
-        } else if (d.group == 3){
-          return 6;
-
-        } else if (d.group == 4){
-          return 4;
-
-        } else if (d.group == 5){
-          return 2;
-
-        } else if (d.group == 6){
-          return 1;
-
-        } else {
-          return 4.5;
-
-        }
-
-      });
-
-  node.append("text")
-      // PLACEMENT OF THE TEXT IN RELATION TO THE NODE
-      .style("font-size","10px")
-      .attr("dx",function(d) {
-        if (d.name == "Lager"){
-          return -18;
-
-        } else if (d.name == "Ale"){
-          return -12;
-        }
-          else {
-          return 12;
-
-        }})
-
-      .attr("dy", ".35em")
-      .text(function(d) { return d.name })
-      .style("fill",function(d){
-        if (d.group == 6){
-          return "black"
-        }
-
-
-      })
-      
-
-      ;
-
-  force.on("tick", function() {
-    link.attr("x1", function(d) { return d.source.x; })
-        .attr("y1", function(d) { return d.source.y; })
-        .attr("x2", function(d) { return d.target.x; })
-        .attr("y2", function(d) { return d.target.y; });
-
-    node.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
-  });
-});
-
-</script>
-
-
-
-
-
-
-
-
-
-
+		  nodeEnter.append("text")
+		      .attr("x", function(d) { return d.children || d._children ? -10 : 10; })
+		      .attr("dy", ".35em")
+		      .attr("text-anchor", function(d) { return d.children || d._children ? "end" : "start"; })
+		      .text(function(d) { return d.name; })
+		      .style("fill-opacity", function(d){
+		        if (d.beer == 1){
+		          return .1;
+		        } else{
+		          return 1e-6;
+
+		        }
+
+		      }
+		        )
+
+		      ;
+
+		  // Transition nodes to their new position.
+		  var nodeUpdate = node.transition()
+		      .duration(duration)
+		      .attr("transform", function(d) { return "translate(" + d.y + "," + d.x + ")"; });
+
+		  nodeUpdate.select("circle")
+		      .attr("r", 4.5)
+		      .style("fill", function(d) { 
+		        if (d.beer == 1){
+		          return "#aa9663"
+		        } else{
+		          return d._children ? "lightsteelblue" : "#fff"; }
+
+		        }
+		        )
+		      .style("stroke", function(d) { 
+		        if (d.beer == 1){
+		          return "#645326"
+		        } else{
+		          return "steelblue"; }
+
+		        }
+		        )
+		      ;
+
+		  nodeUpdate.select("text")
+		      .style("fill-opacity", 1)
+		      .style("fill", function(d){
+		        if (d.beer == 1){
+		          return "#645326";
+		        } else{
+		          return "black";
+
+		        }
+
+		      }
+		        )
+
+
+		      ;
+
+		  // Transition exiting nodes to the parent's new position.
+		  var nodeExit = node.exit().transition()
+		      .duration(duration)
+		      .attr("transform", function(d) { return "translate(" + source.y + "," + source.x + ")"; })
+		      .remove();
+
+		  nodeExit.select("circle")
+		      .attr("r", 1e-6);
+
+		  nodeExit.select("text")
+		      .style("fill-opacity", 1e-6);
+
+		  // Update the links…
+		  var link = svg.selectAll("path.link")
+		      .data(links, function(d) { return d.target.id; });
+
+		  // Enter any new links at the parent's previous position.
+		  link.enter().insert("path", "g")
+		      .attr("class", "link")
+		      .attr("d", function(d) {
+		        var o = {x: source.x0, y: source.y0};
+		        return diagonal({source: o, target: o});
+		      });
+
+		  // Transition links to their new position.
+		  link.transition()
+		      .duration(duration)
+		      .attr("d", diagonal);
+
+		  // Transition exiting nodes to the parent's new position.
+		  link.exit().transition()
+		      .duration(duration)
+		      .attr("d", function(d) {
+		        var o = {x: source.x, y: source.y};
+		        return diagonal({source: o, target: o});
+		      })
+		      .remove();
+
+		  // Stash the old positions for transition.
+		  nodes.forEach(function(d) {
+		    d.x0 = d.x;
+		    d.y0 = d.y;
+		  });
+		}
+
+		// Toggle children on click.
+		function click(d) {
+		  if (d.children) {
+		    d._children = d.children;
+		    d.children = null;
+		  } else {
+		    d.children = d._children;
+		    d._children = null;
+		  }
+		  update(d);
+		}
+	</script>
+
+
+	<!-- D3 FOR NETWORK OF BEER AND GLASSES -->
+	<script>
+
+		var width = 1460,
+		    height = 700
+
+		var svg2 = d3.select("body").selectAll("div.glasses").append("svg")
+		    .attr("width", width)
+		    .attr("class", "networkgraph")
+		    .attr("height", height);
+
+		var force = d3.layout.force()
+		    .gravity(.04)
+		    .distance(90)
+		    .charge(-100)
+		    .size([width, height]);
+
+		d3.json("graphFile3.json", function(json) {
+
+		  json.links.forEach(function(d){
+		    d.source = d.source_id;    
+		    d.target = d.target_id;
+		  });
+		  
+		  force
+		      .nodes(json.nodes)
+		      .links(json.links)
+		      .start();
+
+		  var link = svg2.selectAll(".link")
+		      .data(json.links)
+		    .enter().append("line")
+		      .attr("class", "link")
+		    .style("stroke-width", function(d) { return Math.sqrt(d.weight); });
+
+		  var node = svg2.selectAll(".node")
+		      .data(json.nodes)
+		    .enter().append("g")
+		      .attr("class", "node")
+		      .attr("class2", function(d){
+		        return d.source_id;
+		      })
+		      .on("mouseover", mouseover)
+		      .on("mouseout", mouseout)
+		      .on("click",click)
+		      .call(force.drag);
+
+
+		  svg2.append("image")
+		      .attr("xlink:href", function(d) { return "beer-glasses-icons/snifter.png"; })
+		      .attr("class", "snifterr")
+		      .attr("x", "15px")
+		      .attr("y", "0px")
+		      .attr("width", "100px")
+		      .attr("height", "100px")
+		      .on("mouseover", mouseoverSnifter)
+		      .on("mouseout", mouseout);
+
+		  svg2.append("image")
+		      .attr("xlink:href", function(d) { return "beer-glasses-icons/flute.png"; })
+		      .attr("class", "flutee")
+		      .attr("x", "15px")
+		      .attr("y", "115px")
+		      .attr("width", "100px")
+		      .attr("height", "100px")
+		      .on("mouseover", mouseoverFlute)
+		      .on("mouseout", mouseout);
+
+		  svg2.append("image")
+		      .attr("xlink:href", function(d) { return "beer-glasses-icons/stange.png"; })
+		      .attr("class", "stangee")
+		      .attr("x", "15px")
+		      .attr("y", "230px")
+		      .attr("width", "100px")
+		      .attr("height", "100px")
+		      .on("mouseover", mouseoverStange)
+		      .on("mouseout", mouseout);
+
+		  svg2.append("image")
+		      .attr("xlink:href", function(d) { return "beer-glasses-icons/tulip.png"; })
+		      .attr("class", "tulipp")
+		      .attr("x", "15px")
+		      .attr("y", "345px")
+		      .attr("width", "100px")
+		      .attr("height", "100px")
+		      .on("mouseover", mouseoverTulip)
+		      .on("mouseout", mouseout);;
+
+		  svg2.append("image")
+		      .attr("xlink:href", function(d) { return "beer-glasses-icons/oversizedwine.png"; })
+		      .attr("class", "oversizedwinee")
+		      .attr("x", "15px")
+		      .attr("y", "460px")
+		      .attr("width", "100px")
+		      .attr("height", "100px")
+		      .on("mouseover", mouseoverOversizewine)
+		      .on("mouseout", mouseout);;
+
+		  svg2.append("image")
+		      .attr("xlink:href", function(d) { return "beer-glasses-icons/mug.png"; })
+		      .attr("class", "mugg")
+		      .attr("x", "115px")
+		      .attr("y", "0px")
+		      .attr("width", "100px")
+		      .attr("height", "100px")
+		      .on("mouseover", mouseoverMug)
+		      .on("mouseout", mouseout);;
+
+		  svg2.append("image")
+		      .attr("xlink:href", function(d) { return "beer-glasses-icons/goblet.png"; })
+		      .attr("class", "goblett")
+		      .attr("x", "115px")
+		      .attr("y", "115px")
+		      .attr("width", "100px")
+		      .attr("height", "100px")
+		      .on("mouseover", mouseoverGoblet)
+		      .on("mouseout", mouseout);;
+
+		  svg2.append("image")
+		      .attr("xlink:href", function(d) { return "beer-glasses-icons/pint.png"; })
+		      .attr("class", "pintt")
+		      .attr("x", "115px")
+		      .attr("y", "230px")
+		      .attr("width", "100px")
+		      .attr("height", "100px")
+		      .on("mouseover", mouseoverPint)
+		      .on("mouseout", mouseout);;
+
+		  svg2.append("image")
+		      .attr("xlink:href", function(d) { return "beer-glasses-icons/weizen.png"; })
+		      .attr("class", "weizenn")
+		      .attr("x", "115px")
+		      .attr("y", "345px")
+		      .attr("width", "100px")
+		      .attr("height", "100px")
+		      .on("mouseover", mouseoverWeizen)
+		      .on("mouseout", mouseout);;
+
+		  svg2.append("image")
+		      .attr("xlink:href", function(d) { return "beer-glasses-icons/pilsner.png"; })
+		      .attr("class", "pilsnerr")
+		      .attr("x", "115px")
+		      .attr("y", "460px")
+		      .attr("width", "100px")
+		      .attr("height", "100px")
+		      .on("mouseover", mouseoverPilsner)
+		      .on("mouseout", mouseout);;
+
+
+
+
+
+		  Allglasses = d3.selectAll(".glass")
+
+
+
+		  function mouseoverSnifter(){
+
+		    svg2.append("text")
+		    .attr("class", "glassName")
+		    .text("Snifter")
+		    .attr("x", "35px")
+		    .attr("y", "650px")
+		    .style("fill", "black")
+		    .style("font-size","75px")
+
+
+		    var str1 = "."
+		    var lst = [
+		    "American.Strong.Ale",
+		    "Barely.wine",
+		    "Belgian.Dark.Ale",
+		    "Belgian.Pale.Ale",
+		    "Belgian.Strong.Dark.Ale",
+		    "Belgian.Strong.Pale.Ale",
+		    "Double.IPA",
+		    "Eisbock",
+		    "Flanders.Red.Ale",
+		    "Foreign.Stout",
+		    "Fruit",
+		    "Gueuze",
+		    "Imperial.Stout",
+		    "Old.Ale",
+		    "Oud.Bruin",
+		    "Quadrupel",
+		    "Scotch Ale",
+		    "Tripel",
+		    "Wheat.wine"
+		    ]
+
+		    for (var i = 0; i < lst.length; i++) {
+		      d3.selectAll("circle").filter(str1.concat(lst[i]))
+		      .style("fill","#99fd17")
+		      .transition()
+		      .duration(50)
+		      .attr("r", 10)
+		    }
+
+
+
+		  }
+
+		  function mouseoverFlute(){
+
+		    svg2.append("text")
+		    .attr("class", "glassName")
+		    .text("Flute")
+		    .attr("x", "35px")
+		    .attr("y", "650px")
+		    .style("fill", "black")
+		    .style("font-size","75px")
+
+
+		    var str1 = "."
+		    var lst = [
+		    "American.Wild.Ale",
+		    "Biere.de.Champagne",
+		    "Bock",
+		    "Eisbock",
+		    "European.Strong.Lager",
+		    "Faro",
+		    "Flanders.Red.Ale",
+		    "Fruit",
+		    "German.Pilsener",
+		    "Gueuze",
+		    "Maibock",
+		    "Munich.Dunkel",
+		    "Schwarzbier",
+		    "Unblended",
+		    "Vienna.Lager",
+		    "Weizenbock"
+		    ]
+
+		    for (var i = 0; i < lst.length; i++) {
+		      d3.selectAll("circle").filter(str1.concat(lst[i]))
+		      .style("fill","#99fd17")
+		      .transition()
+		      // .duration(50)
+		      .attr("r", 10)
+		    }
+
+		  }
+
+		  function mouseoverWeizen(){
+
+		    svg2.append("text")
+		    .attr("class", "glassName")
+		    .text("Weizen")
+		    .attr("x", "35px")
+		    .attr("y", "650px")
+		    .style("fill", "black")
+		    .style("font-size","75px")
+
+		    var str1 = "."
+		    var lst = [
+		    "American Wheat Ale",
+		    "Dunkel",
+		    "Gose",
+		    "Hefeweizen",
+		    "Weizen",
+		    "Weizenbock"
+		    ]
+
+		    for (var i = 0; i < lst.length; i++) {
+		      d3.selectAll("circle").filter(str1.concat(lst[i]))
+		      .style("fill","#99fd17")
+		      .transition()
+		      .duration(50)
+		      .attr("r", 10)
+		    }
+
+		  }
+
+		  function mouseoverStange(){
+		    svg2.append("text")
+		    .attr("class", "glassName")
+		    .text("Stange")
+		    .attr("x", "35px")
+		    .attr("y", "650px")
+		    .style("fill", "black")
+		    .style("font-size","75px")
+
+		    var str1 = "."
+		    var lst = [
+		    "Altbier",
+		    "Bock",
+		    "Faro",
+		    "Fruit",
+		    "Gose",
+		    "Gueuze",
+		    "Kolsch",
+		    "Rauchbier",
+		    "Unblended"
+		    ]
+
+		    for (var i = 0; i < lst.length; i++) {
+		      d3.selectAll("circle").filter(str1.concat(lst[i]))
+		      .style("fill","#99fd17")
+		      .transition()
+		      .duration(50)
+		      .attr("r", 10)
+		    }
+
+		  }
+
+		  function mouseoverTulip(){
+		    svg2.append("text")
+		    .attr("class", "glassName")
+		    .text("Tulip")
+		    .attr("x", "35px")
+		    .attr("y", "650px")
+		    .style("fill", "black")
+		    .style("font-size","75px")
+
+
+		    var str1 = "."
+		    var lst = [
+		    "American.Wild.Ale",
+		    "Belgian.Dark",
+		    "Belgian.Pale.Ale",
+		    "Belgian.Strong.Dark.Ale",
+		    "Belgian.Strong.Pale.Ale",
+		    "Biere.de.Garde",
+		    "Double.IPA",
+		    "Flanders.Red.Ale",
+		    "Fruit",
+		    "Gueuze",
+		    "Oud.Bruin",
+		    "Quadrupel",
+		    "Saison",
+		    "Scotch.Ale"
+		    ]
+
+		    for (var i = 0; i < lst.length; i++) {
+		      d3.selectAll("circle").filter(str1.concat(lst[i]))
+		      .style("fill","#99fd17")
+		      .transition()
+		      .duration(50)
+		      .attr("r", 10)
+		    }
+
+		  }
+
+		  function mouseoverOversizewine(){
+		    svg2.append("text")
+		    .attr("class", "glassName")
+		    .text("Oversized Wine Glass")
+		    .attr("x", "35px")
+		    .attr("y", "650px")
+		    .style("fill", "black")
+		    .style("font-size","75px")
+
+
+		    var str1 = "."
+		    var lst = [
+		    "American.Wild.Ale",
+		    "Belgian.Dark.Ale",
+		    "Belgian.Pale.Ale",
+		    "Belgian.Strong.Dark.Ale",
+		    "Belgian.Strong.Pale.Ale",
+		    "Biere.de.Garde",
+		    "Double.IPA",
+		    "Eisbock",
+		    "Imperial.Stout",
+		    "Old.Ale",
+		    "Saison",
+		    "Wheat.wine"
+		    ]
+
+		    for (var i = 0; i < lst.length; i++) {
+		      d3.selectAll("circle").filter(str1.concat(lst[i]))
+		      .style("fill","#99fd17")
+		      .transition()
+		      .duration(50)
+		      .attr("r", 10)
+		    }
+
+		  }
+
+		  function mouseoverMug(){
+		    svg2.append("text")
+		    .attr("class", "glassName")
+		    .text("Strouter Mug")
+		    .attr("x", "35px")
+		    .attr("y", "650px")
+		    .style("fill", "black")
+		    .style("font-size","75px")
+
+
+		    var str1 = "."
+		    var lst = [
+		    "Amber.Ale",
+		    "American.Pale.Ale",
+		    "American.Porter",
+		    "American.Stout",
+		    "American.Strong.Ale",
+		    "American.Wheat.Ale",
+		    "Baltic.Porter",
+		    "Black.IPA",
+		    "Blonde.Ale",
+		    "Bock",
+		    "Brown.Ale",
+		    "California.Common",
+		    "Cream.Ale",
+		    "Doppelbock",
+		    "English.Pale.Ale",
+		    "English.Porter",
+		    "English.Strong.Ale",
+		    "European.Dark.Lager",
+		    "Fruit",
+		    "German.Pilsener",
+		    "India.Pale.Ale",
+		    "Keller.bier",
+		    "Helles",
+		    "Malt.Liquor",
+		    "Marzen",
+		    "Mild.Ale",
+		    "Oatmeal.Stout",
+		    "ESB",
+		    "Rauchbier",
+		    "Roggenbier",
+		    "Sahti",
+		    "Sweet.Stout",
+		    "Vienna.Lager",
+		    "Witbier"
+		    ]
+
+		    for (var i = 0; i < lst.length; i++) {
+		      d3.selectAll("circle").filter(str1.concat(lst[i]))
+		      .style("fill","#99fd17")
+		      .transition()
+		      .duration(50)
+		      .attr("r", 10)
+		    }
+
+		  }
+
+		  function mouseoverGoblet(){
+		    svg2.append("text")
+		    .attr("class", "glassName")
+		    .text("Goblet")
+		    .attr("x", "35px")
+		    .attr("y", "650px")
+		    .style("fill", "black")
+		    .style("font-size","75px")
+
+
+		    var str1 = "."
+		    var lst = [
+		    "Belgian.Strong.Dark.Ale",
+		    "Berliner.Weisse",
+		    "Dubbel",
+		    "Quadrupel",
+		    "Tripel"
+		    ]
+
+		    for (var i = 0; i < lst.length; i++) {
+		      d3.selectAll("circle").filter(str1.concat(lst[i]))
+		      .style("fill","#99fd17")
+		      .transition()
+		      .duration(50)
+		      .attr("r", 10)
+		    }
+
+		  }
+
+		  function mouseoverPint(){
+		    svg2.append("text")
+		    .attr("class", "glassName")
+		    .text("Pint")
+		    .attr("x", "35px")
+		    .attr("y", "650px")
+		    .style("fill", "black")
+		    .style("font-size","75px")
+
+
+		    var str1 = "."
+		    var lst = [
+		    "Amber.Ale",
+		    "American.Adjunct.Lager",
+		    "American.Dark",
+		    "American.Pale.Ale",
+		    "American.Porter",
+		    "American.Stout",
+		    "American.Strong.Ale",
+		    "American.Wheat.Ale",
+		    "Baltic.Porter",
+		    "Barely.Wine",
+		    "Berliner.Weisse",
+		    "Blonde.Ale",
+		    "Brown.Ale",
+		    "California.Common",
+		    "Cream.Ale",
+		    "Bitter",
+		    "English.Porter",
+		    "English.Strong.Ale",
+		    "European.Dark.Lager",
+		    "Foreign.Stout",
+		    "Fruit",
+		    "Imperial.Stout",
+		    "India.Pale.Ale",
+		    "Light.Ale",
+		    "Malt.Liquor",
+		    "Marzen",
+		    "Mild.Ale",
+		    "Oatmeal.Stout",
+		    "Old.Ale",
+		    "ESB",
+		    "Pumpkin.Ale",
+		    "Sahti",
+		    "Saison",
+		    "Scotch.Ale",
+		    "Sweet.Stout",
+		    "Winter.Warmer",
+		    "Witbier"
+		    ]
+
+		    for (var i = 0; i < lst.length; i++) {
+		      d3.selectAll("circle").filter(str1.concat(lst[i]))
+		      .style("fill","#99fd17")
+		      .transition()
+		      .duration(50)
+		      .attr("r", 10)
+		    }
+
+		  }
+
+		  function mouseoverPilsner(){
+		     svg2.append("text")
+		    .attr("class", "glassName")
+		    .text("Pilsner")
+		    .attr("x", "35px")
+		    .attr("y", "650px")
+		    .style("fill", "black")
+		    .style("font-size","75px")
+
+
+		    var str1 = "."
+		    var lst = [
+
+		    "American.Imperial.Pilsner",
+		    "American.Adjunct.Lager",
+		    "Pilsner",
+		    "American.Pale.Lager",
+		    "Bock",
+		    "California.Common",
+		    "Doppelbock",
+		    "Dortmunder",
+		    "European.Dark.Lager",
+		    "European.Pale.Lager",
+		    "European.Strong.Lager",
+		    "German.Pilsener",
+		    "Japanese Rice Lager",
+		    "Helles",
+		    "Malt.Liquor",
+		    "Munich.Dunkel",
+		    "Schwarzbier",
+		    "Vienna.Lager",
+		    "Witbier"
+
+		    ]
+
+		    for (var i = 0; i < lst.length; i++) {
+		      d3.selectAll("circle").filter(str1.concat(lst[i]))
+		      .style("fill","#99fd17")
+		      .transition()
+		      .duration(50)
+		      .attr("r", 10)
+		    }
+
+		  }
+
+
+
+		  function mouseover(){
+
+		    d3.select(this).select("circle")
+		    .transition()
+		    .duration(50)
+		    // .style("fill","#99fd17")
+		    .attr("r", function(d) { 
+
+		        if (d.group == 1){
+		          return 52;
+
+		        } else if (d.group == 2){
+		          return 15;
+
+		        } else if (d.group == 3){
+		          return 10;
+
+		        } else if (d.group == 4){
+		          return 8;
+
+		        } else if (d.group == 5){
+		          return 5;
+
+		        } else {
+		          return 1;
+
+		        }
+
+		      });
+
+		    d3.select(this).select("text")
+		    .style("font-size","100%")
+
+		 ;
+		  }
+
+
+
+		  function mouseout(){
+
+		    d3.selectAll(".glassName").remove()
+		    d3.select(".networkgraph").selectAll("circle")
+		    // .transition()
+		    // .duration(450)
+		    .style("fill","white")
+		    .attr("r", function(d) { 
+
+		        if (d.group == 1){
+		          return 50;
+
+		        } else if (d.group == 2){
+		          return 10;
+
+		        } else if (d.group == 3){
+		          return 6;
+
+		        } else if (d.group == 4){
+		          return 4;
+
+		        } else if (d.group == 5){
+		          return 2;
+
+		        } else if (d.group == 6){
+		          return 1;
+
+		        } else {
+		          return 4.5;
+
+		        }
+
+		      })
+
+		    d3.select(this).select("text")
+		    .style("font-size","10px")
+
+
+
+
+
+
+		    ;
+		  }
+
+		  node.append("circle")
+		  //DEPENDING ON 'GROUP' SIZE, THE RADIUS OF THE CIRCLE IS LARGER
+		  //MAKES THE CLASS NAME OF EACH CIRCLE EQUAL TO THE NAME OF THE BEER
+		      .attr("class", function(d){
+		        return d.name;
+		      })
+		      .attr("r", function(d) { 
+
+		        if (d.group == 1){
+		          return 50;
+
+		        } else if (d.group == 2){
+		          return 10;
+
+		        } else if (d.group == 3){
+		          return 6;
+
+		        } else if (d.group == 4){
+		          return 4;
+
+		        } else if (d.group == 5){
+		          return 2;
+
+		        } else if (d.group == 6){
+		          return 1;
+
+		        } else {
+		          return 4.5;
+
+		        }
+
+		      });
+
+		  node.append("text")
+		      // PLACEMENT OF THE TEXT IN RELATION TO THE NODE
+		      .style("font-size","10px")
+		      .attr("dx",function(d) {
+		        if (d.name == "Lager"){
+		          return -18;
+
+		        } else if (d.name == "Ale"){
+		          return -12;
+		        }
+		          else {
+		          return 12;
+
+		        }})
+
+		      .attr("dy", ".35em")
+		      .text(function(d) { return d.name })
+		      .style("fill",function(d){
+		        if (d.group == 6){
+		          return "black"
+		        }
+
+
+		      })
+		      
+
+		      ;
+
+		  force.on("tick", function() {
+		    link.attr("x1", function(d) { return d.source.x; })
+		        .attr("y1", function(d) { return d.source.y; })
+		        .attr("x2", function(d) { return d.target.x; })
+		        .attr("y2", function(d) { return d.target.y; });
+
+		    node.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
+		  });
+		});
+	</script>
 </body>
+
