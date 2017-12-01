@@ -35,5 +35,5 @@ Typically, you’d be able to right click on the index.html file and open it wit
 
 ### Code Explanation
 
-![code explaination diagram](https://github.com/clarkdatalabs/web_network_visualization/blob/master/img/Code_Explain%20Diagram.png)
+![code explaination diagram](https://github.com/clarkdatalabs/web_network_visualization/blob/master/images/Code_Explain%20Diagram.png)
 
