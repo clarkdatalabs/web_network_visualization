@@ -1,8 +1,8 @@
 # Web_network_visualization
 
 ## Introduction
-  This tutorial will show how to build a web-network visulization. The theme we visualize in the example is the web-network of different types of beer.<br>
-  You don’t need to be an expert in web development to get started with a network visualization in D3 however we do make some assumptions about our audience.<br>
+  This tutorial will show how to build a web-network visulization. The theme we visualize in the example is the web-network of different types of beer.<br><br>
+  You don’t need to be an expert in web development to get started with a network visualization in D3 however we do make some assumptions about our audience.<br><br>
   We assume that:
   - You’ve had experience with another programming such as Python, Java, or C++
   - You have some working knowledge of HTML, CSS and Javascript
