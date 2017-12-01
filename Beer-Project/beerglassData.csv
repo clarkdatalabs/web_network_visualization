@@ -1,0 +1,172 @@
+ID,Beer,Glass
+46,Altbier,Stange
+67,Amber Ale,Mug
+67,Amber Ale,Pint Glass
+64,American Adjunct Lager,Pilsner Glass
+64,American Adjunct Lager,Pint Glass
+63,American Dark/Amber Lager,Pilsner Glass
+63,American Dark/Amber Lager,Pint Glass
+58,American Imperial Pilsner,Pilsner Glass
+19,American Pale Ale,Mug
+19,American Pale Ale,Pint Glass
+62,American Pale Lager,Pilsner Glass
+35,American Porter,Mug
+35,American Porter,Pint Glass
+36,American Stout,Mug
+36,American Stout,Pint Glass
+70,American Strong Ale,Mug
+70,American Strong Ale,Pint Glass
+70,American Strong Ale,Snifter
+66,American Wheat Ale,Mug
+66,American Wheat Ale,Pint Glass
+66,American Wheat Ale,Weizen Glass
+7,American Wild Ale,Flute
+7,American Wild Ale,Tulip
+7,American Wild Ale,Oversized Wine Glass
+42,Baltic Porter,Mug
+42,Baltic Porter,Pint Glass
+72,Barely wine,Pint Glass
+72,Barely wine,Snifter
+33,Belgian Dark Ale,Snifter
+33,Belgian Dark Ale,Tulip
+33,Belgian Dark Ale,Oversized Wine Glass
+32,Belgian Pale Ale,Snifter
+32,Belgian Pale Ale,Tulip
+32,Belgian Pale Ale,Oversized Wine Glass
+80,Belgian Strong Dark Ale,Goblet
+80,Belgian Strong Dark Ale,Snifter
+80,Belgian Strong Dark Ale,Tulip
+80,Belgian Strong Dark Ale,Oversized Wine Glass
+79,Belgian Strong Pale Ale,Snifter
+79,Belgian Strong Pale Ale,Tulip
+79,Belgian Strong Pale Ale,Oversized Wine Glass
+84,Berliner Weisse,Goblet
+84,Berliner Weisse,Pint Glass
+31,Biere de Champagne,Flute
+30,Biere de Garde,Tulip
+30,Biere de Garde,Oversized Wine Glass
+75,Black IPA,Mug
+65,Blonde Ale,Mug
+65,Blonde Ale,Pint Glass
+49,Bock,Flute
+49,Bock,Mug
+49,Bock,Pilsner Glass
+49,Bock,Stange
+4,Brown Ale,Mug
+4,Brown Ale,Pint Glass
+13,California Common,Mug
+13,California Common,Pilsner Glass
+13,California Common,Pint Glass
+12,Cream Ale,Mug
+12,Cream Ale,Pint Glass
+89,Doppelbock,Mug
+89,Doppelbock,Pilsner Glass
+48,Dortmunder,Pilsner Glass
+74,Double IPA,Snifter
+74,Double IPA,Tulip
+74,Double IPA,Oversized Wine Glass
+102,Dubbel,Goblet
+87,Dunkel-Weizen,Weizen Glass
+90,Eisbock,Flute
+90,Eisbock,Snifter
+90,Eisbock,Oversized Wine Glass
+22,English Pale Ale/Bitter,Mug
+22,English Pale Ale/Bitter,Pint Glass
+37,English Porter,Mug
+37,English Porter,Pint Glass
+68,English Strong Ale,Mug
+68,English Strong Ale,Pint Glass
+94,European Dark Lager,Mug
+94,European Dark Lager,Pilsner Glass
+94,European Dark Lager,Pint Glass
+56,European Pale Lager,Pilsner Glass
+57,European Strong Lager,Flute
+57,European Strong Lager,Pilsner Glass
+23,Faro,Flute
+23,Faro,Stange
+34,Flanders Red Ale,Flute
+34,Flanders Red Ale,Snifter
+34,Flanders Red Ale,Tulip
+81,Foreign Stout,Pint Glass
+81,Foreign Stout,Snifter
+25,Fruit,Flute
+25,Fruit,Mug
+25,Fruit,Pint Glass
+25,Fruit,Snifter
+25,Fruit,Stange
+25,Fruit,Tulip
+60,German Pilsener,Flute
+60,German Pilsener,Mug
+60,German Pilsener,Pilsner Glass
+83,Gose,Stange
+83,Gose,Weizen Glass
+24,Gueuze,Flute
+24,Gueuze,Snifter
+24,Gueuze,Stange
+24,Gueuze,Tulip
+82,Hefeweizen,Weizen Glass
+39,Imperial Stout,Pint Glass
+39,Imperial Stout,Snifter
+39,Imperial Stout,Oversized Wine Glass
+21,India Pale Ale,Mug
+21,India Pale Ale,Pint Glass
+99,Japanese Rice Lager,Pilsner Glass
+50,Keller bier,Mug
+45,Kolsch,Stange
+85,Kristall-Weizen,Weizen Glass
+76,Light Ale,Pint Glass
+88,Maibock/Helles,Flute
+88,Maibock/Helles,Mug
+88,Maibock/Helles,Pilsner Glass
+96,Malt Liquor,Mug
+96,Malt Liquor,Pilsner Glass
+96,Malt Liquor,Pint Glass
+51,Marzen,Mug
+51,Marzen,Pint Glass
+5,Mild Ale,Mug
+5,Mild Ale,Pint Glass
+93,Munich Dunkel,Flute
+93,Munich Dunkel,Pilsner Glass
+41,Oatmeal Stout,Mug
+41,Oatmeal Stout,Pint Glass
+69,Old Ale,Pint Glass
+69,Old Ale,Snifter
+69,Old Ale,Oversized Wine Glass
+28,Oud Bruin,Snifter
+28,Oud Bruin,Tulip
+77,Premium Bitter/ESB,Mug
+77,Premium Bitter/ESB,Pint Glass
+6,Pumpkin Ale,Pint Glass
+103,Quadrupel,Goblet
+103,Quadrupel,Snifter
+103,Quadrupel,Tulip
+55,Rauchbier,Mug
+55,Rauchbier,Stange
+44,Roggenbier,Mug
+9,Sahti,Mug
+9,Sahti,Pint Glass
+29,Saison,Pint Glass
+29,Saison,Tulip
+29,Saison,Oversized Wine Glass
+52,Schwarzbier,Flute
+52,Schwarzbier,Pilsner Glass
+73,Scotch Ale,Pint Glass
+73,Scotch Ale,Snifter
+73,Scotch Ale,Tulip
+43,Sweet Stout,Mug
+43,Sweet Stout,Pint Glass
+101,Tripel,Goblet
+101,Tripel,Snifter
+26,Unblended,Flute
+26,Unblended,Stange
+54,Vienna Lager,Flute
+54,Vienna Lager,Mug
+54,Vienna Lager,Pilsner Glass
+86,Weizenbock,Flute
+86,Weizenbock,Weizen Glass
+71,Wheat wine,Snifter
+71,Wheat wine,Oversized Wine Glass
+100,Winter Warmer,Pint Glass
+27,Witbier,Mug
+27,Witbier,Pilsner Glass
+27,Witbier,Pint Glass
