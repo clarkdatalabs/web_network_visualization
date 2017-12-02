@@ -1,334 +1,576 @@
-{  
-   "Biere de Champagne":[  
-      "Flute"
-   ],
-   "Tripel":[  
-      "Goblet",
-      "Snifter"
-   ],
-   "Imperial Stout":[  
-      "Pint Glass",
-      "Snifter",
-      "Oversized Wine Glass"
-   ],
-   "European Pale Lager":[  
-      "Pilsner Glass"
-   ],
-   "India Pale Ale":[  
-      "Mug",
-      "Pint Glass"
-   ],
-   "Foreign Stout":[  
-      "Pint Glass",
-      "Snifter"
-   ],
-   "Belgian Pale Ale":[  
-      "Snifter",
-      "Tulip",
-      "Oversized Wine Glass"
-   ],
-   "Dortmunder":[  
-      "Pilsner Glass"
-   ],
-   "Witbier":[  
-      "Mug",
-      "Pilsner Glass",
-      "Pint Glass"
-   ],
-   "German Pilsener":[  
-      "Flute",
-      "Mug",
-      "Pilsner Glass"
-   ],
-   "Sahti":[  
-      "Mug",
-      "Pint Glass"
-   ],
-   "Quadrupel":[  
-      "Goblet",
-      "Snifter",
-      "Tulip"
-   ],
-   "Beer":[  
-      "Glass"
-   ],
-   "Amber Ale":[  
-      "Mug",
-      "Pint Glass"
-   ],
-   "Winter Warmer":[  
-      "Pint Glass"
-   ],
-   "Doppelbock":[  
-      "Mug",
-      "Pilsner Glass"
-   ],
-   "Premium Bitter/ESB":[  
-      "Mug",
-      "Pint Glass"
-   ],
-   "American Adjunct Lager":[  
-      "Pilsner Glass",
-      "Pint Glass"
-   ],
-   "Keller bier":[  
-      "Mug"
-   ],
-   "American Imperial Pilsner":[  
-      "Pilsner Glass"
-   ],
-   "American Dark/Amber Lager":[  
-      "Pilsner Glass",
-      "Pint Glass"
-   ],
-   "Mild Ale":[  
-      "Mug",
-      "Pint Glass"
-   ],
-   "English Porter":[  
-      "Mug",
-      "Pint Glass"
-   ],
-   "Barely wine":[  
-      "Pint Glass",
-      "Snifter"
-   ],
-   "European Strong Lager":[  
-      "Flute",
-      "Pilsner Glass"
-   ],
-   "Hefeweizen":[  
-      "Weizen Glass"
-   ],
-   "Faro":[  
-      "Flute",
-      "Stange"
-   ],
-   "Cream Ale":[  
-      "Mug",
-      "Pint Glass"
-   ],
-   "Altbier":[  
-      "Stange"
-   ],
-   "American Wheat Ale":[  
-      "Mug",
-      "Pint Glass",
-      "Weizen Glass"
-   ],
-   "Roggenbier":[  
-      "Mug"
-   ],
-   "American Pale Lager":[  
-      "Pilsner Glass"
-   ],
-   "Black IPA":[  
-      "Mug"
-   ],
-   "Fruit":[  
-      "Flute",
-      "Mug",
-      "Pint Glass",
-      "Snifter",
-      "Stange",
-      "Tulip"
-   ],
-   "Saison":[  
-      "Pint Glass",
-      "Tulip",
-      "Oversized Wine Glass"
-   ],
-   "Malt Liquor":[  
-      "Mug",
-      "Pilsner Glass",
-      "Pint Glass"
-   ],
-   "Berliner Weisse":[  
-      "Goblet",
-      "Pint Glass"
-   ],
-   "Dunkel-Weizen":[  
-      "Weizen Glass"
-   ],
-   "European Dark Lager":[  
-      "Mug",
-      "Pilsner Glass",
-      "Pint Glass"
-   ],
-   "Gose":[  
-      "Stange",
-      "Weizen Glass"
-   ],
-   "Flanders Red Ale":[  
-      "Flute",
-      "Snifter",
-      "Tulip"
-   ],
-   "Dubbel":[  
-      "Goblet"
-   ],
-   "Old Ale":[  
-      "Pint Glass",
-      "Snifter",
-      "Oversized Wine Glass"
-   ],
-   "Oatmeal Stout":[  
-      "Mug",
-      "Pint Glass"
-   ],
-   "Sweet Stout":[  
-      "Mug",
-      "Pint Glass"
-   ],
-   "Double IPA":[  
-      "Snifter",
-      "Tulip",
-      "Oversized Wine Glass"
-   ],
-   "Biere de Garde":[  
-      "Tulip",
-      "Oversized Wine Glass"
-   ],
-   "Belgian Strong Pale Ale":[  
-      "Snifter",
-      "Tulip",
-      "Oversized Wine Glass"
-   ],
-   "Unblended":[  
-      "Flute",
-      "Stange"
-   ],
-   "Schwarzbier":[  
-      "Flute",
-      "Pilsner Glass"
-   ],
-   "Weizenbock":[  
-      "Flute",
-      "Weizen Glass"
-   ],
-   "American Pale Ale":[  
-      "Mug",
-      "Pint Glass"
-   ],
-   "Baltic Porter":[  
-      "Mug",
-      "Pint Glass"
-   ],
-   "Scotch Ale":[  
-      "Pint Glass",
-      "Snifter",
-      "Tulip"
-   ],
-   "Belgian Dark Ale":[  
-      "Snifter",
-      "Tulip",
-      "Oversized Wine Glass"
-   ],
-   "Eisbock":[  
-      "Flute",
-      "Snifter",
-      "Oversized Wine Glass"
-   ],
-   "Belgian Strong Dark Ale":[  
-      "Goblet",
-      "Snifter",
-      "Tulip",
-      "Oversized Wine Glass"
-   ],
-   "Rauchbier":[  
-      "Mug",
-      "Stange"
-   ],
-   "American Strong Ale":[  
-      "Mug",
-      "Pint Glass",
-      "Snifter"
-   ],
-   "Oud Bruin":[  
-      "Snifter",
-      "Tulip"
-   ],
-   "Gueuze":[  
-      "Flute",
-      "Snifter",
-      "Stange",
-      "Tulip"
-   ],
-   "Vienna Lager":[  
-      "Flute",
-      "Mug",
-      "Pilsner Glass"
-   ],
-   "Maibock/Helles":[  
-      "Flute",
-      "Mug",
-      "Pilsner Glass"
-   ],
-   "Brown Ale":[  
-      "Mug",
-      "Pint Glass"
-   ],
-   "Munich Dunkel":[  
-      "Flute",
-      "Pilsner Glass"
-   ],
-   "Bock":[  
-      "Flute",
-      "Mug",
-      "Pilsner Glass",
-      "Stange"
-   ],
-   "English Strong Ale":[  
-      "Mug",
-      "Pint Glass"
-   ],
-   "Light Ale":[  
-      "Pint Glass"
-   ],
-   "American Porter":[  
-      "Mug",
-      "Pint Glass"
-   ],
-   "Kolsch":[  
-      "Stange"
-   ],
-   "American Wild Ale":[  
-      "Flute",
-      "Tulip",
-      "Oversized Wine Glass"
-   ],
-   "American Stout":[  
-      "Mug",
-      "Pint Glass"
-   ],
-   "Japanese Rice Lager":[  
-      "Pilsner Glass"
-   ],
-   "English Pale Ale/Bitter":[  
-      "Mug",
-      "Pint Glass"
-   ],
-   "Marzen":[  
-      "Mug",
-      "Pint Glass"
-   ],
-   "Kristall-Weizen":[  
-      "Weizen Glass"
-   ],
-   "California Common":[  
-      "Mug",
-      "Pilsner Glass",
-      "Pint Glass"
-   ],
-   "Pumpkin Ale":[  
-      "Pint Glass"
-   ],
-   "Wheat wine":[  
-      "Snifter",
-      "Oversized Wine Glass"
-   ],
-   "Blonde Ale":[  
-      "Mug",
-      "Pint Glass"
-   ]
+{
+	"Beers": [
+		{
+			"beerName": "Biere de Champagne",
+			"glassType": [
+				"Flute"
+			]
+		},
+		{
+			"beerName": "Tripel",
+			"glassType": [
+				"Goblet",
+				"Snifter"
+			]
+		},
+		{
+			"beerName": "Imperial Stout",
+			"glassType": [
+				"Pint Glass",
+				"Snifter",
+				"Oversized Wine Glass"
+			]
+		},
+		{
+			"beerName": "European Pale Lager",
+			"glassType": [
+				"Pilsner Glass"
+			]
+		},
+		{
+			"beerName": "India Pale Ale",
+			"glassType": [
+				"Mug",
+				"Pint Glass"
+			]
+		},
+		{
+			"beerName": "Foreign Stout",
+			"glassType": [
+				"Pint Glass",
+				"Snifter"
+			]
+		},
+		{
+			"beerName": "Belgian Pale Ale",
+			"glassType": [
+				"Snifter",
+				"Tulip",
+				"Oversized Wine Glass"
+			]
+		},
+		{
+			"beerName": "Dortmunder",
+			"glassType": [
+				"Pilsner Glass"
+			]
+		},
+		{
+			"beerName": "Witbier",
+			"glassType": [
+				"Mug",
+				"Pilsner Glass",
+				"Pint Glass"
+			]
+		},
+		{
+			"beerName": "German Pilsener",
+			"glassType": [
+				"Flute",
+				"Mug",
+				"Pilsner Glass"
+			]
+		},
+		{
+			"beerName": "Sahti",
+			"glassType": [
+				"Mug",
+				"Pint Glass"
+			]
+		},
+		{
+			"beerName": "Quadrupel",
+			"glassType": [
+				"Goblet",
+				"Snifter",
+				"Tulip"
+			]
+		},
+		{
+			"beerName": "Beer",
+			"glassType": [
+				"Glass"
+			]
+		},
+		{
+			"beerName": "Amber Ale",
+			"glassType": [
+				"Mug",
+				"Pint Glass"
+			]
+		},
+		{
+			"beerName": "Winter Warmer",
+			"glassType": [
+				"Pint Glass"
+			]
+		},
+		{
+			"beerName": "Doppelbock",
+			"glassType": [
+				"Mug",
+				"Pilsner Glass"
+			]
+		},
+		{
+			"beerName": "Premium Bitter/ESB",
+			"glassType": [
+				"Mug",
+				"Pint Glass"
+			]
+		},
+		{
+			"beerName": "American Adjunct Lager",
+			"glassType": [
+				"Pilsner Glass",
+				"Pint Glass"
+			]
+		},
+		{
+			"beerName": "Keller bier",
+			"glassType": [
+				"Mug"
+			]
+		},
+		{
+			"beerName": "American Imperial Pilsner",
+			"glassType": [
+				"Pilsner Glass"
+			]
+		},
+		{
+			"beerName": "American Dark/Amber Lager",
+			"glassType": [
+				"Pilsner Glass",
+				"Pint Glass"
+			]
+		},
+		{
+			"beerName": "Mild Ale",
+			"glassType": [
+				"Mug",
+				"Pint Glass"
+			]
+		},
+		{
+			"beerName": "English Porter",
+			"glassType": [
+				"Mug",
+				"Pint Glass"
+			]
+		},
+		{
+			"beerName": "Barely wine",
+			"glassType": [
+				"Pint Glass",
+				"Snifter"
+			]
+		},
+		{
+			"beerName": "European Strong Lager",
+			"glassType": [
+				"Flute",
+				"Pilsner Glass"
+			]
+		},
+		{
+			"beerName": "Hefeweizen",
+			"glassType": [
+				"Weizen Glass"
+			]
+		},
+		{
+			"beerName": "Faro",
+			"glassType": [
+				"Flute",
+				"Stange"
+			]
+		},
+		{
+			"beerName": "Cream Ale",
+			"glassType": [
+				"Mug",
+				"Pint Glass"
+			]
+		},
+		{
+			"beerName": "Altbier",
+			"glassType": [
+				"Stange"
+			]
+		},
+		{
+			"beerName": "American Wheat Ale",
+			"glassType": [
+				"Mug",
+				"Pint Glass",
+				"Weizen Glass"
+			]
+		},
+		{
+			"beerName": "Roggenbier",
+			"glassType": [
+				"Mug"
+			]
+		},
+		{
+			"beerName": "American Pale Lager",
+			"glassType": [
+				"Pilsner Glass"
+			]
+		},
+		{
+			"beerName": "Black IPA",
+			"glassType": [
+				"Mug"
+			]
+		},
+		{
+			"beerName": "Fruit",
+			"glassType": [
+				"Flute",
+				"Mug",
+				"Pint Glass",
+				"Snifter",
+				"Stange",
+				"Tulip"
+			]
+		},
+		{
+			"beerName": "Saison",
+			"glassType": [
+				"Pint Glass",
+				"Tulip",
+				"Oversized Wine Glass"
+			]
+		},
+		{
+			"beerName": "Malt Liquor",
+			"glassType": [
+				"Mug",
+				"Pilsner Glass",
+				"Pint Glass"
+			]
+		},
+		{
+			"beerName": "Berliner Weisse",
+			"glassType": [
+				"Goblet",
+				"Pint Glass"
+			]
+		},
+		{
+			"beerName": "Dunkel-Weizen",
+			"glassType": [
+				"Weizen Glass"
+			]
+		},
+		{
+			"beerName": "European Dark Lager",
+			"glassType": [
+				"Mug",
+				"Pilsner Glass",
+				"Pint Glass"
+			]
+		},
+		{
+			"beerName": "Gose",
+			"glassType": [
+				"Stange",
+				"Weizen Glass"
+			]
+		},
+		{
+			"beerName": "Flanders Red Ale",
+			"glassType": [
+				"Flute",
+				"Snifter",
+				"Tulip"
+			]
+		},
+		{
+			"beerName": "Dubbel",
+			"glassType": [
+				"Goblet"
+			]
+		},
+		{
+			"beerName": "Old Ale",
+			"glassType": [
+				"Pint Glass",
+				"Snifter",
+				"Oversized Wine Glass"
+			]
+		},
+		{
+			"beerName": "Oatmeal Stout",
+			"glassType": [
+				"Mug",
+				"Pint Glass"
+			]
+		},
+		{
+			"beerName": "Sweet Stout",
+			"glassType": [
+				"Mug",
+				"Pint Glass"
+			]
+		},
+		{
+			"beerName": "Double IPA",
+			"glassType": [
+				"Snifter",
+				"Tulip",
+				"Oversized Wine Glass"
+			]
+		},
+		{
+			"beerName": "Biere de Garde",
+			"glassType": [
+				"Tulip",
+				"Oversized Wine Glass"
+			]
+		},
+		{
+			"beerName": "Belgian Strong Pale Ale",
+			"glassType": [
+				"Snifter",
+				"Tulip",
+				"Oversized Wine Glass"
+			]
+		},
+		{
+			"beerName": "Unblended",
+			"glassType": [
+				"Flute",
+				"Stange"
+			]
+		},
+		{
+			"beerName": "Schwarzbier",
+			"glassType": [
+				"Flute",
+				"Pilsner Glass"
+			]
+		},
+		{
+			"beerName": "Weizenbock",
+			"glassType": [
+				"Flute",
+				"Weizen Glass"
+			]
+		},
+		{
+			"beerName": "American Pale Ale",
+			"glassType": [
+				"Mug",
+				"Pint Glass"
+			]
+		},
+		{
+			"beerName": "Baltic Porter",
+			"glassType": [
+				"Mug",
+				"Pint Glass"
+			]
+		},
+		{
+			"beerName": "Scotch Ale",
+			"glassType": [
+				"Pint Glass",
+				"Snifter",
+				"Tulip"
+			]
+		},
+		{
+			"beerName": "Belgian Dark Ale",
+			"glassType": [
+				"Snifter",
+				"Tulip",
+				"Oversized Wine Glass"
+			]
+		},
+		{
+			"beerName": "Eisbock",
+			"glassType": [
+				"Flute",
+				"Snifter",
+				"Oversized Wine Glass"
+			]
+		},
+		{
+			"beerName": "Belgian Strong Dark Ale",
+			"glassType": [
+				"Goblet",
+				"Snifter",
+				"Tulip",
+				"Oversized Wine Glass"
+			]
+		},
+		{
+			"beerName": "Rauchbier",
+			"glassType": [
+				"Mug",
+				"Stange"
+			]
+		},
+		{
+			"beerName": "American Strong Ale",
+			"glassType": [
+				"Mug",
+				"Pint Glass",
+				"Snifter"
+			]
+		},
+		{
+			"beerName": "Oud Bruin",
+			"glassType": [
+				"Snifter",
+				"Tulip"
+			]
+		},
+		{
+			"beerName": "Gueuze",
+			"glassType": [
+				"Flute",
+				"Snifter",
+				"Stange",
+				"Tulip"
+			]
+		},
+		{
+			"beerName": "Vienna Lager",
+			"glassType": [
+				"Flute",
+				"Mug",
+				"Pilsner Glass"
+			]
+		},
+		{
+			"beerName": "Maibock/Helles",
+			"glassType": [
+				"Flute",
+				"Mug",
+				"Pilsner Glass"
+			]
+		},
+		{
+			"beerName": "Brown Ale",
+			"glassType": [
+				"Mug",
+				"Pint Glass"
+			]
+		},
+		{
+			"beerName": "Munich Dunkel",
+			"glassType": [
+				"Flute",
+				"Pilsner Glass"
+			]
+		},
+		{
+			"beerName": "Bock",
+			"glassType": [
+				"Flute",
+				"Mug",
+				"Pilsner Glass",
+				"Stange"
+			]
+		},
+		{
+			"beerName": "English Strong Ale",
+			"glassType": [
+				"Mug",
+				"Pint Glass"
+			]
+		},
+		{
+			"beerName": "Light Ale",
+			"glassType": [
+				"Pint Glass"
+			]
+		},
+		{
+			"beerName": "American Porter",
+			"glassType": [
+				"Mug",
+				"Pint Glass"
+			]
+		},
+		{
+			"beerName": "Kolsch",
+			"glassType": [
+				"Stange"
+			]
+		},
+		{
+			"beerName": "American Wild Ale",
+			"glassType": [
+				"Flute",
+				"Tulip",
+				"Oversized Wine Glass"
+			]
+		},
+		{
+			"beerName": "American Stout",
+			"glassType": [
+				"Mug",
+				"Pint Glass"
+			]
+		},
+		{
+			"beerName": "Japanese Rice Lager",
+			"glassType": [
+				"Pilsner Glass"
+			]
+		},
+		{
+			"beerName": "English Pale Ale/Bitter",
+			"glassType": [
+				"Mug",
+				"Pint Glass"
+			]
+		},
+		{
+			"beerName": "Marzen",
+			"glassType": [
+				"Mug",
+				"Pint Glass"
+			]
+		},
+		{
+			"beerName": "Kristall-Weizen",
+			"glassType": [
+				"Weizen Glass"
+			]
+		},
+		{
+			"beerName": "California Common",
+			"glassType": [
+				"Mug",
+				"Pilsner Glass",
+				"Pint Glass"
+			]
+		},
+		{
+			"beerName": "Pumpkin Ale",
+			"glassType": [
+				"Pint Glass"
+			]
+		},
+		{
+			"beerName": "Wheat wine",
+			"glassType": [
+				"Snifter",
+				"Oversized Wine Glass"
+			]
+		},
+		{
+			"beerName": "Blonde Ale",
+			"glassType": [
+				"Mug",
+				"Pint Glass"
+			]
+		}
+	]
 }
