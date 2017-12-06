@@ -1123,38 +1123,57 @@ d3.json("graphFile3.json", function(json) {
 
   function mouseover(){
 
-    d3.select(this).select("circle")
-    .transition()
-    .duration(50)
-    // .style("fill","#99fd17")
-    .attr("r", function(d) { 
+    var hoveredName = d3.select(this).select('text')[0][0].innerHTML;
+    var hoveredId = d3.select(this)[0][0].__data__.index;
+    var hoveredGroup = d3.select(this)[0][0].__data__.group;
 
-        if (d.group == 1){
-          return 52;
+    var glowIdList = [hoveredId];
 
-        } else if (d.group == 2){
-          return 15;
+    for(i = hoveredGroup; i > 1; i --){
+      hoveredId = json.links[hoveredId - 2].source_id;
+      glowIdList.push(hoveredId);
+    }
 
-        } else if (d.group == 3){
-          return 10;
+    console.log(glowIdList);
 
-        } else if (d.group == 4){
-          return 8;
 
-        } else if (d.group == 5){
-          return 5;
+    for(var i = 0; i < glowIdList.length; i++){
+      var selector = "[class2='" + glowIdList[i] + "']";
 
-        } else {
-          return 1;
+      d3.select(selector).select("circle")
+      .transition()
+      .duration(50)
+      .style("fill","#99fd17")
+      .attr("r", function(d) { 
 
-        }
+          if (d.group == 1){
+            return 52;
 
-      });
+          } else if (d.group == 2){
+            return 15;
 
-    d3.select(this).select("text")
-    .style("font-size","100%")
+          } else if (d.group == 3){
+            return 10;
 
- ;
+          } else if (d.group == 4){
+            return 8;
+
+          } else if (d.group == 5){
+            return 5;
+
+          } else {
+            return 1;
+
+          }
+        });
+
+      d3.select(selector).select("text")
+      .transition()
+      .duration(50)
+      .style("font-size","100%")
+
+      }
+
   }
 
 
@@ -1193,15 +1212,9 @@ d3.json("graphFile3.json", function(json) {
 
       })
 
-    d3.select(this).select("text")
+    d3.select(".networkgraph").selectAll("text")
     .style("font-size","10px")
 
-
-
-
-
-
-    ;
   }
 
   node.append("circle")
