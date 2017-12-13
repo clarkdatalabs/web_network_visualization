@@ -19,4 +19,15 @@ for a in lines:
     else:
         storeJSON[a[1]].append(a[2])
 
-print storeJSON
+# print storeJSON
+
+lst = []
+
+for a in storeJSON:
+    # print a
+    d = {}
+    d["beerName"] = a
+    d["glassType"] = storeJSON[a]
+    lst.append(d)
+
+print lst

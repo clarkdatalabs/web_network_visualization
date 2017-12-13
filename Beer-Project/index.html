@@ -199,6 +199,10 @@ $(window).scroll(function() {
 
 
 <head>
+
+
+
+
 <title>The Very Many Varieties of Beer</title>
 </head>
 
@@ -338,7 +342,6 @@ $(window).scroll(function() {
     <p style="font-size: 12px; margin: auto auto auto auto">https://www.pastemagazine.com/blogs/lists/2015/03/10-proper-glass-styles-for-your-favorite-beers.html</p>
 
 
-    
 
   </section>
 
@@ -564,6 +567,8 @@ var force = d3.layout.force()
     .charge(-100)
     .size([width, height]);
 
+
+
 d3.json("graphFile3.json", function(json) {
 
   json.links.forEach(function(d){
@@ -586,6 +591,13 @@ d3.json("graphFile3.json", function(json) {
       .data(json.nodes)
     .enter().append("g")
       .attr("class", "node")
+      .attr("glassTypes", function(d){
+        if(typeof d.glassType !== 'undefined'){
+          return d.glassType;
+        }
+        return 'none';
+      })
+
       .attr("class2", function(d){
         return d.source_id;
       })
@@ -595,526 +607,96 @@ d3.json("graphFile3.json", function(json) {
       .call(force.drag);
 
 
-  svg2.append("image")
-      .attr("xlink:href", function(d) { return "beer-glasses-icons/snifter.png"; })
-      .attr("class", "snifterr")
-      .attr("x", "15px")
-      .attr("y", "0px")
+
+  var glassIcons = [ 
+
+  ["snifter", "Snifter"],
+  ["flute", "Flute"],
+  ["stange", "Stange"],
+  ["tulip", "Tulip"],
+  ["oversized", "Oversized Wine"],
+  ["mug", "Mug"],
+  ["goblet", "Goblet"],
+  ["pint", "Pint Glass"],
+  ["weizen", "Weizen Glass"],
+  ["pilsner", "Pilsner Glass"]
+
+  ]
+
+
+  var counter = 0
+  var x = 15
+  var y = 0
+
+  for (glass in glassIcons){
+
+    if (counter <= 4){
+      y = counter * 145
+    }
+    else{
+      x = 115;
+      y = 0
+      counter = 0;
+    }
+    counter ++;
+
+
+    svg2.append("image")
+      .attr("xlink:href", function(d) { return "beer-glasses-icons/" + glassIcons[glass][0] + ".png"; })
+      .attr("class", glassIcons[glass][0])
+      .attr("x", x)
+      .attr("y", y)
       .attr("width", "100px")
       .attr("height", "100px")
-      .on("mouseover", mouseoverSnifter)
+      .on("mouseover", mouseoverGlass)
       .on("mouseout", mouseout);
 
-  svg2.append("image")
-      .attr("xlink:href", function(d) { return "beer-glasses-icons/flute.png"; })
-      .attr("class", "flutee")
-      .attr("x", "15px")
-      .attr("y", "115px")
-      .attr("width", "100px")
-      .attr("height", "100px")
-      .on("mouseover", mouseoverFlute)
-      .on("mouseout", mouseout);
-
-  svg2.append("image")
-      .attr("xlink:href", function(d) { return "beer-glasses-icons/stange.png"; })
-      .attr("class", "stangee")
-      .attr("x", "15px")
-      .attr("y", "230px")
-      .attr("width", "100px")
-      .attr("height", "100px")
-      .on("mouseover", mouseoverStange)
-      .on("mouseout", mouseout);
-
-  svg2.append("image")
-      .attr("xlink:href", function(d) { return "beer-glasses-icons/tulip.png"; })
-      .attr("class", "tulipp")
-      .attr("x", "15px")
-      .attr("y", "345px")
-      .attr("width", "100px")
-      .attr("height", "100px")
-      .on("mouseover", mouseoverTulip)
-      .on("mouseout", mouseout);;
-
-  svg2.append("image")
-      .attr("xlink:href", function(d) { return "beer-glasses-icons/oversizedwine.png"; })
-      .attr("class", "oversizedwinee")
-      .attr("x", "15px")
-      .attr("y", "460px")
-      .attr("width", "100px")
-      .attr("height", "100px")
-      .on("mouseover", mouseoverOversizewine)
-      .on("mouseout", mouseout);;
-
-  svg2.append("image")
-      .attr("xlink:href", function(d) { return "beer-glasses-icons/mug.png"; })
-      .attr("class", "mugg")
-      .attr("x", "115px")
-      .attr("y", "0px")
-      .attr("width", "100px")
-      .attr("height", "100px")
-      .on("mouseover", mouseoverMug)
-      .on("mouseout", mouseout);;
-
-  svg2.append("image")
-      .attr("xlink:href", function(d) { return "beer-glasses-icons/goblet.png"; })
-      .attr("class", "goblett")
-      .attr("x", "115px")
-      .attr("y", "115px")
-      .attr("width", "100px")
-      .attr("height", "100px")
-      .on("mouseover", mouseoverGoblet)
-      .on("mouseout", mouseout);;
-
-  svg2.append("image")
-      .attr("xlink:href", function(d) { return "beer-glasses-icons/pint.png"; })
-      .attr("class", "pintt")
-      .attr("x", "115px")
-      .attr("y", "230px")
-      .attr("width", "100px")
-      .attr("height", "100px")
-      .on("mouseover", mouseoverPint)
-      .on("mouseout", mouseout);;
-
-  svg2.append("image")
-      .attr("xlink:href", function(d) { return "beer-glasses-icons/weizen.png"; })
-      .attr("class", "weizenn")
-      .attr("x", "115px")
-      .attr("y", "345px")
-      .attr("width", "100px")
-      .attr("height", "100px")
-      .on("mouseover", mouseoverWeizen)
-      .on("mouseout", mouseout);;
-
-  svg2.append("image")
-      .attr("xlink:href", function(d) { return "beer-glasses-icons/pilsner.png"; })
-      .attr("class", "pilsnerr")
-      .attr("x", "115px")
-      .attr("y", "460px")
-      .attr("width", "100px")
-      .attr("height", "100px")
-      .on("mouseover", mouseoverPilsner)
-      .on("mouseout", mouseout);;
-
-
-
-
-
-  Allglasses = d3.selectAll(".glass")
-
-
-
-  function mouseoverSnifter(){
-
     svg2.append("text")
-    .attr("class", "glassName")
-    .text("Snifter")
-    .attr("x", "35px")
-    .attr("y", "650px")
-    .style("fill", "black")
-    .style("font-size","75px")
+      .text(glassIcons[glass][1])
+      .attr("x", x + 0)
+      .attr("y", y + 115)
+      .style("fill", "black")
+      .style("font-size","12px")
+      .style("font-weight", "bold")
+
+  }
 
 
-    var str1 = "."
-    var lst = [
-    "American.Strong.Ale",
-    "Barely.wine",
-    "Belgian.Dark.Ale",
-    "Belgian.Pale.Ale",
-    "Belgian.Strong.Dark.Ale",
-    "Belgian.Strong.Pale.Ale",
-    "Double.IPA",
-    "Eisbock",
-    "Flanders.Red.Ale",
-    "Foreign.Stout",
-    "Fruit",
-    "Gueuze",
-    "Imperial.Stout",
-    "Old.Ale",
-    "Oud.Bruin",
-    "Quadrupel",
-    "Scotch Ale",
-    "Tripel",
-    "Wheat.wine"
-    ]
 
-    for (var i = 0; i < lst.length; i++) {
-      d3.selectAll("circle").filter(str1.concat(lst[i]))
+
+  function mouseoverGlass(){
+    var glassesString = d3.select(this).attr("class")
+    console.log(glassesString)
+
+
+    d3.selectAll("g.node[glassTypes*="+ glassesString +" i]").select("circle")
       .style("fill","#99fd17")
       .transition()
       .duration(50)
       .attr("r", 10)
-    }
-
-
 
   }
 
-  function mouseoverFlute(){
-
-    svg2.append("text")
-    .attr("class", "glassName")
-    .text("Flute")
-    .attr("x", "35px")
-    .attr("y", "650px")
-    .style("fill", "black")
-    .style("font-size","75px")
 
 
-    var str1 = "."
-    var lst = [
-    "American.Wild.Ale",
-    "Biere.de.Champagne",
-    "Bock",
-    "Eisbock",
-    "European.Strong.Lager",
-    "Faro",
-    "Flanders.Red.Ale",
-    "Fruit",
-    "German.Pilsener",
-    "Gueuze",
-    "Maibock",
-    "Munich.Dunkel",
-    "Schwarzbier",
-    "Unblended",
-    "Vienna.Lager",
-    "Weizenbock"
-    ]
 
-    for (var i = 0; i < lst.length; i++) {
-      d3.selectAll("circle").filter(str1.concat(lst[i]))
-      .style("fill","#99fd17")
-      .transition()
-      // .duration(50)
-      .attr("r", 10)
-    }
+  function click(){
 
-  }
+    // RETRIEVES THE BEER GLASS STRING FROM THE NODE
 
-  function mouseoverWeizen(){
-
-    svg2.append("text")
-    .attr("class", "glassName")
-    .text("Weizen")
-    .attr("x", "35px")
-    .attr("y", "650px")
-    .style("fill", "black")
-    .style("font-size","75px")
-
-    var str1 = "."
-    var lst = [
-    "American Wheat Ale",
-    "Dunkel",
-    "Gose",
-    "Hefeweizen",
-    "Weizen",
-    "Weizenbock"
-    ]
-
-    for (var i = 0; i < lst.length; i++) {
-      d3.selectAll("circle").filter(str1.concat(lst[i]))
-      .style("fill","#99fd17")
-      .transition()
-      .duration(50)
-      .attr("r", 10)
-    }
-
-  }
-
-  function mouseoverStange(){
-    svg2.append("text")
-    .attr("class", "glassName")
-    .text("Stange")
-    .attr("x", "35px")
-    .attr("y", "650px")
-    .style("fill", "black")
-    .style("font-size","75px")
-
-    var str1 = "."
-    var lst = [
-    "Altbier",
-    "Bock",
-    "Faro",
-    "Fruit",
-    "Gose",
-    "Gueuze",
-    "Kolsch",
-    "Rauchbier",
-    "Unblended"
-    ]
-
-    for (var i = 0; i < lst.length; i++) {
-      d3.selectAll("circle").filter(str1.concat(lst[i]))
-      .style("fill","#99fd17")
-      .transition()
-      .duration(50)
-      .attr("r", 10)
-    }
-
-  }
-
-  function mouseoverTulip(){
-    svg2.append("text")
-    .attr("class", "glassName")
-    .text("Tulip")
-    .attr("x", "35px")
-    .attr("y", "650px")
-    .style("fill", "black")
-    .style("font-size","75px")
+    var glassesString = d3.select(this).attr("glassTypes")
+    // console.log(glassesString)
 
 
-    var str1 = "."
-    var lst = [
-    "American.Wild.Ale",
-    "Belgian.Dark",
-    "Belgian.Pale.Ale",
-    "Belgian.Strong.Dark.Ale",
-    "Belgian.Strong.Pale.Ale",
-    "Biere.de.Garde",
-    "Double.IPA",
-    "Flanders.Red.Ale",
-    "Fruit",
-    "Gueuze",
-    "Oud.Bruin",
-    "Quadrupel",
-    "Saison",
-    "Scotch.Ale"
-    ]
+    //CREATE LIST FROM STRING AND BREAK STRING ON EVERY PIPE
+    var beerGlassList = glassesString.split('|')
+    console.log(beerGlassList)
 
-    for (var i = 0; i < lst.length; i++) {
-      d3.selectAll("circle").filter(str1.concat(lst[i]))
-      .style("fill","#99fd17")
-      .transition()
-      .duration(50)
-      .attr("r", 10)
-    }
+    for (beer in beerGlassList){
+      d3.selectAll("image").filter("."+"mug")
+      .attr("width", "110px")
+      .attr("height", "110px")
 
-  }
-
-  function mouseoverOversizewine(){
-    svg2.append("text")
-    .attr("class", "glassName")
-    .text("Oversized Wine Glass")
-    .attr("x", "35px")
-    .attr("y", "650px")
-    .style("fill", "black")
-    .style("font-size","75px")
-
-
-    var str1 = "."
-    var lst = [
-    "American.Wild.Ale",
-    "Belgian.Dark.Ale",
-    "Belgian.Pale.Ale",
-    "Belgian.Strong.Dark.Ale",
-    "Belgian.Strong.Pale.Ale",
-    "Biere.de.Garde",
-    "Double.IPA",
-    "Eisbock",
-    "Imperial.Stout",
-    "Old.Ale",
-    "Saison",
-    "Wheat.wine"
-    ]
-
-    for (var i = 0; i < lst.length; i++) {
-      d3.selectAll("circle").filter(str1.concat(lst[i]))
-      .style("fill","#99fd17")
-      .transition()
-      .duration(50)
-      .attr("r", 10)
-    }
-
-  }
-
-  function mouseoverMug(){
-    svg2.append("text")
-    .attr("class", "glassName")
-    .text("Strouter Mug")
-    .attr("x", "35px")
-    .attr("y", "650px")
-    .style("fill", "black")
-    .style("font-size","75px")
-
-
-    var str1 = "."
-    var lst = [
-    "Amber.Ale",
-    "American.Pale.Ale",
-    "American.Porter",
-    "American.Stout",
-    "American.Strong.Ale",
-    "American.Wheat.Ale",
-    "Baltic.Porter",
-    "Black.IPA",
-    "Blonde.Ale",
-    "Bock",
-    "Brown.Ale",
-    "California.Common",
-    "Cream.Ale",
-    "Doppelbock",
-    "English.Pale.Ale",
-    "English.Porter",
-    "English.Strong.Ale",
-    "European.Dark.Lager",
-    "Fruit",
-    "German.Pilsener",
-    "India.Pale.Ale",
-    "Keller.bier",
-    "Helles",
-    "Malt.Liquor",
-    "Marzen",
-    "Mild.Ale",
-    "Oatmeal.Stout",
-    "ESB",
-    "Rauchbier",
-    "Roggenbier",
-    "Sahti",
-    "Sweet.Stout",
-    "Vienna.Lager",
-    "Witbier"
-    ]
-
-    for (var i = 0; i < lst.length; i++) {
-      d3.selectAll("circle").filter(str1.concat(lst[i]))
-      .style("fill","#99fd17")
-      .transition()
-      .duration(50)
-      .attr("r", 10)
-    }
-
-  }
-
-  function mouseoverGoblet(){
-    svg2.append("text")
-    .attr("class", "glassName")
-    .text("Goblet")
-    .attr("x", "35px")
-    .attr("y", "650px")
-    .style("fill", "black")
-    .style("font-size","75px")
-
-
-    var str1 = "."
-    var lst = [
-    "Belgian.Strong.Dark.Ale",
-    "Berliner.Weisse",
-    "Dubbel",
-    "Quadrupel",
-    "Tripel"
-    ]
-
-    for (var i = 0; i < lst.length; i++) {
-      d3.selectAll("circle").filter(str1.concat(lst[i]))
-      .style("fill","#99fd17")
-      .transition()
-      .duration(50)
-      .attr("r", 10)
-    }
-
-  }
-
-  function mouseoverPint(){
-    svg2.append("text")
-    .attr("class", "glassName")
-    .text("Pint")
-    .attr("x", "35px")
-    .attr("y", "650px")
-    .style("fill", "black")
-    .style("font-size","75px")
-
-
-    var str1 = "."
-    var lst = [
-    "Amber.Ale",
-    "American.Adjunct.Lager",
-    "American.Dark",
-    "American.Pale.Ale",
-    "American.Porter",
-    "American.Stout",
-    "American.Strong.Ale",
-    "American.Wheat.Ale",
-    "Baltic.Porter",
-    "Barely.Wine",
-    "Berliner.Weisse",
-    "Blonde.Ale",
-    "Brown.Ale",
-    "California.Common",
-    "Cream.Ale",
-    "Bitter",
-    "English.Porter",
-    "English.Strong.Ale",
-    "European.Dark.Lager",
-    "Foreign.Stout",
-    "Fruit",
-    "Imperial.Stout",
-    "India.Pale.Ale",
-    "Light.Ale",
-    "Malt.Liquor",
-    "Marzen",
-    "Mild.Ale",
-    "Oatmeal.Stout",
-    "Old.Ale",
-    "ESB",
-    "Pumpkin.Ale",
-    "Sahti",
-    "Saison",
-    "Scotch.Ale",
-    "Sweet.Stout",
-    "Winter.Warmer",
-    "Witbier"
-    ]
-
-    for (var i = 0; i < lst.length; i++) {
-      d3.selectAll("circle").filter(str1.concat(lst[i]))
-      .style("fill","#99fd17")
-      .transition()
-      .duration(50)
-      .attr("r", 10)
-    }
-
-  }
-
-  function mouseoverPilsner(){
-     svg2.append("text")
-    .attr("class", "glassName")
-    .text("Pilsner")
-    .attr("x", "35px")
-    .attr("y", "650px")
-    .style("fill", "black")
-    .style("font-size","75px")
-
-
-    var str1 = "."
-    var lst = [
-
-    "American.Imperial.Pilsner",
-    "American.Adjunct.Lager",
-    "Pilsner",
-    "American.Pale.Lager",
-    "Bock",
-    "California.Common",
-    "Doppelbock",
-    "Dortmunder",
-    "European.Dark.Lager",
-    "European.Pale.Lager",
-    "European.Strong.Lager",
-    "German.Pilsener",
-    "Japanese Rice Lager",
-    "Helles",
-    "Malt.Liquor",
-    "Munich.Dunkel",
-    "Schwarzbier",
-    "Vienna.Lager",
-    "Witbier"
-
-    ]
-
-    for (var i = 0; i < lst.length; i++) {
-      d3.selectAll("circle").filter(str1.concat(lst[i]))
-      .style("fill","#99fd17")
-      .transition()
-      .duration(50)
-      .attr("r", 10)
     }
 
   }
@@ -1123,57 +705,46 @@ d3.json("graphFile3.json", function(json) {
 
   function mouseover(){
 
-    var hoveredName = d3.select(this).select('text')[0][0].innerHTML;
-    var hoveredId = d3.select(this)[0][0].__data__.index;
-    var hoveredGroup = d3.select(this)[0][0].__data__.group;
 
-    var glowIdList = [hoveredId];
+    d3.select(this).select("circle")
+    .transition()
+    .duration(50)
+    .style("fill","#99fd17")
+    .attr("r", function(d) { 
 
-    for(i = hoveredGroup; i > 1; i --){
-      hoveredId = json.links[hoveredId - 2].source_id;
-      glowIdList.push(hoveredId);
-    }
+        if (d.group == 1){
+          return 52;
 
-    console.log(glowIdList);
+        } else if (d.group == 2){
+          return 15;
+
+        } else if (d.group == 3){
+          return 10;
+
+        } else if (d.group == 4){
+          return 8;
+
+        } else if (d.group == 5){
+          return 5;
+
+        } else {
+          return 1;
+
+        }
+
+      });
+
+ 
+
+    d3.select(this).select("text")
+    .style("font-size","100%")
 
 
-    for(var i = 0; i < glowIdList.length; i++){
-      var selector = "[class2='" + glowIdList[i] + "']";
+    var NodeBeerName = d3.select(this).select("text")
 
-      d3.select(selector).select("circle")
-      .transition()
-      .duration(50)
-      .style("fill","#99fd17")
-      .attr("r", function(d) { 
 
-          if (d.group == 1){
-            return 52;
 
-          } else if (d.group == 2){
-            return 15;
-
-          } else if (d.group == 3){
-            return 10;
-
-          } else if (d.group == 4){
-            return 8;
-
-          } else if (d.group == 5){
-            return 5;
-
-          } else {
-            return 1;
-
-          }
-        });
-
-      d3.select(selector).select("text")
-      .transition()
-      .duration(50)
-      .style("font-size","100%")
-
-      }
-
+ ;
   }
 
 
@@ -1212,9 +783,15 @@ d3.json("graphFile3.json", function(json) {
 
       })
 
-    d3.select(".networkgraph").selectAll("text")
+    d3.select(this).select("text")
     .style("font-size","10px")
 
+
+
+
+
+
+    ;
   }
 
   node.append("circle")
