@@ -576,24 +576,52 @@
 
     ]
 
+  var beerColors = ["#5F1C13", "#F8D574", "#E68A3C", "#E68A3C", "#28130F", "#F1B543", "#2b120e", "#4d140e", "#F8D473", "#fbb612"]
 
-    var counter = 0
-    var x = 15
-    var y = 0
 
-    for (glass in glassIcons){
+  var counter = 0
+  var colorCounter = 0
+  var x = 15
+  var y = 0
 
-      if (counter <= 4){
-        y = counter * 145
-      }
-      else{
-        x = 115;
-        y = 0
-        counter = 0;
-      }
-      counter ++;
+  for (glass in glassIcons){
 
-// why galssIcons[glass]?
+    if (counter <= 4){
+      y = counter * 145
+    }
+    else{
+      x = 115;
+      y = 0
+      counter = 0;
+    }
+    counter++;
+
+    //append beer color rectangle first in order to be behind the icon
+    svg2.append("rect")
+      .attr("x", x + 5)
+      .attr("y", y + 5)
+      .attr("width", "95px")
+      .attr("height", "95px")
+      .attr("fill", beerColors[colorCounter])
+      .attr("class", glassIcons[glass][0] + "beercolor")
+      .on("mouseover", mouseoverGlass)
+      .on("mouseout", mouseout);
+
+    //append white rectangle to cover colored rect
+    svg2.append("rect")
+      .attr("x", x + 5)
+      .attr("y", y + 5)
+      .attr("width", "95px")
+      .attr("height", "95px")
+      .attr("fill", "#ffffff")
+      .attr("class", glassIcons[glass][0] + "whiterect")
+      .on("mouseover", mouseoverGlass)
+      .on("mouseout", mouseout);
+
+      colorCounter++;
+
+
+
       svg2.append("image")
         .attr("xlink:href", function(d) { return "beer-glasses-icons/" + glassIcons[glass][0] + ".png"; })
         .attr("class", glassIcons[glass][0])
@@ -629,6 +657,11 @@
         .duration(50)
         .attr("r", 10)
 
+      // d3.select(this).select("rect")
+      //   .transition()
+      //   .duration(300)
+      //   .attr("height", "90px")
+
 
     }
 
@@ -636,7 +669,7 @@
 
 
     function click(){
-      //Click to exaggerate the glass
+      //Click to fill up the glass
         // RETRIEVES THE BEER GLASS STRING FROM THE NODE
 
         var glassesString = d3.select(this).attr("glassTypes")
@@ -646,9 +679,12 @@
         var beerGlassList = glassesString.split('|')
 
         for (beer in beerGlassList){
-          d3.selectAll("image").filter("."+ beerGlassList[beer].split(' ')[0].toLowerCase())
-          .attr("width", "110px")
-          .attr("height", "110px")
+          d3.selectAll("rect").filter("."+ beerGlassList[beer].split(' ')[0].toLowerCase() + "whiterect")
+          .transition()
+          .duration(900)
+          .attr("height", "5px")
+
+
         }
 
       //Click to light up all ancestrous points
@@ -753,10 +789,11 @@
 
 
     function mouseout(){
-      // Return galsses to normal
-        d3.selectAll("image")
-            .attr("width", "100px")
-            .attr("height", "100px")
+      // Return glasses to normal
+      d3.selectAll("rect")
+        .transition()
+        .duration(900)
+        .attr("height", "95px")
 
       // Retuen nodes(circles and texts) to normal
       d3.selectAll(".glassName").remove()
