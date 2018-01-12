@@ -156,339 +156,47 @@
 </head>
 
 <body>
-  <!-- function and effects about nav bar -->
-  <script type="text/javascript">
-    window.onload=function(){
-      //click to scroll to certain place and have different style
-      $('nav a').on('click', function() {
 
-        var scrollAnchor = $(this).attr('data-scroll'),
-            scrollPoint = $('section[data-anchor="' + scrollAnchor + '"]').offset().top - 35;
 
-        $('body,html').animate({
-            scrollTop: scrollPoint
-        }, 500);
 
-        return false;
-      })
-
-      //style of nav bar changes according to the scolled place
-      $(window).scroll(function() {
-          var windscroll = $(window).scrollTop();
-          if (windscroll >= 50) {
-              $('nav').addClass('fixed');
-              $('.wrapper section').each(function(i) {
-                  if ($(this).position().top <= windscroll + 35) {
-                      $('nav a.active').removeClass('active');
-                      $('nav a').eq(i).addClass('active');
-                  }
-              });
-
-          } else {
-              $('nav').removeClass('fixed');
-              $('nav a.active').removeClass('active');
-              $('nav a:first').addClass('active');
-          }
-      });
-    }
-  </script>
-
-  <nav>
-    <a href="#" data-scroll="top">Beer Family</a>
-    <a href="#" data-scroll="WhichGlass">Glasses</a>
-  </nav>
 
   <!-- HTML FOR STRUCTURE IS INSIDE THIS WRAPPER -->
   <div class="wrapper">
 
-    <section id="top" data-anchor="top">
 
-      <h1>The Very Many Varieties of Beer</h1>
-
-        <p>Perhaps you've been known to enjoy a pint or two, but let's be honest, between all that Guinness and red ale, do you know what you're really imbibing?</p>
-
-
-        <p>It's true that unless you're a science fiend, home brewer or brewing aficionado, it can be confusing to wrap your head around the different beer varieties — especially since they're all made of water, malted barley, yeast, and hops. For the most part, beer can be broken down into two major categories: Lagers and Ales.</p>
-
-        <p>According to AllAboutBeer.com, “Beer” refers to any fermented beverage made from grain. <b>Lagers and ales are the two families of beer</b>, distinguished by the type of yeast and the temperature of fermentation. Lagers are fermented at cooler temperatures by so-called “bottom fermenting” yeast. Beers in the lager family need to be conditioned—or “lagered”—somewhere cool for a number of weeks before they are ready to drink. Ales are fermented at warmer temperature by top-fermenting yeast strains, and are ready to drink sooner.</p>
-
-        <div class="instructions">
-          <h3>Click on a either Ale or Lager to find out how beers are related</h3>
-        </div>
-
-        <div class="tree">
-        </div>
-    </section>
 
     <section id="WhichGlass" data-anchor="WhichGlass">
-
-      <h1 style="padding-top: 50px">Which Glass?</h1>
-
-      <p>The shape of a beer glass affects the formation and retention of head and in turn the foam acts as a net of sorts for the beer’s volatiles: compounds—including hop oils, spices, and fermentation byproducts—that evaporate from beer and give it its aroma. That means that a healthy head of foam can help retain volatiles, and using different glassware allows for different levels of head retention, which in turn affects the aroma of your drink.</p>
-
-
-
-
       <div class="glasses" style="padding-bottom: 200px">
-
-        <div class="glassinfo">
-          <img class="glassicon" src="beer-glasses-icons/11.png" alt="Stange" height="9%" width="9%">
-          <p>The <b>stange</b> is a tall, slim, up-and-down glass, and traditionally German style that allows for a tighter concentration of volatiles. This is a good style for more delicate varieties. </p>
-        </div>
-
-        <div class="glassinfo">
-          <img class="glassicon" src="beer-glasses-icons/28.png" alt="Mug" height="12%" width="12%">
-
-          <p>This familiar handled glass makes for easy drinking and allows for plenty of volume, and helps to keep your beer stay cold longer because your hand isn’t directly on the glass. A tankard <b>mug</b> has a thick bottom and straight sides, and the stouter krug mug is curved with a dimpled surface.</p>
-        </div>
-
-        <div class="glassinfo">
-          <img class="glassicon" src="beer-glasses-icons/3.png" alt="Pint Glass" height="9%" width="9%">
-          <p>A shaker, or <b>American pint glass</b>, is tapered with straight sides, and a nonic or British pint has a curved notch about two inches from the rim that makes for easier gripping. An imperial or Irish pint is tapered and curved from the middle up, and usually used for porters and Irish stouts.</p>
-        </div>
-
-        <div class="glassinfo">
-          <img class="glassicon" src="beer-glasses-icons/10.png" alt="Pilsner Glass" height="9%" width="9%">
-          <p>This tall glass showcases carbonation and color, but helps the beer retain its head and enhances its volatiles. It’s the right choice for paler lagers with a lot of carbonation, and unlike a weizen, a true <b>pilsner glass</b> has no curvature.</p>
-        </div>
-
-        <div class="glassinfo">
-          <img class="glassicon" src="beer-glasses-icons/12.png" alt="Snifter" height="9%" width="9%">
-          <p>More commonly associated with brandy, a <b>snifter glass</b> is a good choice for capturing and enhancing aromas and volatiles, making it a solid choice for stronger varieties. You can also swirl these glasses around to release aromas.</p>
-        </div>
-
-        <div class="glassinfo">
-          <img class="glassicon" src="beer-glasses-icons/7.png" alt="Weizen Glass" height="9%" width="9%">
-          <p>The <b>Weizen</b> glass shape, long and widening at the top, is designed for head and volume. It also helps maintain the beer’s aroma. This variety shows off the color and head of wheat beers well, while trapping the sediment often found in them at the narrow bottom of the glass.</p>
-        </div>
-
-        <div class="glassinfo">
-          <img class="glassicon" src="beer-glasses-icons/17.png" alt="Flute" height="9%" width="9%">
-          <p>Just as with champagne, a <b>flute glass</b> enhances and showcases carbonation in a beer. It also allows for the quicker release of volatiles, resulting in a more intense aroma.</p>
-        </div>
-
-        <div class="glassinfo">
-          <img class="glassicon" src="beer-glasses-icons/18.png" alt="Tulip" height="9%" width="9%">
-          <p>With this curvy shape, you get to have a big foamy head while volatiles are captured and enhanced. <b>Tulips</b> are preferred for strong brews or high-gravity beers like tripels and quads.</p>
-        </div>
-
-        <div class="glassinfo">
-          <img class="glassicon" src="beer-glasses-icons/31.png" alt="Oversized Wine Glass" height="12%" width="12%">
-          <p>Yes, a wine glass—a big one. A 22-ounce <b>oversized wine glass</b> is actually great for serving Belgian ales. It can also make do where you might use a tulip or goblet, if you don’t have one on hand.</p>
-        </div>
-
-        <div class="glassinfo">
-          <img class="glassicon" src="beer-glasses-icons/13.png" alt="Goblet" height="9%" width="9%">
-          <p>The wide-mouthed glass is designed to help a beer maintain head, and allows the drinker to take deep sips. <b>Goblets</b> are more delicate, with a longer stem, while chalices are heavier and have thicker walls. Some are scored inside to maintain a certain level of head at the top.</p>
-        </div>
-
         <div class="instructions">
-
           <h3>Hover over each glass below to learn which beer corresponds to it</h3>
         </div>
       </div>
     </section>
 
-    <section class="sources" style="color: #bcbcbc; padding-bottom: 50px;">
-      <h1 style="padding-top: 20px;  font-size: 20px">Sources</h1>
 
-      <p style="font-size: 12px; margin: auto auto auto auto">http://www.foxnews.com/food-drink/2014/02/07/all-different-types-beers-explained.html</p>
-      <p style="font-size: 12px; margin: auto auto auto auto">https://learn.kegerator.com/beer-glasses</p>
-      <p style="font-size: 12px; margin: auto auto auto auto">https://www.pastemagazine.com/blogs/lists/2015/03/10-proper-glass-styles-for-your-favorite-beers.html</p>
-    </section>
 
   </div>
-
-  <!-- D3 FOR FAMILY TREE -->
-  <script>
-
-    var margin = {top: 20, right: 120, bottom: 20, left: 120},
-        width = 1360 - margin.right - margin.left,
-        height = 500 - margin.top - margin.bottom;
-
-    var i = 0,
-        duration = 750,
-        root;
-
-    var tree = d3.layout.tree()
-        .size([height, width]);
-
-    var diagonal = d3.svg.diagonal()
-        .projection(function(d) { return [d.y, d.x]; });
-
-    var svg = d3.select("body").selectAll("div.tree").append("svg")
-        .attr("width", width + margin.right + margin.left)
-        .attr("height", height + margin.top + margin.bottom)
-      .append("g")
-        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-    d3.json("flare2.json", function(error, flare) {
-      if (error) throw error;
-
-      root = flare;
-      root.x0 = height / 2;
-      root.y0 = 0;
-
-      function collapse(d) {
-        if (d.children) {
-          d._children = d.children;
-          d._children.forEach(collapse);
-          d.children = null;
-        }
-      }
-
-      root.children.forEach(collapse);
-      update(root);
-    });
-
-    d3.select(self.frameElement).style("height", "800px");
-
-    function update(source) {
-
-      // Compute the new tree layout.
-      var nodes = tree.nodes(root).reverse(),
-          links = tree.links(nodes);
-
-      // Normalize for fixed-depth.
-      nodes.forEach(function(d) { d.y = d.depth * 180; });
-
-      // Update the nodes…
-      var node = svg.selectAll("g.node")
-          .data(nodes, function(d) { return d.id || (d.id = ++i); });
-
-      // Enter any new nodes at the parent's previous position.
-      var nodeEnter = node.enter().append("g")
-          .attr("class", "node")
-          .attr("transform", function(d) { return "translate(" + source.y0 + "," + source.x0 + ")"; })
-          .on("click", click);
-
-      nodeEnter.append("circle")
-          .attr("class", "tree")
-          .attr("r", 1e-6)
-          .style("fill", function(d) { return d._children ? "lightsteelblue" : "#fff"; });
-
-      nodeEnter.append("text")
-          .attr("x", function(d) { return d.children || d._children ? -10 : 10; })
-          .attr("dy", ".35em")
-          .attr("text-anchor", function(d) { return d.children || d._children ? "end" : "start"; })
-          .text(function(d) { return d.name; })
-          .style("fill-opacity", function(d){
-            if (d.beer == 1){
-              return .1;
-            } else{
-              return 1e-6;
-
-            }
-
-          }
-            )
-
-          ;
-
-      // Transition nodes to their new position.
-      var nodeUpdate = node.transition()
-          .duration(duration)
-          .attr("transform", function(d) { return "translate(" + d.y + "," + d.x + ")"; });
-
-      nodeUpdate.select("circle")
-          .attr("r", 4.5)
-          .style("fill", function(d) {
-            if (d.beer == 1){
-              return "#aa9663"
-            } else{
-              return d._children ? "lightsteelblue" : "#fff"; }
-
-            }
-            )
-          .style("stroke", function(d) {
-            if (d.beer == 1){
-              return "#645326"
-            } else{
-              return "steelblue"; }
-
-            }
-            )
-          ;
-
-      nodeUpdate.select("text")
-          .style("fill-opacity", 1)
-          .style("fill", function(d){
-            if (d.beer == 1){
-              return "#645326";
-            } else{
-              return "black";
-            }
-          })
-          ;
-
-      // Transition exiting nodes to the parent's new position.
-      var nodeExit = node.exit().transition()
-          .duration(duration)
-          .attr("transform", function(d) { return "translate(" + source.y + "," + source.x + ")"; })
-          .remove();
-
-      nodeExit.select("circle")
-          .attr("r", 1e-6);
-
-      nodeExit.select("text")
-          .style("fill-opacity", 1e-6);
-
-      // Update the links…
-      var link = svg.selectAll("path.link")
-          .data(links, function(d) { return d.target.id; });
-
-      // Enter any new links at the parent's previous position.
-      link.enter().insert("path", "g")
-          .attr("class", "link")
-          .attr("d", function(d) {
-            var o = {x: source.x0, y: source.y0};
-            return diagonal({source: o, target: o});
-          });
-
-      // Transition links to their new position.
-      link.transition()
-          .duration(duration)
-          .attr("d", diagonal);
-
-      // Transition exiting nodes to the parent's new position.
-      link.exit().transition()
-          .duration(duration)
-          .attr("d", function(d) {
-            var o = {x: source.x, y: source.y};
-            return diagonal({source: o, target: o});
-          })
-          .remove();
-
-      // Stash the old positions for transition.
-      nodes.forEach(function(d) {
-        d.x0 = d.x;
-        d.y0 = d.y;
-      });
-    }
-
-    // Toggle children on click.
-    function click(d) {
-      if (d.children) {
-        d._children = d.children;
-        d.children = null;
-      } else {
-        d.children = d._children;
-        d._children = null;
-      }
-      update(d);
-    }
-  </script>
 
 
   <!-- D3 FOR NETWORK OF BEER AND GLASSES -->
   <script>
     //set up the artboard for visualization
     var width = 1460,
-        height = 700
-    var svg2 = d3.select("body").selectAll("div.glasses").append("svg")
+        height = 900
+
+    var svg = d3.select("body").selectAll("div.glasses").append("svg")
         .attr("width", width)
         .attr("class", "networkgraph")
-        .attr("height", height);
+        .attr("height", height)
+
+    var borderPath = svg.append("rect")
+       			.attr("x", 0)
+       			.attr("y", 0)
+       			.attr("height", height)
+       			.attr("width", width)
+       			.style("stroke", "black")
+       			.style("fill", "none")
+       			.style("stroke-width", 1);
 
     //set the force field
     var force = d3.layout.force()
@@ -513,14 +221,14 @@
             .start();
 
       // draw lines to represent each link (the D3 way of adding/appending new elements)
-        var link = svg2.selectAll(".link")
+        var link = svg.selectAll(".link")
             .data(json.links)
           .enter().append("line")
             .attr("class", "link")
           .style("stroke-width", function(d) { return Math.sqrt(d.weight); });
 
       //create groups for nodes, and enable 3 basic effects (functions) on them
-        var node = svg2.selectAll(".node")
+        var node = svg.selectAll(".node")
             .data(json.nodes)
           .enter().append("g")
             .attr("class", "node")
@@ -533,9 +241,9 @@
             .attr("class2", function(d){
               return d.source_id;
             })
-            .on("mouseover", mouseover)
+            .on("mouseover", mouseoverNodes)
             .on("mouseout", mouseout)
-            .on("click",click)
+            .on("click",clickNodes)
             .call(force.drag);
 
       //draw circle in each node group
@@ -574,6 +282,7 @@
       //add text in each node group
         node.append("text")
             // PLACEMENT OF THE TEXT IN RELATION TO THE NODE
+            .attr("class","nodeText")
             .style("font-size","10px")
             .attr("dx",function(d) {
               if (d.name == "Lager"){
@@ -613,48 +322,46 @@
         //add image and name of each glass at the side showcase, and enable 2 basic effects on them
           var counter = 0
           var colorCounter = 0
-          var x = 15
-          var y = 0
+          var x = 30
+          var y
 
           for (glass in glassIcons){
 
             if (counter <= 4){
-              y = counter * 145
+              y = counter * 175 + 20
             }
             else{
-              x = 115;
-              y = 0
+              x = 150;
+              y = 20
               counter = 0;
             }
             counter ++;
 
             //append beer color rectangle first in order to be behind the icon
-            svg2.append("rect")
+            svg.append("rect")
               .attr("x", x + 5)
               .attr("y", y + 5)
               .attr("width", "95px")
               .attr("height", "95px")
               .attr("fill", beerColors[colorCounter])
-              .attr("class", glassIcons[glass][0] + "beercolor")
-              .on("mouseover", mouseoverGlass)
-              .on("mouseout", mouseout);
+              .attr("id", glassIcons[glass][0] + "beercolor");
+
+            colorCounter++;
 
             //append white rectangle to cover colored rect
-            svg2.append("rect")
+            svg.append("rect")
               .attr("x", x + 5)
               .attr("y", y + 5)
               .attr("width", "95px")
               .attr("height", "95px")
               .attr("fill", "#ffffff")
-              .attr("class", glassIcons[glass][0] + "whiterect")
-              .on("mouseover", mouseoverGlass)
-              .on("mouseout", mouseout);
+              .attr("id", glassIcons[glass][0] + "whiterect")
+              .attr("class", "transformableRect");
 
-              colorCounter++;
 
-            svg2.append("image")
+            svg.append("image")
               .attr("xlink:href", function(d) { return "beer-glasses-icons/" + glassIcons[glass][0] + ".png"; })
-              .attr("class", glassIcons[glass][0])
+              .attr("id", glassIcons[glass][0])
               .attr("x", x)
               .attr("y", y)
               .attr("width", "100px")
@@ -662,7 +369,7 @@
               .on("mouseover", mouseoverGlass)
               .on("mouseout", mouseout);
 
-            svg2.append("text")
+            svg.append("text")
               .text(glassIcons[glass][1])
               .attr("x", x + 0)
               .attr("y", y + 115)
@@ -674,7 +381,7 @@
 
       //define functions for images of glass types
         function mouseoverGlass(){
-          var glassesString = d3.select(this).attr("class")
+          var glassesString = d3.select(this).attr("id")
 
           d3.selectAll("g.node[glassTypes*="+ glassesString +" i]").select("circle")
             .style("fill","#99fd17")
@@ -682,8 +389,8 @@
             .duration(50)
             .attr("r", 10)
 
-          var glass = d3.select(this).attr("class")
-          d3.selectAll("rect").filter("." + glass + "whiterect")
+          var glass = d3.select(this).attr("id")
+          d3.selectAll(".transformableRect").filter("#" + glass + "whiterect")
           .transition()
           .duration(900)
           .attr("height", "5px")
@@ -691,7 +398,7 @@
 
       //define functions for nodes
         //click a node to highlight its related glass type(s) and ancestrous nodes
-        function click(){
+        function clickNodes(){
 
           //Click to highlight the related glass type(s)
 
@@ -702,7 +409,7 @@
             var beerGlassList = glassesString.split('|')
 
             for (beer in beerGlassList){
-              d3.selectAll("rect").filter("."+ beerGlassList[beer].split(' ')[0].toLowerCase() + "whiterect")
+              d3.selectAll(".transformableRect").filter("#"+ beerGlassList[beer].split(' ')[0].toLowerCase() + "whiterect")
               .transition()
               .duration(900)
               .attr("height", "5px")
@@ -761,7 +468,7 @@
 
 
         //mouseover to highlight the node itself
-        function mouseover(){
+        function mouseoverNodes(){
 
           d3.select(this).select("circle")
           .transition()
@@ -796,7 +503,7 @@
         //mouseout to inactivate all effects
         function mouseout(){
           // Return galsses to empty
-            d3.selectAll("rect")
+            d3.selectAll(".transformableRect")
               .transition()
               .duration(900)
               .attr("height", "95px")
@@ -831,7 +538,7 @@
               }
             })
 
-            d3.select(".networkgraph").selectAll("text")
+            d3.select(".networkgraph").selectAll(".nodeText")
             .style("font-size","10px")
         }
 
