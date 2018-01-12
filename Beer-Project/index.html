@@ -19,17 +19,38 @@
       cursor: pointer;
     }
 
+    .node0 {
+      cursor: pointer;
+    }
+
     .node circle {
       fill: #fff;
       stroke: steelblue;
       stroke-width: 1.5px;
     }
 
+    .node0 circle {
+      fill: #fff;
+      stroke: steelblue;
+      stroke-width: 1.5px;
+    }
+
+
     .node text {
       font: 10px sans-serif;
     }
 
+    .node0 text {
+      font: 10px sans-serif;
+    }
+
     .link {
+      fill: none;
+      stroke: #ccc;
+      stroke-width: 1.5px;
+    }
+
+    .link0 {
       fill: none;
       stroke: #ccc;
       stroke-width: 1.5px;
@@ -163,23 +184,159 @@
   <!-- HTML FOR STRUCTURE IS INSIDE THIS WRAPPER -->
   <div class="wrapper">
 
-
-
     <section id="WhichGlass" data-anchor="WhichGlass">
       <div class="glasses" style="padding-bottom: 200px">
-        <div class="instructions">
-          <h3>Hover over each glass below to learn which beer corresponds to it</h3>
-        </div>
       </div>
     </section>
 
-
-
   </div>
 
-
-  <!-- D3 FOR NETWORK OF BEER AND GLASSES -->
+  <!-- 1st Version -->
   <script>
+    var title = d3.select("body").selectAll("div.glasses").append("h1")
+        .html("Initial Version")
+
+    //set up the artboard for visualization
+    var width = 1460,
+        height = 900
+
+    var svg0 = d3.select("body").selectAll("div.glasses").append("svg")
+        .attr("width", width)
+        .attr("class", "networkgraph0")
+        .attr("height", height)
+
+    var borderPath0 = svg0.append("rect")
+            .attr("x", 0)
+            .attr("y", 0)
+            .attr("height", height)
+            .attr("width", width)
+            .style("stroke", "black")
+            .style("fill", "none")
+            .style("stroke-width", 1);
+
+    //set the force field
+    var force0 = d3.layout.force()
+        .gravity(.04)
+        .distance(90)
+        .charge(-100)
+        .size([width, height]);
+
+    //base on the json data to  do visualization
+    d3.json("graphFile3.json", function(json) {
+
+      //add attributes named "source"/"target" to inherit "source_id"/"target_id"
+        json.links.forEach(function(d){
+          d.source = d.source_id;
+          d.target = d.target_id;
+        });
+
+      //have the force field influent on nodes(get all nodes from json) and links(get all links from json)
+        force0
+            .nodes(json.nodes)
+            .links(json.links)
+            .start();
+
+      // draw lines to represent each link (the D3 way of adding/appending new elements)
+        var link0 = svg0.selectAll(".link0")
+            .data(json.links)
+          .enter().append("line")
+            .attr("class", "link0")
+          .style("stroke-width", function(d) { return Math.sqrt(d.weight); });
+
+      //create groups for nodes, and enable 3 basic effects (functions) on them
+        var node0 = svg0.selectAll(".node0")
+            .data(json.nodes)
+          .enter().append("g")
+            .attr("class", "node0")
+            .attr("glassTypes", function(d){
+              if(typeof d.glassType !== 'undefined'){
+                return d.glassType;
+              }
+              return 'none';
+            })
+            // .attr("class2", function(d){
+            //   return d.source_id;
+            // })
+            // .on("mouseover", mouseoverNodes)
+            // .on("mouseout", mouseout)
+            // .on("click",clickNodes)
+            .call(force0.drag);
+
+      //draw circle in each node group
+        node0.append("circle")
+        //DEPENDING ON 'GROUP' SIZE, THE RADIUS OF THE CIRCLE IS LARGER
+        //MAKES THE ID NAME OF EACH CIRCLE EQUAL TO THE NAME OF THE BEER
+          .attr("id", function(d){
+            return d.name;
+          })
+          .attr("r", function(d) {
+
+            if (d.group == 1){
+              return 50;
+
+            } else if (d.group == 2){
+              return 10;
+
+            } else if (d.group == 3){
+              return 6;
+
+            } else if (d.group == 4){
+              return 4;
+
+            } else if (d.group == 5){
+              return 2;
+
+            } else if (d.group == 6){
+              return 1;
+
+            } else {
+              return 4.5;
+
+            }
+          })
+
+      //add text in each node group
+        node0.append("text")
+            // PLACEMENT OF THE TEXT IN RELATION TO THE NODE
+            // .attr("class","nodeText")
+            .style("font-size","10px")
+            .attr("dx",function(d) {
+              if (d.name == "Lager"){
+                return -18;
+              }else if (d.name == "Ale"){
+                return -12;
+              }else {
+                return 12;
+              }
+            })
+
+          .attr("dy", ".35em")
+          .text(function(d) { return d.name })
+          .style("fill",function(d){
+            if (d.group == 6){
+              return "black"
+            }
+          })
+
+      //turn on the forces
+        force0.on("tick", function() {
+          link0.attr("x1", function(d) { return d.source.x; })
+              .attr("y1", function(d) { return d.source.y; })
+              .attr("x2", function(d) { return d.target.x; })
+              .attr("y2", function(d) { return d.target.y; });
+
+          node0.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
+        });
+    });
+  </script>
+
+
+  <!-- Final Version -->
+  <script>
+  var title = d3.select("body").selectAll("div.glasses").append("h1")
+      .html("Final Version")
+      .style("padding-top", "40px")
+
     //set up the artboard for visualization
     var width = 1460,
         height = 900
@@ -249,10 +406,7 @@
       //draw circle in each node group
         node.append("circle")
         //DEPENDING ON 'GROUP' SIZE, THE RADIUS OF THE CIRCLE IS LARGER
-        //MAKES THE CLASS NAME OF EACH CIRCLE EQUAL TO THE NAME OF THE BEER
-          .attr("class", function(d){
-            return d.name;
-          })
+          .attr("class", "finalVersion")
           .attr("r", function(d) {
 
             if (d.group == 1){
@@ -282,7 +436,7 @@
       //add text in each node group
         node.append("text")
             // PLACEMENT OF THE TEXT IN RELATION TO THE NODE
-            .attr("class","nodeText")
+            .attr("class","nodeText finalVersion")
             .style("font-size","10px")
             .attr("dx",function(d) {
               if (d.name == "Lager"){
@@ -432,7 +586,7 @@
             for(var i = 0; i < glowIdList.length; i++){
               var selector = "[class2='" + glowIdList[i] + "']";
 
-              d3.select(selector).select("circle")
+              d3.select(selector).select("circle").filter(".finalVersion")
               .transition()
               .duration(50)
               .style("fill","#99fd17")
@@ -509,8 +663,7 @@
               .attr("height", "95px")
 
           // Retuen nodes(circles and texts) to normal size and color
-            d3.selectAll(".glassName").remove()
-            d3.select(".networkgraph").selectAll("circle")
+            d3.select(".networkgraph").selectAll("circle").filter(".finalVersion")
             .style("fill","white")
             .attr("r", function(d) {
 
@@ -538,7 +691,7 @@
               }
             })
 
-            d3.select(".networkgraph").selectAll(".nodeText")
+            d3.select(".networkgraph").selectAll(".nodeText").filter(".finalVersion")
             .style("font-size","10px")
         }
 
@@ -552,7 +705,6 @@
           node.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
         });
     });
-
-</script>
+  </script>
 
 </body>
