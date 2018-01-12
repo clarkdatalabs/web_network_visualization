@@ -417,13 +417,8 @@
               return "#645326";
             } else{
               return "black";
-
             }
-
-          }
-            )
-
-
+          })
           ;
 
       // Transition exiting nodes to the parent's new position.
@@ -686,6 +681,12 @@
             .transition()
             .duration(50)
             .attr("r", 10)
+
+          var glass = d3.select(this).attr("class")
+          d3.selectAll("rect").filter("." + glass + "whiterect")
+          .transition()
+          .duration(900)
+          .attr("height", "5px")
         }
 
       //define functions for nodes
