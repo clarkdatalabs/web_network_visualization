@@ -22,6 +22,15 @@
 ### Download the Code
 [Beer Project](../../blob/master/Beer-Project.zip)
 
+Inside the folder, we have:
+1.**0_initial_version.html**: The initial version where the dataset is just imported. Will be at "http://localhost:8000/0_initial_version.html"
+2.**1_final_version.html**: The final version where we have coded 4 functions to have interactive effects. Will be at "http://localhost:8000/1_final_version.html"
+3.**index.html**: The comparison between the 2 versions. Will be at "http://localhost:8000"
+4.**beerglassData.csv**: The original dataset.
+5.**parse-beerdata.py**: To transform the dataset from csv into json.
+6.**graphFile3.json**: The dataset used by D3.
+7.**beer-glasses-icons** folder: Icon imaged needed in the program.
+
 Typically, you’d be able to right click on the index.html file and open it with a web browser to render the webpage. If you try this, you’ll likely notice that D3 doesn’t render. This is because we need a server to run D3.
 
 ### Running a Local Server on your computer
@@ -31,9 +40,17 @@ Typically, you’d be able to right click on the index.html file and open it wit
 2. Open your **terminal**(Mac) or **Command Prompt**(Windows).
 3. Cd into the dir your html is currently at. For example: `cd Desktop/Beer-Project`
 4. Enter:`python -m SimpleHTTPServer`
-5. You're good to go at [your local host](http://localhost:8000) (it's the same on any computer that's gone through the process)
+5. You're good to go at your local host to see the [the initial version](http://localhost:8000/0_initial_version.html), [the final version](http://localhost:8000/1_final_version.html) and [the comparison between them](http://localhost:8000). (it's the same on any computer that's gone through the process)
+
 
 ### Code Explanation
+In this section, we will interpret the codes of both versions. Since **0_initial_version.html** is the result of "0_Importing Dataset", feel free use this code to follow steps in "1_Interactive Functions" to practice and get something similar to **1_final_version.html**.
 
-![code explaination diagram](https://github.com/clarkdatalabs/web_network_visualization/blob/master/images/Code_Explain%20Diagram.png)
+#### 0_Importing Dataset
+
+#### 1_Interactive Functions
+
+
+
+
 
