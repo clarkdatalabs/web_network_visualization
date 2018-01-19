@@ -6,18 +6,15 @@
   <script src="//d3js.org/d3.v3.min.js"></script>
   <script
     src="https://code.jquery.com/jquery-1.8.3.min.js"
-    integrity="sha256-YcbK69I5IXQftf/mYD8WY0/KmEDCv1asggHpJk1trM8="
+    integrity="sha256-YcbK69I5IXQftf/mYD8Wy/KmEDCv1asggHpJk1trM8="
     crossorigin="anonymous"></script>
   <link href="https://fonts.googleapis.com/css?family=Roboto:100" rel="stylesheet">
   <link href="style.css" rel="stylesheet">
 
-  <title>Final version of network visualization</title>
+  <title>Work on network visualization</title>
 </head>
 
 <body>
-
-
-
 
   <!-- HTML FOR STRUCTURE IS INSIDE THIS WRAPPER -->
   <div class="wrapper">
@@ -29,11 +26,10 @@
 
   </div>
 
-
-  <!-- Final Version -->
+  <!-- D3 code -->
   <script>
-  var title = d3.select("body").selectAll("div.glasses").append("h1")
-      .html("Final Version")
+    var title = d3.select("body").selectAll("div.glasses").append("h1")
+        .html("Work on Network Visualization")
 
     //set up the artboard for visualization
     var width = 1460,
@@ -45,13 +41,13 @@
         .attr("height", height)
 
     var borderPath = svg.append("rect")
-       			.attr("x", 0)
-       			.attr("y", 0)
-       			.attr("height", height)
-       			.attr("width", width)
-       			.style("stroke", "black")
-       			.style("fill", "none")
-       			.style("stroke-width", 1);
+            .attr("x", 0)
+            .attr("y", 0)
+            .attr("height", height)
+            .attr("width", width)
+            .style("stroke", "black")
+            .style("fill", "none")
+            .style("stroke-width", 1);
 
     //set the force field
     var force = d3.layout.force()
@@ -93,18 +89,21 @@
               }
               return 'none';
             })
-            .attr("class2", function(d){
-              return d.source_id;
-            })
-            .on("mouseover", mouseoverNodes)
-            .on("mouseout", mouseout)
-            .on("click",clickNodes)
+            // .attr("class2", function(d){
+            //   return d.source_id;
+            // })
+            // .on("mouseover", mouseoverNodes)
+            // .on("mouseout", mouseout)
+            // .on("click",clickNodes)
             .call(force.drag);
 
       //draw circle in each node group
         node.append("circle")
         //DEPENDING ON 'GROUP' SIZE, THE RADIUS OF THE CIRCLE IS LARGER
-          .attr("class", "finalVersion")
+        //MAKES THE ID NAME OF EACH CIRCLE EQUAL TO THE NAME OF THE BEER
+          .attr("id", function(d){
+            return d.name;
+          })
           .attr("r", function(d) {
 
             if (d.group == 1){
@@ -134,7 +133,7 @@
       //add text in each node group
         node.append("text")
             // PLACEMENT OF THE TEXT IN RELATION TO THE NODE
-            .attr("class","nodeText finalVersion")
+            // .attr("class","nodeText")
             .style("font-size","10px")
             .attr("dx",function(d) {
               if (d.name == "Lager"){
@@ -153,6 +152,7 @@
               return "black"
             }
           })
+
 
       //illustrate glasses with their images on the side space
         //array of names of glassIcons, each of them has two ways of calling: the 1st is for img file name, and the 2nd is for the name to show
@@ -173,7 +173,7 @@
 
         //add image and name of each glass at the side showcase, and enable 2 basic effects on them
           var counter = 0
-          var colorCounter = 0
+          var colorcounter = 0
           var x = 30
           var y
 
@@ -195,10 +195,10 @@
               .attr("y", y + 5)
               .attr("width", "95px")
               .attr("height", "95px")
-              .attr("fill", beerColors[colorCounter])
+              .attr("fill", beerColors[colorcounter])
               .attr("id", glassIcons[glass][0] + "beercolor");
 
-            colorCounter++;
+            colorcounter++;
 
             //append white rectangle to cover colored rect
             svg.append("rect")
@@ -218,8 +218,6 @@
               .attr("y", y)
               .attr("width", "100px")
               .attr("height", "100px")
-              .on("mouseover", mouseoverGlass)
-              .on("mouseout", mouseout);
 
             svg.append("text")
               .text(glassIcons[glass][1])
@@ -232,100 +230,29 @@
           }
 
 
-
       function mouseoverNodes(){
         // Step1: mouseover to highlight the node itself
           // Step1.1: highlight the circle
-          d3.select(this).select("circle")
-          .transition()
-          .duration(50)
-          .style("fill","#99fd17")
-          .attr("r", function(d) {
 
-            if (d.group == 1){
-              return 52;
+          // Step1.2: highlight the text
 
-            } else if (d.group == 2){
-              return 15;
-
-            } else if (d.group == 3){
-              return 10;
-
-            } else if (d.group == 4){
-              return 8;
-
-            } else if (d.group == 5){
-              return 5;
-
-            } else {
-              return 1;
-            }
-          });
-
-          //Step1.2: highlight the text
-          d3.select(this).select("text")
-          .style("font-size","100%")
-        }
+      }
 
 
       function mouseout(){
-        // Step2: return nodes(circles and texts) to normal size and color
-          // Step2.1: return circles
-          d3.select(".networkgraph").selectAll("circle").filter(".finalVersion")
-          .style("fill","white")
-          .attr("r", function(d) {
+        // Step2: Return nodes(circles and texts) to normal size and color
+          // Step2.1: Return circles
 
-            if (d.group == 1){
-              return 50;
+          // Step2.2: Return texts
 
-            } else if (d.group == 2){
-              return 10;
-
-            } else if (d.group == 3){
-              return 6;
-
-            } else if (d.group == 4){
-              return 4;
-
-            } else if (d.group == 5){
-              return 2;
-
-            } else if (d.group == 6){
-              return 1;
-
-            } else {
-              return 4.5;
-
-            }
-          })
-
-          // Step2.2: return texts
-          d3.select(".networkgraph").selectAll(".nodeText").filter(".finalVersion")
-          .style("font-size","10px")
-
-        // Step5: return glasses to empty
-          d3.selectAll(".transformableRect")
-            .transition()
-            .duration(900)
-            .attr("height", "95px")
+        // Step5: Return glasses to empty
       }
 
 
       function mouseoverGlass(){
         //Step3: mouseover glass to highlight associated nodes
-          var glassesString = d3.select(this).attr("id")
-          d3.selectAll("g.node[glassTypes*="+ glassesString +" i]").select("circle")
-            .style("fill","#99fd17")
-            .transition()
-            .duration(50)
-            .attr("r", 10)
 
         //Step4: mouseover to fill the glass
-          var glass = d3.select(this).attr("id")
-          d3.selectAll(".transformableRect").filter("#" + glass + "whiterect")
-          .transition()
-          .duration(900)
-          .attr("height", "5px")
       }
 
 
@@ -333,69 +260,14 @@
 
         //Step6: Click to highlight the related glass type(s)
 
-          // RETRIEVES THE BEER GLASS STRING FROM THE NODE
-          var glassesString = d3.select(this).attr("glassTypes")
-
-          //CREATE DICT FROM STRING AND BREAK STRING ON EVERY PIPE
-          var beerGlassList = glassesString.split('|')
-
-          for (beer in beerGlassList){
-            d3.selectAll(".transformableRect").filter("#"+ beerGlassList[beer].split(' ')[0].toLowerCase() + "whiterect")
-            .transition()
-            .duration(900)
-            .attr("height", "5px")
-          }
-
         //Step7: Click to highlight all ancestral nodes
           //Step7.1: get information about the clicked node
-          var clickedName = d3.select(this).select('text')[0][0].innerHTML;
-          var clickedId = d3.select(this)[0][0].__data__.index;
-          var clickedGroup = d3.select(this)[0][0].__data__.group;
 
           //Step7.2: add its ancestral nodes to highlight into a list
-          var glowIdList = [clickedId];
-          for(i = clickedGroup; i > 1; i --){
-            clickedId = json.links[clickedId - 2].source_id;
-            glowIdList.push(clickedId);
-          }
 
           //Step7.3: activate effect (color and size) on every node (circles and texts) in the list
-          for(var i = 0; i < glowIdList.length; i++){
-            var selector = "[class2='" + glowIdList[i] + "']";
 
-            d3.select(selector).select("circle").filter(".finalVersion")
-            .transition()
-            .duration(50)
-            .style("fill","#99fd17")
-            .attr("r", function(d) {
-
-              if (d.group == 1){
-                return 52;
-
-              } else if (d.group == 2){
-                return 15;
-
-              } else if (d.group == 3){
-                return 10;
-
-              } else if (d.group == 4){
-                return 8;
-
-              } else if (d.group == 5){
-                return 5;
-
-              } else {
-                return 1;
-              }
-            });
-
-            d3.select(selector).select("text")
-            .transition()
-            .duration(50)
-            .style("font-size","100%")
-            }
       }
-
 
       //turn on the forces
         force.on("tick", function() {
@@ -408,5 +280,4 @@
         });
     });
   </script>
-
 </body>
