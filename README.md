@@ -1,7 +1,7 @@
 # Web_network_visualization
 
 ## Introduction
-  This tutorial will show how to build a web-network visulization. The theme we visualize in the example is the web-network of different types of beer.
+  This tutorial will show how to build a web-network visualization. The theme we visualize in the example is the web-network of different types of beer.
   
   You don’t need to be an expert in web development to get started with a network visualization in D3 however we do make some assumptions about our audience.
   
@@ -44,7 +44,7 @@ Typically, you’d be able to right click on the index.html file and open it wit
 
 
 ### Code Explanation
-In this section, we will interpret the codes of both versions. Since **0_initial_version.html** is the result of "0_Importing Dataset", feel free use this code to follow steps in "1_Interactive Functions" to practice and get something similar to **1_final_version.html**.
+In this section, we will interpret the code of both versions. Since **0_initial_version.html** is the result of "0_Importing Dataset", feel free use this code to follow steps in "1_Interactive Functions" to practice and get something similar to **1_final_version.html**.
 
 #### 0_Importing Dataset
 
