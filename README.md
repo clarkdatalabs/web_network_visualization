@@ -23,9 +23,9 @@
 [Beer Project](../../blob/master/Beer-Project.zip)
 
 Inside the folder, we have:
-1. **0_initial_version.html**: The initial version where the dataset is just imported. Will be at "http://localhost:8000/0_initial_version.html"
-2. **1_final_version.html**: The final version where we have coded 4 functions to have interactive effects. Will be at "http://localhost:8000/1_final_version.html"
-3. **index.html**: The comparison between the 2 versions. Will be at "http://localhost:8000"
+1. **0_initial_version.html**: The initial version where the dataset is just imported. 
+2. **1_final_version.html**: The final version where we have coded 4 functions to have interactive effects. 
+3. **index.html**: The comparison between the 2 versions. 
 4. **beerglassData.csv**: The original dataset.
 5. **parse-beerdata.py**: To transform the dataset from csv into json.
 6. **graphFile3.json**: The dataset used by D3.
