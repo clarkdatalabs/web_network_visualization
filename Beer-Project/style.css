@@ -1,0 +1,160 @@
+section {
+  padding-top: 40px;
+}
+
+.node {
+  cursor: pointer;
+}
+
+.node0 {
+  cursor: pointer;
+}
+
+.node circle {
+  fill: #fff;
+  stroke: steelblue;
+  stroke-width: 1.5px;
+}
+
+.node0 circle {
+  fill: #fff;
+  stroke: steelblue;
+  stroke-width: 1.5px;
+}
+
+
+.node text {
+  font: 10px sans-serif;
+}
+
+.node0 text {
+  font: 10px sans-serif;
+}
+
+.link {
+  fill: none;
+  stroke: #ccc;
+  stroke-width: 1.5px;
+}
+
+.link0 {
+  fill: none;
+  stroke: #ccc;
+  stroke-width: 1.5px;
+}
+
+.glassinfo{
+  width: 600px;
+  /*height: 400px;*/
+  margin: 10 10 10 10;
+  border: 0 0 0 0;
+  display: inline-block;
+
+}
+
+
+
+.glassinfo p{
+  display: inline-block;
+  margin-left: auto ;
+  margin-right: auto ;
+  position: relative;
+  padding: 28px 0 0 100px;
+
+}
+
+.wrapper {
+  width: 1400px;
+  height: 1000px;
+  margin: 0 auto;
+  position: relative;
+  padding: 28px 0 0 0;
+}
+
+.glasses {
+  width: 1400px;
+/*  display: block;*/
+  margin: auto;
+  margin-left: auto ;
+  margin-right: auto ;
+  position: relative;
+  padding: 28px 0 0 0;
+}
+
+.glassicon {
+  display: inline-block;
+  margin-left: auto ;
+  margin-right: auto ;
+  position: relative;
+  padding: 28px 0 0 100px;
+}
+
+.instructions {
+    height: 33px
+    padding-top:100px
+
+}
+
+p {
+  font-family: Georgia;
+  font-size: 17px;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  line-height:23px;
+
+}
+
+h1 {
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  font-size:53px;
+  text-align: center;
+
+
+}
+
+h3 {
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  font-size:24px;
+  text-align: center;
+  padding-top: 100px;
+  padding-bottom: 50px;
+
+
+}
+
+nav {
+  position: absolute;
+  left: 0;
+  right;
+  0;
+  top: 0px;
+  background: #aa9663;
+  display: block;
+  width: 100%;
+  padding: 4px 20px;
+  height: 40px;
+  z-index: 100;
+}
+
+nav a {
+  font-family: "Georgia";
+  font-size: 14px;
+  color: #ffffff;
+  padding: 20px 24px;
+  display: block;
+  float: left;
+  text-decoration: none;
+  margin-right: 4px;
+}
+
+nav a:hover,
+nav a.active {
+  background: white;
+  color: black
+}
+
+.fixed {
+  position: fixed;
+  top: 0
+}

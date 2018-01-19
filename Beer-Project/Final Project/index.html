@@ -9,169 +9,7 @@
     integrity="sha256-YcbK69I5IXQftf/mYD8WY0/KmEDCv1asggHpJk1trM8="
     crossorigin="anonymous"></script>
   <link href="https://fonts.googleapis.com/css?family=Roboto:100" rel="stylesheet">
-  <style>
-
-    section {
-      padding-top: 40px;
-    }
-
-    .node {
-      cursor: pointer;
-    }
-
-    .node0 {
-      cursor: pointer;
-    }
-
-    .node circle {
-      fill: #fff;
-      stroke: steelblue;
-      stroke-width: 1.5px;
-    }
-
-    .node0 circle {
-      fill: #fff;
-      stroke: steelblue;
-      stroke-width: 1.5px;
-    }
-
-
-    .node text {
-      font: 10px sans-serif;
-    }
-
-    .node0 text {
-      font: 10px sans-serif;
-    }
-
-    .link {
-      fill: none;
-      stroke: #ccc;
-      stroke-width: 1.5px;
-    }
-
-    .link0 {
-      fill: none;
-      stroke: #ccc;
-      stroke-width: 1.5px;
-    }
-
-    .glassinfo{
-      width: 600px;
-      /*height: 400px;*/
-      margin: 10 10 10 10;
-      border: 0 0 0 0;
-      display: inline-block;
-
-    }
-
-
-
-    .glassinfo p{
-      display: inline-block;
-      margin-left: auto ;
-      margin-right: auto ;
-      position: relative;
-      padding: 28px 0 0 100px;
-
-    }
-
-    .wrapper {
-      width: 1400px;
-      height: 1000px;
-      margin: 0 auto;
-      position: relative;
-      padding: 28px 0 0 0;
-    }
-
-    .glasses {
-      width: 1400px;
-    /*  display: block;*/
-      margin: auto;
-      margin-left: auto ;
-      margin-right: auto ;
-      position: relative;
-      padding: 28px 0 0 0;
-    }
-
-    .glassicon {
-      display: inline-block;
-      margin-left: auto ;
-      margin-right: auto ;
-      position: relative;
-      padding: 28px 0 0 100px;
-    }
-
-    .instructions {
-        height: 33px
-        padding-top:100px
-
-    }
-
-    p {
-      font-family: Georgia;
-      font-size: 17px;
-      width: 50%;
-      margin-left: auto;
-      margin-right: auto;
-      line-height:23px;
-
-    }
-
-    h1 {
-      font-family: "Roboto", Helvetica, Arial, sans-serif;
-      font-size:53px;
-      text-align: center;
-
-
-    }
-
-    h3 {
-      font-family: "Roboto", Helvetica, Arial, sans-serif;
-      font-size:24px;
-      text-align: center;
-      padding-top: 100px;
-      padding-bottom: 50px;
-
-
-    }
-
-    nav {
-      position: absolute;
-      left: 0;
-      right;
-      0;
-      top: 0px;
-      background: #aa9663;
-      display: block;
-      width: 100%;
-      padding: 4px 20px;
-      height: 40px;
-      z-index: 100;
-    }
-
-    nav a {
-      font-family: "Georgia";
-      font-size: 14px;
-      color: #ffffff;
-      padding: 20px 24px;
-      display: block;
-      float: left;
-      text-decoration: none;
-      margin-right: 4px;
-    }
-
-    nav a:hover,
-    nav a.active {
-      background: white;
-      color: black
-    }
-
-    .fixed {
-      position: fixed;
-      top: 0
-    }
-  </style>
+  <link href="style.css" rel="stylesheet">
 
   <title>Final version of network visualization</title>
 </head>
@@ -223,7 +61,7 @@
         .size([width, height]);
 
     //base on the json data to  do visualization
-    d3.json("graphFile3.json", function(json) {
+    d3.json("beerData.json", function(json) {
 
       //add attributes named "source"/"target" to inherit "source_id"/"target_id"
         json.links.forEach(function(d){
@@ -393,97 +231,11 @@
 
           }
 
-      //define functions for images of glass types
-        function mouseoverGlass(){
-          var glassesString = d3.select(this).attr("id")
-
-          d3.selectAll("g.node[glassTypes*="+ glassesString +" i]").select("circle")
-            .style("fill","#99fd17")
-            .transition()
-            .duration(50)
-            .attr("r", 10)
-
-          var glass = d3.select(this).attr("id")
-          d3.selectAll(".transformableRect").filter("#" + glass + "whiterect")
-          .transition()
-          .duration(900)
-          .attr("height", "5px")
-        }
-
-      //define functions for nodes
-        //click a node to highlight its related glass type(s) and ancestrous nodes
-        function clickNodes(){
-
-          //Click to highlight the related glass type(s)
-
-            // RETRIEVES THE BEER GLASS STRING FROM THE NODE
-            var glassesString = d3.select(this).attr("glassTypes")
-
-            //CREATE DICT FROM STRING AND BREAK STRING ON EVERY PIPE
-            var beerGlassList = glassesString.split('|')
-
-            for (beer in beerGlassList){
-              d3.selectAll(".transformableRect").filter("#"+ beerGlassList[beer].split(' ')[0].toLowerCase() + "whiterect")
-              .transition()
-              .duration(900)
-              .attr("height", "5px")
-            }
-
-          //Click to highlight all ancestrous nodes
-            //get information about the clicked node
-            var clickedName = d3.select(this).select('text')[0][0].innerHTML;
-            var clickedId = d3.select(this)[0][0].__data__.index;
-            var clickedGroup = d3.select(this)[0][0].__data__.group;
-
-            //add every nodes to highlight into a list
-            var glowIdList = [clickedId];
-            for(i = clickedGroup; i > 1; i --){
-              clickedId = json.links[clickedId - 2].source_id;
-              glowIdList.push(clickedId);
-            }
-
-            //activate effect (color and size) on every node in the list
-            for(var i = 0; i < glowIdList.length; i++){
-              var selector = "[class2='" + glowIdList[i] + "']";
-
-              d3.select(selector).select("circle").filter(".finalVersion")
-              .transition()
-              .duration(50)
-              .style("fill","#99fd17")
-              .attr("r", function(d) {
-
-                  if (d.group == 1){
-                    return 52;
-
-                  } else if (d.group == 2){
-                    return 15;
-
-                  } else if (d.group == 3){
-                    return 10;
-
-                  } else if (d.group == 4){
-                    return 8;
-
-                  } else if (d.group == 5){
-                    return 5;
-
-                  } else {
-                    return 1;
-                  }
-                });
-
-              //settings about the transition effect
-              d3.select(selector).select("text")
-              .transition()
-              .duration(50)
-              .style("font-size","100%")
-            }
-        }
 
 
-        //mouseover to highlight the node itself
-        function mouseoverNodes(){
-
+      function mouseoverNodes(){
+        // Step1: mouseover to highlight the node itself
+          // Step1.1: highlight the circle
           d3.select(this).select("circle")
           .transition()
           .duration(50)
@@ -509,51 +261,141 @@
               return 1;
             }
           });
+
+          //Step1.2: highlight the text
           d3.select(this).select("text")
           .style("font-size","100%")
         }
 
 
-        //mouseout to inactivate all effects
-        function mouseout(){
-          // Return galsses to empty
-            d3.selectAll(".transformableRect")
-              .transition()
-              .duration(900)
-              .attr("height", "95px")
+      function mouseout(){
+        // Step2: return nodes(circles and texts) to normal size and color
+          // Step2.1: return circles
+          d3.select(".networkgraph").selectAll("circle").filter(".finalVersion")
+          .style("fill","white")
+          .attr("r", function(d) {
 
-          // Retuen nodes(circles and texts) to normal size and color
-            d3.select(".networkgraph").selectAll("circle").filter(".finalVersion")
-            .style("fill","white")
+            if (d.group == 1){
+              return 50;
+
+            } else if (d.group == 2){
+              return 10;
+
+            } else if (d.group == 3){
+              return 6;
+
+            } else if (d.group == 4){
+              return 4;
+
+            } else if (d.group == 5){
+              return 2;
+
+            } else if (d.group == 6){
+              return 1;
+
+            } else {
+              return 4.5;
+
+            }
+          })
+
+          // Step2.2: return texts
+          d3.select(".networkgraph").selectAll(".nodeText").filter(".finalVersion")
+          .style("font-size","10px")
+
+        // Step5: return glasses to empty
+          d3.selectAll(".transformableRect")
+            .transition()
+            .duration(900)
+            .attr("height", "95px")
+      }
+
+
+      function mouseoverGlass(){
+        //Step3: mouseover glass to highlight associated nodes
+          var glassesString = d3.select(this).attr("id")
+          d3.selectAll("g.node[glassTypes*="+ glassesString +" i]").select("circle")
+            .style("fill","#99fd17")
+            .transition()
+            .duration(50)
+            .attr("r", 10)
+
+        //Step4: mouseover to fill the glass
+          var glass = d3.select(this).attr("id")
+          d3.selectAll(".transformableRect").filter("#" + glass + "whiterect")
+          .transition()
+          .duration(900)
+          .attr("height", "5px")
+      }
+
+
+      function clickNodes(){
+
+        //Step6: Click to highlight the related glass type(s)
+
+          // RETRIEVES THE BEER GLASS STRING FROM THE NODE
+          var glassesString = d3.select(this).attr("glassTypes")
+
+          //CREATE DICT FROM STRING AND BREAK STRING ON EVERY PIPE
+          var beerGlassList = glassesString.split('|')
+
+          for (beer in beerGlassList){
+            d3.selectAll(".transformableRect").filter("#"+ beerGlassList[beer].split(' ')[0].toLowerCase() + "whiterect")
+            .transition()
+            .duration(900)
+            .attr("height", "5px")
+          }
+
+        //Step7: Click to highlight all ancestral nodes
+          //Step7.1: get information about the clicked node
+          var clickedName = d3.select(this).select('text')[0][0].innerHTML;
+          var clickedId = d3.select(this)[0][0].__data__.index;
+          var clickedGroup = d3.select(this)[0][0].__data__.group;
+
+          //Step7.2: add its ancestral nodes to highlight into a list
+          var glowIdList = [clickedId];
+          for(i = clickedGroup; i > 1; i --){
+            clickedId = json.links[clickedId - 2].source_id;
+            glowIdList.push(clickedId);
+          }
+
+          //Step7.3: activate effect (color and size) on every node (circles and texts) in the list
+          for(var i = 0; i < glowIdList.length; i++){
+            var selector = "[class2='" + glowIdList[i] + "']";
+
+            d3.select(selector).select("circle").filter(".finalVersion")
+            .transition()
+            .duration(50)
+            .style("fill","#99fd17")
             .attr("r", function(d) {
 
               if (d.group == 1){
-                return 50;
+                return 52;
 
               } else if (d.group == 2){
-                return 10;
+                return 15;
 
               } else if (d.group == 3){
-                return 6;
+                return 10;
 
               } else if (d.group == 4){
-                return 4;
+                return 8;
 
               } else if (d.group == 5){
-                return 2;
-
-              } else if (d.group == 6){
-                return 1;
+                return 5;
 
               } else {
-                return 4.5;
-
+                return 1;
               }
-            })
+            });
 
-            d3.select(".networkgraph").selectAll(".nodeText").filter(".finalVersion")
-            .style("font-size","10px")
-        }
+            d3.select(selector).select("text")
+            .transition()
+            .duration(50)
+            .style("font-size","100%")
+            }
+      }
+
 
       //turn on the forces
         force.on("tick", function() {
