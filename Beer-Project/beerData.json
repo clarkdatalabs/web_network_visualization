@@ -5,7 +5,7 @@
         "name": "Ale",
         "group": 1,
         "glassType": ""
-      },   
+      },
       {
         "source_id": 1,
         "name": "Lager",
@@ -737,7 +737,7 @@
     {"source_id":80,"target_id":102,"weight":1},
     {"source_id":80,"target_id":103,"weight":1}
 
-  
+
 
   ]
 }

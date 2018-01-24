@@ -93,7 +93,7 @@
               }
               return 'none';
             })
-            .attr("class2", function(d){
+            .attr("sourceID", function(d){
               return d.source_id;
             })
             .on("mouseover", mouseoverNodes)
@@ -352,16 +352,21 @@
           var clickedId = d3.select(this)[0][0].__data__.index;
           var clickedGroup = d3.select(this)[0][0].__data__.group;
 
+          // var clikedTest1 = d3.select(this)
+          // console.log(clikedTest1);
+
           //Step7.2: add its ancestral nodes to highlight into a list
+          // when you click a node, get the source ID, find the link that ends with that source ID node, find the start point of that link which is the parent node
           var glowIdList = [clickedId];
           for(i = clickedGroup; i > 1; i --){
             clickedId = json.links[clickedId - 2].source_id;
+            console.log(json.links[clickedId])
             glowIdList.push(clickedId);
           }
 
           //Step7.3: activate effect (color and size) on every node (circles and texts) in the list
           for(var i = 0; i < glowIdList.length; i++){
-            var selector = "[class2='" + glowIdList[i] + "']";
+            var selector = "[sourceID='" + glowIdList[i] + "']";
 
             d3.select(selector).select("circle").filter(".finalVersion")
             .transition()
@@ -393,7 +398,7 @@
             .transition()
             .duration(50)
             .style("font-size","100%")
-            }
+          }
       }
 
 

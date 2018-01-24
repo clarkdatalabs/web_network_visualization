@@ -16,18 +16,14 @@
 
 <body>
 
-  <!-- HTML FOR STRUCTURE IS INSIDE THIS WRAPPER -->
-  <div class="wrapper">
+  <!-- Create the DIV where we will draw with D3 -->
 
-    <section id="WhichGlass" data-anchor="WhichGlass">
-      <div class="glasses" style="padding-bottom: 200px">
-      </div>
-    </section>
-
+  <div class="glasses" style="padding-bottom: 200px">
   </div>
 
   <!-- D3 code -->
   <script>
+    //create title
     var title = d3.select("body").selectAll("div.glasses").append("h1")
         .html("Work on Network Visualization")
 
@@ -36,18 +32,19 @@
         height = 900
 
     var svg = d3.select("body").selectAll("div.glasses").append("svg")
-        .attr("width", width)
         .attr("class", "networkgraph")
+        .attr("width", width)
         .attr("height", height)
 
+    //create border around artboard
     var borderPath = svg.append("rect")
-            .attr("x", 0)
-            .attr("y", 0)
-            .attr("height", height)
-            .attr("width", width)
-            .style("stroke", "black")
-            .style("fill", "none")
-            .style("stroke-width", 1);
+        .attr("x", 0)
+        .attr("y", 0)
+        .attr("height", height)
+        .attr("width", width)
+        .style("stroke", "black")
+        .style("fill", "none")
+        .style("stroke-width", 1);
 
     //set the force field
     var force = d3.layout.force()
@@ -56,16 +53,18 @@
         .charge(-100)
         .size([width, height]);
 
-    //base on the json data to  do visualization
+
+    //import data from our JSON file (everything related to this visualization lives here)
+    //NOTE: this is refurbished code from http://bl.ocks.org/jose187/4733747
     d3.json("beerData.json", function(json) {
 
-      //add attributes named "source"/"target" to inherit "source_id"/"target_id"
+      //*add attributes named "source"/"target" to inherit "source_id"/"target_id"
         json.links.forEach(function(d){
           d.source = d.source_id;
           d.target = d.target_id;
         });
 
-      //have the force field influent on nodes(get all nodes from json) and links(get all links from json)
+      //have the force field influence nodes(get all nodes from json) and links(get all links from json)
         force
             .nodes(json.nodes)
             .links(json.links)
@@ -73,67 +72,67 @@
 
       // draw lines to represent each link (the D3 way of adding/appending new elements)
         var link = svg.selectAll(".link")
-            .data(json.links)
+          .data(json.links)
           .enter().append("line")
-            .attr("class", "link")
+          .attr("class", "link")
           .style("stroke-width", function(d) { return Math.sqrt(d.weight); });
 
-      //create groups for nodes, and enable 3 basic effects (functions) on them
+      //create groups for nodes
         var node = svg.selectAll(".node")
-            .data(json.nodes)
+          .data(json.nodes)
           .enter().append("g")
-            .attr("class", "node")
-            .attr("glassTypes", function(d){
-              if(typeof d.glassType !== 'undefined'){
-                return d.glassType;
-              }
-              return 'none';
-            })
-            // .attr("class2", function(d){
-            //   return d.source_id;
-            // })
-            // .on("mouseover", mouseoverNodes)
-            // .on("mouseout", mouseout)
-            // .on("click",clickNodes)
-            .call(force.drag);
+          .attr("class", "node")
+          .attr("glassTypes", function(d){
+            if(typeof d.glassType !== 'undefined'){
+              return d.glassType;
+            }
+            return 'none';
+          })
+          .attr("sourceID", function(d){
+            return d.source_id;
+          })
+        // and enable 3 basic effects (functions) on the nodes (we'll fill in the functions with code in the next steps)
+          .on("mouseover", mouseoverNodes)
+          .on("mouseout", mouseout)
+          .on("click",clickNodes)
+          .call(force.drag);
 
       //draw circle in each node group
         node.append("circle")
-        //DEPENDING ON 'GROUP' SIZE, THE RADIUS OF THE CIRCLE IS LARGER
-        //MAKES THE ID NAME OF EACH CIRCLE EQUAL TO THE NAME OF THE BEER
+          // makes the id of each circle equal to the name of the beer
           .attr("id", function(d){
             return d.name;
           })
-          .attr("r", function(d) {
 
+          //depending on "group" size, the radius of the circle is larger
+          .attr("r", function(d) {
             if (d.group == 1){
               return 50;
-
-            } else if (d.group == 2){
+            }
+            else if (d.group == 2){
               return 10;
-
-            } else if (d.group == 3){
+            }
+            else if (d.group == 3){
               return 6;
-
-            } else if (d.group == 4){
+            }
+            else if (d.group == 4){
               return 4;
-
-            } else if (d.group == 5){
+            }
+            else if (d.group == 5){
               return 2;
-
-            } else if (d.group == 6){
+            }
+            else if (d.group == 6){
               return 1;
-
-            } else {
+            }
+            else {
               return 4.5;
-
             }
           })
 
       //add text in each node group
         node.append("text")
-            // PLACEMENT OF THE TEXT IN RELATION TO THE NODE
-            // .attr("class","nodeText")
+            // placement of the text in relation to the node
+            .attr("class","nodeText")
             .style("font-size","10px")
             .attr("dx",function(d) {
               if (d.name == "Lager"){
@@ -171,7 +170,7 @@
 
           var beerColors = ["#5F1C13", "#F8D574", "#E68A3C", "#E68A3C", "#28130F", "#F1B543", "#2b120e", "#4d140e", "#F8D473", "#fbb612"]
 
-        //add image and name of each glass at the side showcase, and enable 2 basic effects on them
+        //add the image and name of each glass at the side showcase, and enable 2 basic effects on them
           var counter = 0
           var colorcounter = 0
           var x = 30
@@ -201,6 +200,7 @@
             colorcounter++;
 
             //append white rectangle to cover colored rect
+            //(we'll be manipulating these white rectangles with our mouseoverGlass, clickNodes, and mouseout functions to create the illusion of the glasses filling with beer)
             svg.append("rect")
               .attr("x", x + 5)
               .attr("y", y + 5)
@@ -218,6 +218,8 @@
               .attr("y", y)
               .attr("width", "100px")
               .attr("height", "100px")
+              .on("mouseover", mouseoverGlass)
+              .on("mouseout", mouseout);
 
             svg.append("text")
               .text(glassIcons[glass][1])
@@ -240,10 +242,10 @@
 
 
       function mouseout(){
-        // Step2: Return nodes(circles and texts) to normal size and color
+        // Step2: Return nodes(circles and text) to original size and color
           // Step2.1: Return circles
 
-          // Step2.2: Return texts
+          // Step2.2: Return text
 
         // Step5: Return glasses to empty
       }
@@ -252,20 +254,24 @@
       function mouseoverGlass(){
         //Step3: mouseover glass to highlight associated nodes
 
-        //Step4: mouseover to fill the glass
+        //Step4: mouseover to fill the glass with beer
       }
 
 
       function clickNodes(){
 
-        //Step6: Click to highlight the related glass type(s)
+        //Step6: Click to fill the related glass type(s) with beer
+
 
         //Step7: Click to highlight all ancestral nodes
           //Step7.1: get information about the clicked node
 
-          //Step7.2: add its ancestral nodes to highlight into a list
 
-          //Step7.3: activate effect (color and size) on every node (circles and texts) in the list
+          //Step7.2: store its ancestral nodes to a list to highlight them in the next step
+          // when you click a node, get the source ID, find the link that ends with that source ID node, find the start point of that link which is the parent node
+
+
+          //Step7.3: highlight every ancestral node (circles and text) in the list
 
       }
 
