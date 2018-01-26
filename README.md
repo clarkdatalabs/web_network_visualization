@@ -52,6 +52,12 @@ Now you&#39;re ready to render the HTML files. Click on [index.html](http://loca
 
 With so many beers, it can be hard to read each label. Everytime we hover over a node on the network, we&#39;ll want to highlight it in green and enlarge the font to make the beer name more visible.
 
+
+- Step 1: Mouseover to highlight the node itself
+  - Step 1.1: Highlight the circle
+  - Step 1.2: Highlight the text
+
+
 -  Step 1: mouseover to highlight the node itself
   -  Step 1.1: highlight the circle
 ```javascript
