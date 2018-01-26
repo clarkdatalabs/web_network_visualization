@@ -1,6 +1,6 @@
 
 
-**Introduction**
+#Introduction
 
 This tutorial will walk through the steps of building an interactive network visualization. The theme we visualize in the example is the web-network of different types of beer and their relationships to each other.
 
@@ -17,7 +17,7 @@ We assume that:
 - You&#39;ve had experience with another programming such as Python, Java, or C++
 - You have some working knowledge of HTML, CSS and Javascript regardless of skill level, our hope is to get you up and running with a simple network visualization and slowly build more complexity as we move forward.
 
-**Download the Code**
+#Download the Code
 
 [Beer Project](https://github.com/clarkdatalabs/web_network_visualization/blob/master/Beer-Project.zip)
 
@@ -32,7 +32,7 @@ Inside the folder, we have 3 files and 3 folders:
 
 Typically, you&#39;d be able to right click on the index.html file and open it with a web browser to render the webpage. If you try this, you&#39;ll likely notice that D3 doesn&#39;t render. This is because we need a server to run D3.
 
-**Running a Local Server on your computer**
+#Running a Local Server on your computer
 
 1. Make sure you have python 3 or higher on your computer
 
@@ -45,7 +45,7 @@ Typically, you&#39;d be able to right click on the index.html file and open it w
 
 Now you&#39;re ready to render the HTML files. Click on [index.html](http://localhost:8000/0_initial_version.html) to render the initial file. Open up the index.html code in your preferred text editor. We&#39;ll be adding functions to this file throughout this tutorial.
 
-**Mouse Over Nodes**
+##Mouse Over Nodes
 
 With so many beers, it can be hard to read each label. Everytime we hover over a node on the network, we&#39;ll want to highlight it in green and enlarge the font to make the beer name more visible.
 
