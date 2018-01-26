@@ -55,11 +55,11 @@ With so many beers, it can be hard to read each label. Everytime we hover over a
 -  Step 1: mouseover to highlight the node itself
   -  Step 1.1: highlight the circle
   
-    ```javascript
-    d3.select(this).select("circle")
-            .transition()
-            .duration(50)
-    ```
+```javascript
+d3.select(this).select("circle")
+        .transition()
+        .duration(50)
+```
   
   -  Step 1.2: highlight the text
 
@@ -69,6 +69,11 @@ You might have noticed that each node you hover over, stays highlighted when you
 
 - Step 2: Return nodes(circles and text) to original size and color
   - Step 2.1: Return circles
+  ```javascript
+d3.select(this).select("circle")
+        .transition()
+        .duration(50)
+```
   - Step 2.2: Return text
 
 ## Mouse Over Glass
