@@ -62,9 +62,6 @@ d3.select(this).select("circle")
         .transition()
         .duration(50)
         .style("fill","#99fd17")
-```
-   Depending on which
-```javascript
         .attr("r", function(d) {
 
           if (d.group == 1){
