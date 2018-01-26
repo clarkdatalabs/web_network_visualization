@@ -1,28 +1,4 @@
-Introduction
 
-- What we&#39;ll be doing
-- Provide them code to get running in 10 mins less
-  - http://bl.ocks.org/jose187/4733747
-
-Step 1
-
-- Explanation of files
-  - JSON - explain that was self-generated
-  - Used online CSV to JSON converters
-- How to get started with a Simple Server
-- Once they run code, explain what they&#39;re looking at
-
-Step 2
-
-- ids/classes?
-- Hover nodes
-- Click nodes
-- Hover glass
-- Hover out
-
-TO DO
-
-- Clean up code for initial file before beginning to take screen shots
 
 **Introduction**
 
