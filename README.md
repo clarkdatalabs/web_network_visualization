@@ -62,7 +62,7 @@ d3.select(this).select("circle")
         .transition()
         .duration(50) //change duration of animation here
         .style("fill","#99fd17") //makes the nodes glow green on mouseover
-        .attr("r", function(d) {
+        .attr("r", function(d) { //function to ..
 
           if (d.group == 1){
             return 52;
