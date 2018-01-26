@@ -54,6 +54,11 @@ With so many beers, it can be hard to read each label. Everytime we hover over a
 
 -  Step 1: mouseover to highlight the node itself
   -  Step 1.1: highlight the circle
+  
+  ```d3.select(this).select("circle")
+          .transition()
+          .duration(50)```
+  
   -  Step 1.2: highlight the text
 
 ## Mouse Out V1
