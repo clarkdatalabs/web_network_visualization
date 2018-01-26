@@ -2,7 +2,7 @@
 
 **Introduction**
 
-This tutorial will walk through the steps to build an interactive network visualization. The theme we visualize in the example is the web-network of different types of beer and their relationships to each other.
+This tutorial will walk through the steps of building an interactive network visualization. The theme we visualize in the example is the web-network of different types of beer and their relationships to each other.
 
 We used [Jose Christian&#39;s code](http://bl.ocks.org/jose187/4733747) to build our visualization. It&#39;s a great starting point if you&#39;re interested in better understanding how a very simple network is created in D3.
 
