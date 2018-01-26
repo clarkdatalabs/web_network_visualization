@@ -56,12 +56,12 @@ With so many beers, it can be hard to read each label. Everytime we hover over a
 - Step 1: Mouseover to highlight the node itself
   - Step 1.1: Highlight the circle.      
 
-We use the D3 selector to select the circle our cursor hovers on.
+In our mouseoverNodes() function we use the D3 selector to select the circle our cursor hovers on.
 ```javascript
 d3.select(this).select("circle")
         .transition()
-        .duration(50)
-        .style("fill","#99fd17")
+        .duration(50) //CHANGE TIME OF ANIMATION HERE
+        .style("fill","#99fd17") //MAKES NODES GREEN
         .attr("r", function(d) {
 
           if (d.group == 1){
