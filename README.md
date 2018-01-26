@@ -60,8 +60,8 @@ In our mouseoverNodes() function we use the D3 selector to select the circle our
 ```javascript
 d3.select(this).select("circle")
         .transition()
-        .duration(50) //CHANGE TIME OF ANIMATION HERE
-        .style("fill","#99fd17") //MAKES NODES GREEN
+        .duration(50) //change duration of animation here
+        .style("fill","#99fd17") //makes the nodes glow green on mouseover
         .attr("r", function(d) {
 
           if (d.group == 1){
@@ -87,7 +87,9 @@ d3.select(this).select("circle")
   - Step 1.2: Highlight the text
 
 ```javascript
-
+          d3.select(this).select("text")
+          .style("font-size","100%")
+        }
 ```
 
 ## Mouse Out V1
