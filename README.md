@@ -98,15 +98,40 @@ You might have noticed that each node you hover over, stays highlighted when you
 
 - Step 2: Return nodes(circles and text) to original size and color
   - Step 2.1: Return circles
-
 ```javascript
+          d3.select(".networkgraph").selectAll("circle").filter(".finalVersion")
+          .style("fill","white")  
+          .attr("r", function(d) {
 
+            if (d.group == 1){
+              return 50;
+
+            } else if (d.group == 2){
+              return 10;
+
+            } else if (d.group == 3){
+              return 6;
+
+            } else if (d.group == 4){
+              return 4;
+
+            } else if (d.group == 5){
+              return 2;
+
+            } else if (d.group == 6){
+              return 1;
+
+            } else {
+              return 4.5;
+
+            }
+          })
 ```
 
   - Step 2.2: Return text
-
 ```javascript
-
+          d3.select(".networkgraph").selectAll(".nodeText").filter(".finalVersion")
+          .style("font-size","10px")
 ```
 
 ## Mouse Over Glass
@@ -115,11 +140,20 @@ We&#39;re going to be adding a mouse over effect to each beer glass icon so that
 
 - Step 3: mouseover glass to highlight associated nodes
 ```javascript
-
+          var glassesString = d3.select(this).attr("id")
+          d3.selectAll("g.node[glassTypes*="+ glassesString +" i]").select("circle")
+            .style("fill","#99fd17")
+            .transition()
+            .duration(50)
+            .attr("r", 10)
 ```
 - Step 4: mouseover to fill the glass with beer
 ```javascript
-
+          var glass = d3.select(this).attr("id")
+          d3.selectAll(".transformableRect").filter("#" + glass + "whiterect")
+          .transition()
+          .duration(900)
+          .attr("height", "5px")
 ```
 
 ## Mouse Out V2
@@ -128,7 +162,10 @@ Similar to our first issue with the nodes, the glasses remain filled when we mou
 
 - Step 5: Return glasses to empty
 ```javascript
-
+          d3.selectAll(".transformableRect")
+            .transition()
+            .duration(900)
+            .attr("height", "95px")
 ```
 
 ## Click Nodes
@@ -137,18 +174,69 @@ Now that we have a good amount of interactivity in our visualization, let&#39;s 
 
 - Step 6: Click to fill the related glass type(s) with beer
 ```javascript
+          // RETRIEVES THE BEER GLASS STRING FROM THE NODE
+          var glassesString = d3.select(this).attr("glassTypes")
 
+          //CREATE DICT FROM STRING AND BREAK STRING ON EVERY PIPE
+          var beerGlassList = glassesString.split('|')
+
+          for (beer in beerGlassList){
+            d3.selectAll(".transformableRect").filter("#"+ beerGlassList[beer].split(' ')[0].toLowerCase() + "whiterect")
+            .transition()
+            .duration(900)
+            .attr("height", "5px")
+          }
 ```
 - Step 7: Click to highlight all ancestral nodes
   - Step 7.1: get information about the clicked node
 ```javascript
-
+          var clickedName = d3.select(this).select('text')[0][0].innerHTML;
+          var clickedId = d3.select(this)[0][0].__data__.index;
+          var clickedGroup = d3.select(this)[0][0].__data__.group;
 ```
   - Step 7.2: store its ancestral nodes to a list to highlight them in the next step
 ```javascript
-
+          var glowIdList = [clickedId];
+          for(i = clickedGroup; i > 1; i --){
+            clickedId = json.links[clickedId - 2].source_id;
+            console.log(json.links[clickedId])
+            glowIdList.push(clickedId);
+          }
 ```
   - Step 7.3: highlight every ancestral node (circles and text) in the list
 ```javascript
+          for(var i = 0; i < glowIdList.length; i++){
+            var selector = "[sourceID='" + glowIdList[i] + "']";
 
+            d3.select(selector).select("circle").filter(".finalVersion")
+            .transition()
+            .duration(50)
+            .style("fill","#99fd17")
+            .attr("r", function(d) {
+
+              if (d.group == 1){
+                return 52;
+
+              } else if (d.group == 2){
+                return 15;
+
+              } else if (d.group == 3){
+                return 10;
+
+              } else if (d.group == 4){
+                return 8;
+
+              } else if (d.group == 5){
+                return 5;
+
+              } else {
+                return 1;
+              }
+            });
+
+            d3.select(selector).select("text")
+            .transition()
+            .duration(50)
+            .style("font-size","100%")
+          }
 ```
