@@ -1,6 +1,6 @@
 
 
-#Introduction
+# Introduction
 
 This tutorial will walk through the steps of building an interactive network visualization. The theme we visualize in the example is the web-network of different types of beer and their relationships to each other.
 
@@ -17,7 +17,7 @@ We assume that:
 - You&#39;ve had experience with another programming such as Python, Java, or C++
 - You have some working knowledge of HTML, CSS and Javascript regardless of skill level, our hope is to get you up and running with a simple network visualization and slowly build more complexity as we move forward.
 
-#Download the Code
+# Download the Code
 
 [Beer Project](https://github.com/clarkdatalabs/web_network_visualization/blob/master/Beer-Project.zip)
 
@@ -32,7 +32,7 @@ Inside the folder, we have 3 files and 3 folders:
 
 Typically, you&#39;d be able to right click on the index.html file and open it with a web browser to render the webpage. If you try this, you&#39;ll likely notice that D3 doesn&#39;t render. This is because we need a server to run D3.
 
-#Running a Local Server on your computer
+# Running a Local Server on your computer
 
 1. Make sure you have python 3 or higher on your computer
 
@@ -45,7 +45,7 @@ Typically, you&#39;d be able to right click on the index.html file and open it w
 
 Now you&#39;re ready to render the HTML files. Click on [index.html](http://localhost:8000/0_initial_version.html) to render the initial file. Open up the index.html code in your preferred text editor. We&#39;ll be adding functions to this file throughout this tutorial.
 
-##Mouse Over Nodes
+## Mouse Over Nodes
 
 With so many beers, it can be hard to read each label. Everytime we hover over a node on the network, we&#39;ll want to highlight it in green and enlarge the font to make the beer name more visible.
 
@@ -53,7 +53,7 @@ With so many beers, it can be hard to read each label. Everytime we hover over a
   -  Step 1.1: highlight the circle
   -  Step 1.2: highlight the text
 
-**Mouse Out V1**
+## Mouse Out V1
 
 You might have noticed that each node you hover over, stays highlighted when you mouse out. We want to return the nodes back to their original appearance each time we mouse away from them. To do this, we&#39;ll create the first version of the mouseout function.
 
@@ -61,20 +61,20 @@ You might have noticed that each node you hover over, stays highlighted when you
   - Step 2.1: Return circles
   - Step 2.2: Return text
 
-**Mouse Over Glass**
+## Mouse Over Glass
 
 We&#39;re going to be adding a mouse over effect to each beer glass icon so that they appear to fill up and so that they can highlight which beers in the network should be served in that particular glass. The mouseoverGlass function will also add the effect of filling the glass with beer each time we hover over it.
 
 - Step 3: mouseover glass to highlight associated nodes
 - Step 4: mouseover to fill the glass with beer
 
-**Mouse Out V2**
+## Mouse Out V2
 
 Similar to our first issue with the nodes, the glasses remain filled when we mouse away. Let&#39;s add functionality to our original mouseout function to also return the glasses to their pre-hovered state.
 
 - Step 5: Return glasses to empty
 
-**Click Nodes**
+## Click Nodes
 
 Now that we have a good amount of interactivity in our visualization, let&#39;s finish by adding a click function to the nodes that will both highlight ancestral nodes for easier visibility, and fill up the corresponding glasses.
 
