@@ -114,20 +114,41 @@ You might have noticed that each node you hover over, stays highlighted when you
 We&#39;re going to be adding a mouse over effect to each beer glass icon so that they appear to fill up and so that they can highlight which beers in the network should be served in that particular glass. The mouseoverGlass function will also add the effect of filling the glass with beer each time we hover over it.
 
 - Step 3: mouseover glass to highlight associated nodes
+```javascript
+
+```
 - Step 4: mouseover to fill the glass with beer
+```javascript
+
+```
 
 ## Mouse Out V2
 
 Similar to our first issue with the nodes, the glasses remain filled when we mouse away. Let&#39;s add functionality to our original mouseout function to also return the glasses to their pre-hovered state.
 
 - Step 5: Return glasses to empty
+```javascript
+
+```
 
 ## Click Nodes
 
 Now that we have a good amount of interactivity in our visualization, let&#39;s finish by adding a click function to the nodes that will both highlight ancestral nodes for easier visibility, and fill up the corresponding glasses.
 
 - Step 6: Click to fill the related glass type(s) with beer
+```javascript
+
+```
 - Step 7: Click to highlight all ancestral nodes
   - Step 7.1: get information about the clicked node
+```javascript
+
+```
   - Step 7.2: store its ancestral nodes to a list to highlight them in the next step
+```javascript
+
+```
   - Step 7.3: highlight every ancestral node (circles and text) in the list
+```javascript
+
+```
