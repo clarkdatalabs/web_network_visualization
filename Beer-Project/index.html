@@ -271,7 +271,7 @@
       function mouseout(){
         // Step2: return nodes(circles and texts) to normal size and color
           // Step2.1: return circles
-          d3.select(".networkgraph").selectAll("circle").filter(".finalVersion")
+          d3.select(".networkgraph").selectAll("circle")
           .style("fill","white")
           .attr("r", function(d) {
 
@@ -300,7 +300,7 @@
           })
 
           // Step2.2: return texts
-          d3.select(".networkgraph").selectAll(".nodeText").filter(".finalVersion")
+          d3.select(".networkgraph").selectAll(".nodeText")
           .style("font-size","10px")
 
         // Step5: return glasses to empty
@@ -313,16 +313,15 @@
 
       function mouseoverGlass(){
         //Step3: mouseover glass to highlight associated nodes
-          var glassesString = d3.select(this).attr("id")
-          d3.selectAll("g.node[glassTypes*="+ glassesString +" i]").select("circle")
+          var glass = d3.select(this).attr("id");
+          d3.selectAll("g.node[glassTypes*="+ glass +" i]").select("circle")
             .style("fill","#99fd17")
             .transition()
             .duration(50)
             .attr("r", 10)
 
         //Step4: mouseover to fill the glass
-          var glass = d3.select(this).attr("id")
-          d3.selectAll(".transformableRect").filter("#" + glass + "whiterect")
+          d3.select("#" + glass + "whiterect")
           .transition()
           .duration(900)
           .attr("height", "5px")
@@ -334,13 +333,13 @@
         //Step6: Click to highlight the related glass type(s)
 
           // RETRIEVES THE BEER GLASS STRING FROM THE NODE
-          var glassesString = d3.select(this).attr("glassTypes")
+          var glassesString = d3.select(this).attr("glassTypes"),
 
           //CREATE DICT FROM STRING AND BREAK STRING ON EVERY PIPE
-          var beerGlassList = glassesString.split('|')
+              beerGlassList = glassesString.split('|');
 
           for (beer in beerGlassList){
-            d3.selectAll(".transformableRect").filter("#"+ beerGlassList[beer].split(' ')[0].toLowerCase() + "whiterect")
+            d3.select("#"+ beerGlassList[beer].split(' ')[0].toLowerCase() + "whiterect")
             .transition()
             .duration(900)
             .attr("height", "5px")
@@ -348,27 +347,28 @@
 
         //Step7: Click to highlight all ancestral nodes
           //Step7.1: get information about the clicked node
-          var clickedName = d3.select(this).select('text')[0][0].innerHTML;
-          var clickedId = d3.select(this)[0][0].__data__.index;
-          var clickedGroup = d3.select(this)[0][0].__data__.group;
+          // var clickedName = d3.select(this).select('text')[0][0].innerHTML;
+          var clickedId = d3.select(this)[0][0].__data__.index,
+              clickedGroup = d3.select(this)[0][0].__data__.group;
 
           // var clikedTest1 = d3.select(this)
           // console.log(clikedTest1);
 
           //Step7.2: add its ancestral nodes to highlight into a list
           // when you click a node, get the source ID, find the link that ends with that source ID node, find the start point of that link which is the parent node
-          var glowIdList = [clickedId];
-          for(i = clickedGroup; i > 1; i --){
-            clickedId = json.links[clickedId - 2].source_id;
-            console.log(json.links[clickedId])
-            glowIdList.push(clickedId);
+          var glowId = clickedId,
+              glowIdList = [glowId]; //creates an array to store the IDs of the clicked node, and its parental nodes
+
+          for(i = clickedGroup; i > 1; i --){ //loops through the group number (represents hierarchy) from the clicked node to its highest-level parent, whose group is 1
+            glowId = json.links[glowId - 2].source_id;
+            glowIdList.push(glowId); //adds the ID of each parental node
           }
 
           //Step7.3: activate effect (color and size) on every node (circles and texts) in the list
           for(var i = 0; i < glowIdList.length; i++){
             var selector = "[sourceID='" + glowIdList[i] + "']";
 
-            d3.select(selector).select("circle").filter(".finalVersion")
+            d3.select(selector).select("circle")
             .transition()
             .duration(50)
             .style("fill","#99fd17")
