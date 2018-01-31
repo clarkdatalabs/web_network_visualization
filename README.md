@@ -58,31 +58,32 @@ With so many beers, it can be hard to read each label. Everytime we hover over a
 
 In our mouseoverNodes() function we use the D3 selector to select the circle our cursor hovers on.
 ```javascript
-d3.select(this).select("circle")
-        .transition()
-        .duration(50) //change duration of animation here
-        .style("fill","#99fd17") //makes the nodes glow green on mouseover
-        .attr("r", function(d) { //function to ..
+          d3.select(this).select("circle")
+          .transition()
+          .duration(50) //the amount of milliseconds the element transitions last
+          .style("fill","#99fd17") //makes the circles of the nodes glow green on mouseover
+          .attr("r", function(d) { //creates a function to return the radius (r) of the circle on mouseover
+          
+          //groups represent the hierarchy of the different beer types
+            if (d.group == 1){ //group 1 represents the Ale or Lager, the earliest ancestor node
+              return 52; // since group 1 is the our earliest ancestor, the radius should be the largest
 
-          if (d.group == 1){
-            return 52;
+            } else if (d.group == 2){
+              return 15;
 
-          } else if (d.group == 2){
-            return 15;
+            } else if (d.group == 3){
+              return 10;
 
-          } else if (d.group == 3){
-            return 10;
+            } else if (d.group == 4){
+              return 8;
 
-          } else if (d.group == 4){
-            return 8;
+            } else if (d.group == 5){
+              return 5;
 
-          } else if (d.group == 5){
-            return 5;
-
-          } else {
-            return 1;
-          }
-        });
+            } else {
+              return 1;
+            }
+          });
 ```
   - Step 1.2: Highlight the text
 
