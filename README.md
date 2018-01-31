@@ -58,32 +58,34 @@ With so many beers, it can be hard to read each label. Everytime we hover over a
 
 In our mouseoverNodes() function we use the D3 selector to select the circle our cursor hovers on.
 ```javascript
-          d3.select(this).select("circle")
-          .transition()
-          .duration(50) //the amount of milliseconds the element transitions last
-          .style("fill","#99fd17") //makes the circles of the nodes glow green on mouseover
-          .attr("r", function(d) { //creates a function to return the radius (r) of the circle on mouseover
-          
-          //groups represent the hierarchy of the different beer types
-            if (d.group == 1){ //group 1 represents the Ale or Lager, the earliest ancestor node
-              return 52; // since group 1 is the our earliest ancestor, the radius should be the largest
+    // Step1: mouseover to highlight the node itself
+      // Step1.1: highlight the circle
+      d3.select(this).select("circle")
+      .transition()
+      .duration(50) //the amount of milliseconds the element transitions last
+      .style("fill","#99fd17") //makes the circles of the nodes glow green on mouseover
+      .attr("r", function(d) { //creates a function to return the radius (r) of the circle on mouseover
 
-            } else if (d.group == 2){
-              return 15;
+      //groups represent the hierarchy of the different beer types
+        if (d.group == 1){ //group 1 represents the Ale or Lager, the earliest ancestor node
+          return 52; // since group 1 is the our earliest ancestor, the radius should be the largest
 
-            } else if (d.group == 3){
-              return 10;
+        } else if (d.group == 2){
+          return 15;
 
-            } else if (d.group == 4){
-              return 8;
+        } else if (d.group == 3){
+          return 10;
 
-            } else if (d.group == 5){
-              return 5;
+        } else if (d.group == 4){
+          return 8;
 
-            } else {
-              return 1;
-            }
-          });
+        } else if (d.group == 5){
+          return 5;
+
+        } else {
+          return 1;
+        }
+      });
 ```
   - Step 1.2: Highlight the text
 
