@@ -100,9 +100,9 @@ d3.select(this).select("text") //we can add effects to the text on mouseover too
 You might have noticed that each node you hover over, stays highlighted when you mouse out. We want to return the nodes back to their original appearance each time we mouse away from them. To do this, we&#39;ll create the first version of the mouseout function.
 
 - Step 2: Return nodes(circles and text) to original size and color
-  - Step 2.1: Return circles
+  - Step 2.1: Return circles to normal
 ```javascript
-// Step2: return nodes (circles and texts) to normal size and color
+// Step2: return nodes (circles and texts) to original size and color
   // Step2.1: return circles to normal
   d3.select(".networkgraph").selectAll("circle") //selects all of the circles in the networkgraph class
   .style("fill","white") //makes all the circles go back to white
@@ -133,9 +133,9 @@ You might have noticed that each node you hover over, stays highlighted when you
   })
 ```
 
-  - Step 2.2: Return text
+  - Step 2.2: Return text to original size
 ```javascript
-// Step2.2: return text to normal
+// Step2.2: return text to original size
 d3.select(".networkgraph").selectAll(".nodeText") //selects all of text in the networkgraph class
 .style("font-size","10px") //returns them to their original size, which is 10px
 ```
@@ -156,7 +156,7 @@ We&#39;re going to be adding a mouse over effect to each beer glass icon so that
 ```
 - Step 4: mouseover to fill the glass with beer
 ```javascript
-//Step4: mouseover to fill the glass
+//Step4: mouseover to fill the glass with beer
   d3.select("#" + glass + "whiterect") //selects the white rectangle (each has a unique id that corresponds to the glass and related beer color, which it covers)
   .transition()
   .duration(900)
@@ -167,9 +167,9 @@ We&#39;re going to be adding a mouse over effect to each beer glass icon so that
 
 Similar to our first issue with the nodes, the glasses remain filled when we mouse away. Let&#39;s add functionality to our original mouseout function to also return the glasses to their pre-hovered state.
 
-- Step 5: Return glasses to empty
+- Step 5: Return glasses to empty state
 ```javascript
-// Step5: return glasses to empty
+// Step5: return glasses to empty state
   d3.selectAll(".transformableRect") //selects the white rectangle (class is named "transformableRect") that conceals the beer color of each glass
     .transition()
     .duration(900)
@@ -182,7 +182,7 @@ Now that we have a good amount of interactivity in our visualization, let&#39;s 
 
 - Step 6: Click to fill the related glass type(s) with beer
 ```javascript
-//Step6: Click to highlight the related glass type(s)
+//Step6: Click to fill the related glass type(s) with beer
 
   var glassesString = d3.select(this).attr("glassTypes"), //retrieves the attribute "glassTypes", which contains a string of concatenated glasses that correspond to that node
       beerGlassList = glassesString.split('|'); //creates an array from the glassesString using the pipe symbol ('|') as a delimiter
@@ -204,7 +204,7 @@ Now that we have a good amount of interactivity in our visualization, let&#39;s 
 ```
   - Step 7.2: store its ancestral nodes to a list to highlight them in the next step
 ```javascript
-//Step7.2: add its ancestral nodes to highlight into an array
+//Step7.2: store its ancestral nodes to a list to highlight them in the next step
 var glowId = clickedId,
     glowIdList = [glowId]; //creates an array to store the IDs of the nodes that will glow, including the clicked node and its parental nodes
 
@@ -214,9 +214,9 @@ for(i = clickedGroup; i > 1; i --){ //loops through the group number (represents
   glowIdList.push(glowId); //adds the ID of each parental node into the glowIdList
 }
 ```
-  - Step 7.3: highlight every ancestral node (circles and text) in the list
+  - Step 7.3: Activate (effects color and size) every node (circles and texts) in the array
 ```javascript
-//Step7.3: activate effect (color and size) on every node (circles and texts) in the array
+//Step7.3: activate (effects color and size) every node (circles and texts) in the array
 for(var i = 0; i < glowIdList.length; i++){ //loops through the IDs in the glowIdList we built in step 7.2
   var selector = "[sourceID='" + glowIdList[i] + "']"; //creates a variable to store the ID of the node
 
