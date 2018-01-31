@@ -43,7 +43,7 @@ Typically, you&#39;d be able to right click on the index.html file and open it w
 2. Cd into the dir your html is currently at. For example: `cd Desktop/Beer-Project`
 3. Enter:`python -m SimpleHTTPServer 8000`
 
-Now you&#39;re ready to render the HTML files. Click on [index.html](http://localhost:8000/0_initial_version.html) to render the initial file. Open up the index.html code in your preferred text editor. We&#39;ll be adding functions to this file throughout this tutorial.
+Now you&#39;re ready to render the HTML files. Click on [index.html](http://localhost:8000) to render the initial file. Open up the *index.html* file in your preferred text editor. We&#39;ll be adding functions, starting at *line 235*, to this file throughout this tutorial.
 
 # Let's start coding functions
 
