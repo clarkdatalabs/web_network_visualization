@@ -90,9 +90,9 @@ In our mouseoverNodes() function we use the D3 selector to select the circle our
   - Step 1.2: Highlight the text
 
 ```javascript
-          d3.select(this).select("text")
-          .style("font-size","100%")
-        }
+      //Step1.2: highlight the text
+      d3.select(this).select("text") //we can add effects to the text on mouseover too
+      .style("font-size","100%") //the '100%' changes the text to the default font-size. All labels are the same size.
 ```
 
 ## mouseout() - V1
