@@ -45,8 +45,7 @@ Typically, you&#39;d be able to right click on the index.html file and open it w
 
 Now you&#39;re ready to render the HTML files. Click on [index.html](http://localhost:8000/0_initial_version.html) to render the initial file. Open up the index.html code in your preferred text editor. We&#39;ll be adding functions to this file throughout this tutorial.
 
-
-# Functions
+# Let's start coding functions
 
 ## mouseoverNodes()
 
