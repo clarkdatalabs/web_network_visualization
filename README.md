@@ -48,7 +48,7 @@ Now you&#39;re ready to render the HTML files. Click on [index.html](http://loca
 
 # Functions
 
-## Mouse Over Nodes
+## mouseoverNodes()
 
 With so many beers, it can be hard to read each label. Everytime we hover over a node on the network, we&#39;ll want to highlight it in green and enlarge the font to make the beer name more visible.
 
@@ -92,7 +92,7 @@ d3.select(this).select("circle")
         }
 ```
 
-## Mouse Out V1
+## mouseout() - V1
 
 You might have noticed that each node you hover over, stays highlighted when you mouse out. We want to return the nodes back to their original appearance each time we mouse away from them. To do this, we&#39;ll create the first version of the mouseout function.
 
@@ -134,7 +134,7 @@ You might have noticed that each node you hover over, stays highlighted when you
           .style("font-size","10px")
 ```
 
-## Mouse Over Glass
+## mouseoverGlass()
 
 We&#39;re going to be adding a mouse over effect to each beer glass icon so that they appear to fill up and so that they can highlight which beers in the network should be served in that particular glass. The mouseoverGlass function will also add the effect of filling the glass with beer each time we hover over it.
 
@@ -156,7 +156,7 @@ We&#39;re going to be adding a mouse over effect to each beer glass icon so that
           .attr("height", "5px")
 ```
 
-## Mouse Out V2
+## mouseout() - V2
 
 Similar to our first issue with the nodes, the glasses remain filled when we mouse away. Let&#39;s add functionality to our original mouseout function to also return the glasses to their pre-hovered state.
 
@@ -168,7 +168,7 @@ Similar to our first issue with the nodes, the glasses remain filled when we mou
             .attr("height", "95px")
 ```
 
-## Click Nodes
+## clickNodes()
 
 Now that we have a good amount of interactivity in our visualization, let&#39;s finish by adding a click function to the nodes that will both highlight ancestral nodes for easier visibility, and fill up the corresponding glasses.
 
