@@ -32,8 +32,23 @@
 
   <!-- Final Version -->
   <script>
-  var title = d3.select("body").selectAll("div.glasses").append("h1")
-      .html("Final Version")
+    var title = d3.select("body").selectAll("div.glasses").append("h1")
+        .html("Final Version")
+
+    var introduction = d3.select("body").selectAll("div.glasses").append("p")
+        .html("This is the web-network of different types of beer and their relationships to each other.<br />The beer visualization illustrates how all beers are related from two common parents: Ales and Lagers. The nodes represent different beer families. ")
+
+    var instruction = d3.select("body").selectAll("div.glasses").append("ol")
+
+    instruction.append('li')
+        .html("Try mousing over on the nodes to highlight them.")
+    instruction.append('li')
+        .html("Click one of them to to highlight all ancestral nodes and to fill the related glass with beer.")
+    instruction.append('li')
+        .html("Now mouse over on the glasses on left to highlight associated nodes.")
+
+    instruction.style("margin-left", "24%")
+    instruction.style("margin-bottom", "40px")
 
     //set up the artboard for visualization
     var width = 1460,
