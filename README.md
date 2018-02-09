@@ -190,7 +190,7 @@ Now that we have a good amount of interactivity in our visualization, let&#39;s 
   var glassesString = d3.select(this).attr("glassTypes"), //retrieves the attribute "glassTypes", which contains a string of concatenated glasses that correspond to that node
       beerGlassList = glassesString.split('|'); //creates an array from the glassesString using the pipe symbol ('|') as a delimiter (example of string: "Mug|Tulip|Pint Glass")
 
-  for (beerIndex in beerGlassList){ //loops through the beerGlassList. In JS, for (i in collection), i will be the index/key of the collection (array/dictionary)
+  for (beerIndex in beerGlassList){ //loops through the beerGlassList. In JS: for(i in array){}, i will be the index of the array; for(i in dict){}, i will be the key of the dictionary
     d3.select("#"+ beerGlassList[beerIndex].split(' ')[0].toLowerCase() + "whiterect") //for each beer, find the respective white rectangle
     .transition()
     .duration(900)
