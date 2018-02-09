@@ -47,7 +47,7 @@ Now you&#39;re ready to render the HTML files. Click on [index.html](http://loca
 
 # Let's start coding functions
 
-We provide you all the code for each of the four functions. Feel free to copy and paste the code directly into your index.html file or try to write it yourself to better understand what's going on. We provide detailed comments along the way to gelp you understand exactly what's happening at each step. Keep in mind that JavaScript does require you to indent, but indenting will make your code more readable (so indent!).
+We provide you all the code for each of the four functions. Feel free to copy and paste the code directly into your index.html file or try to write it yourself to better understand what's going on. We provide detailed comments along the way to help you understand exactly what's happening at each step. Keep in mind that JavaScript does require you to indent, but indenting will make your code more readable (so indent!).
 
 ## mouseoverNodes()
 
