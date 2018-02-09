@@ -94,6 +94,8 @@ d3.select(this).select("text") //we can add effects to the text on mouseover too
 .style("font-size","100%") //the '100%' changes the text to the default font-size. All labels are the same size.
 ```
 
+Now reload your code to explore the new interactivity you've just added.
+
 ## mouseout() - V1
 
 You might have noticed that each node you hover over, stays highlighted when you mouse out. We want to return the nodes back to their original appearance each time we mouse away from them. To do this, we&#39;ll create the first version of the mouseout function.
