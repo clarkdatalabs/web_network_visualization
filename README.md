@@ -23,12 +23,12 @@ We assume that:
 
 Inside the folder, we have 3 files and 3 folders:
 
-1. html: The initial version where the dataset is just imported.
-2. json: The dataset used by D3.
-3. css: Our CSS file
-4. Beer-glasses-icons: A folder containing icon images needed in the program.
+1. index.html: This is the base code you will use to write your functions.
+2. beerData.json: The dataset used by D3.
+3. style.css: Our CSS file
+4. beer-glasses-icons: A folder containing icon images needed in the program.
 5. Final Project: A folder containing all files and the final version of index.html where we have coded 4 functions to have interactive effects.
-6. Data Generation: A folder containing the python script and CSV used to create our JSON file
+6. Data: A folder containing the python script and CSV used to create our JSON file
 
 Typically, you&#39;d be able to right click on the index.html file and open it with a web browser to render the webpage. If you try this, you&#39;ll likely notice that D3 doesn&#39;t render. This is because we need a server to run D3.
 
