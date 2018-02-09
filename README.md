@@ -109,7 +109,7 @@ You might have noticed that each node you hover over, stays highlighted when you
   .style("fill","white") //makes all the circles go back to white
   .attr("r", function(d) { //makes the circles go back to their original size, depending on their group number (order in hierarchy)
 
-    if (d.group == 1){
+    if (d.group == 1){ //group 1 represents the Ale or Lager, the earliest ancestor node
       return 50;
 
     } else if (d.group == 2){
