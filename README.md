@@ -151,7 +151,7 @@ We&#39;re going to be adding a mouse over effect to each beer glass icon so that
 ```javascript
 //Step3: mouseover glass to highlight associated nodes
   var glass = d3.select(this).attr("id") //creates a variable 'glass' to store the id of the mouseovered glass (each glass has a unique id)
-  d3.selectAll("g.node[glassTypes*="+ glass +" i]").select("circle") //selects all the circles from the nodes with the attribute "glassTypes" containing the id of the mouseovered glass
+  d3.selectAll("g.node[glassTypes*="+ glass +" i]").select("circle") //selects all the circles from the nodes with the attribute "glassTypes" containing the id of the mouseovered glass (COPY THIS LINE EXACTLY AS YOU SEE IT HERE)
     .style("fill","#99fd17") //makes the circles of the nodes glow green
     .transition()
     .duration(50)
@@ -181,14 +181,14 @@ Similar to our first issue with the nodes, the glasses remain filled when we mou
 
 ## clickNodes()
 
-Now that we have a good amount of interactivity in our visualization, let&#39;s finish by adding a click function to the nodes that will both highlight ancestral nodes for easier visibility, and fill up the corresponding glasses.
+Now that we have a good amount of interactivity in our visualization, let&#39;s finish by adding a click function to the nodes that will both highlight ancestral nodes for easier visibility, and fill up the corresponding glasses. Remember, each node represents a green circle with a beer name.
 
 - Step 6: Click to fill the related glass type(s) with beer
 ```javascript
 //Step6: Click to fill the related glass type(s) with beer
 
   var glassesString = d3.select(this).attr("glassTypes"), //retrieves the attribute "glassTypes", which contains a string of concatenated glasses that correspond to that node
-      beerGlassList = glassesString.split('|'); //creates an array from the glassesString using the pipe symbol ('|') as a delimiter
+      beerGlassList = glassesString.split('|'); //creates an array from the glassesString using the pipe symbol ('|') as a delimiter (example of string: "Mug|Tulip|Pint Glass")
 
   for (beer in beerGlassList){ //loops through the beerGlassList
     d3.select("#"+ beerGlassList[beer].split(' ')[0].toLowerCase() + "whiterect") //for each beer, find the respective white rectangle
@@ -209,7 +209,7 @@ Now that we have a good amount of interactivity in our visualization, let&#39;s 
 ```javascript
 //Step7.2: store its ancestral nodes to a list to highlight them in the next step
 var glowId = clickedId,
-    glowIdList = [glowId]; //creates an array to store the IDs of the nodes that will glow, including the clicked node and its parental nodes
+    glowIdList = [glowId]; //creates an array to store the IDs of the nodes that will glow, including the clicked node and its parental nodes. We're going to loop through the different levels of the nodes and then add them to this glowIDList variable
 
 for(i = clickedGroup; i > 1; i --){ //loops through the group number (represents hierarchy) from the clicked node to its highest-level parent, whose group is 1
   glowId = json.links[glowId - 2].source_id; //based on how parental nodes are connected to the children nodes in the dataset, we get the ID of the parental node accordingly
@@ -254,3 +254,7 @@ for(var i = 0; i < glowIdList.length; i++){ //loops through the IDs in the glowI
   .style("font-size","100%")
 }
 ```
+
+# And you're done!
+Reload your code and explore the new functionality you've added.
+
