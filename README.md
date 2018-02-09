@@ -47,7 +47,7 @@ Now you&#39;re ready to render the HTML files. Click on [local host](http://loca
 
 # Let's start coding functions
 
-We provide you all the code for each of the four functions. Feel free to copy and paste the code directly into your index.html file or try to write it yourself to better understand what's going on. We provide detailed comments along the way to help you understand exactly what's happening at each step. Keep in mind that JavaScript does require you to indent, but indenting will make your code more readable (so indent!).
+We provide you all the code for each of the four functions. Feel free to copy and paste the code directly into your index.html file or try to write it yourself to better understand what's going on. We provide detailed comments along the way to help you understand exactly what's happening at each step. Keep in mind that JavaScript does not require you to indent, but indenting will make your code more readable (so indent!).
 
 ## mouseoverNodes()
 
@@ -151,7 +151,7 @@ We&#39;re going to be adding a mouse over effect to each beer glass icon so that
 ```javascript
 //Step3: mouseover glass to highlight associated nodes
   var glass = d3.select(this).attr("id") //creates a variable 'glass' to store the id of the mouseovered glass (each glass has a unique id)
-  d3.selectAll("g.node[glassTypes*="+ glass +" i]").select("circle") //selects all the circles from the nodes with the attribute "glassTypes" containing the id of the mouseovered glass (COPY THIS LINE EXACTLY AS YOU SEE IT HERE)
+  d3.selectAll("g.node[glassTypes*="+ glass +" i]").select("circle") //selects all the circles from the nodes with the attribute "glassTypes" containing the id of the mouseovered glass (COPY THIS LINE EXACTLY AS YOU SEE IT HERE). FYI, you can check line 80 to see how nodes are structured
     .style("fill","#99fd17") //makes the circles of the nodes glow green
     .transition()
     .duration(50)
