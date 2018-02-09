@@ -6,7 +6,7 @@ This tutorial will walk through the steps of building an interactive network vis
 
 We used [Jose Christian&#39;s code](http://bl.ocks.org/jose187/4733747) to build our visualization. It&#39;s a great starting point if you&#39;re interested in better understanding how a very simple network is created in D3.
 
-Take a look at the [final project](https://clarkdatalabs.github.io/web_network_visualization/Beer-Project/) and explore its functionality. The beer visualization illustrates how all beers are related from two common parents: Ales and Lagers. The nodes represent different beer families. You can click on a node to see which glasses that beer should be served in. You can also hover over each glass to see which beers should be served in that particular glass.
+Take a look at the [final project](https://clarkdatalabs.github.io/web_network_visualization/Beer-Project/) and explore its functionality. The beer visualization illustrates how most beers descend two common parents: Ales and Lagers. The nodes represent different beer families. You can click on a node to see which glasses that beer should be served in. You can also hover over each glass to see which beers should be served in that particular glass.
 
 We&#39;ll start out with some code and work our way towards the final project.
 
@@ -14,7 +14,7 @@ You don&#39;t need to be an expert in web development to get started with a netw
 
 We assume that:
 
-- You&#39;ve had experience with another programming such as Python, Java, or C++
+- You&#39;ve dabbled with another programming such as Python, Java, or C++
 - You have some working knowledge of HTML, CSS and Javascript regardless of skill level, our hope is to get you up and running with a simple network visualization and slowly build more complexity as we move forward.
 
 # Download the Code
