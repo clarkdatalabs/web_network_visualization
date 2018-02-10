@@ -1,6 +1,5 @@
-![Beer Visualization](/blob/master/final_beer_visualization.png)
-
 > by Josue Reyes and Neil (Lihan) Zhu
+![Beer Visualization](/blob/master/final_beer_visualization.png)
 
 # Introduction
 
