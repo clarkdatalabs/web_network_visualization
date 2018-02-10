@@ -1,4 +1,4 @@
-![Beer Visualization](/final_beer_visualization.png)
+![Beer Visualization](/blob/master/final_beer_visualization.png)
 
 > by Josue Reyes and Neil (Lihan) Zhu
 
