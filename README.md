@@ -1,4 +1,5 @@
-![alt text](https://github.com/clarkdatalabs/web_network_visualization/final_beer_visualization.png "Visualization of Beer Relationships")
+![Beer Visualization](/final_beer_visualization.png)
+
 > by Josue Reyes and Neil (Lihan) Zhu
 
 # Introduction
