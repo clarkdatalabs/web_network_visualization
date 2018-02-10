@@ -1,4 +1,4 @@
-
+> by Josue Reyes and Neil (Lihan) Zhu
 
 # Introduction
 
