@@ -1,6 +1,6 @@
 > by Josue Reyes and Neil (Lihan) Zhu
 
-![Beer Visualization](https://github.com/clarkdatalabs/web_network_visualization/blob/master/final_beer_visualization.png)
+![Beer Visualization](/blob/master/final_beer_visualization.png)
 
 # Introduction
 
