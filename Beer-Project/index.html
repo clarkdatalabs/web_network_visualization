@@ -39,7 +39,7 @@
         .html("This is the web-network of different types of beer and their relationships to each other.<br />The beer visualization illustrates how all beers are related from two common parents: Ales and Lagers. The nodes represent different beer families. ")
 
     var instruction = d3.select("body").selectAll("div.glasses").append("ol")
-        link = instruction.append('a')
+        link = instruction.append('li').append('a')
 
     instruction.append('li')
         .html("Try mousing over on the nodes to highlight them.")
@@ -48,7 +48,7 @@
     instruction.append('li')
         .html("Now mouse over on the glasses on left to highlight associated nodes.")
     link.html("Return to the tutorial!")
-    link.attr('src', 'https://clarkdatalabs.github.io/web_network_visualization/')
+    link.attr('href', 'https://clarkdatalabs.github.io/web_network_visualization/')
 
     instruction.style("margin-left", "24%")
     instruction.style("margin-bottom", "40px")
